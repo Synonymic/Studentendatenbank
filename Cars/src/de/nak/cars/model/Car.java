@@ -7,6 +7,7 @@ import javax.persistence.*;
  *
  * @author Andreas Krey
  */
+
 @Entity
 public class Car {
 	/** The identifier. */
