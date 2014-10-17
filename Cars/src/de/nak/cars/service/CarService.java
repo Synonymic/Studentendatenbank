@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Car service interface.
  *
- * @author Stephan Anft
+ * @author Dirk Johannssen
  */
 public interface CarService {
 
