@@ -5,7 +5,7 @@ import javax.persistence.*;
 /**
  * Car entity.
  *
- * @author Stephan Anft
+ * @author Andreas Krey
  */
 @Entity
 public class Car {
