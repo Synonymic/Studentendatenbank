@@ -1,7 +1,7 @@
 package de.nak.cars.service;
 
 import de.nak.cars.dao.CarDAO;
-import de.nak.cars.model.Car;
+import de.nak.studentendatenbank.model.Student;
 
 import java.util.List;
 
@@ -15,22 +15,22 @@ public class CarServiceImpl implements CarService {
 	private CarDAO carDAO;
 
 	@Override
-	public void saveCar(Car car) {
+	public void saveCar(Student car) {
 		carDAO.save(car);
 	}
 
 	@Override
-	public Car loadCar(Long id) {
+	public Student loadCar(Long id) {
 		return carDAO.load(id);
 	}
 
 	@Override
-	public void deleteCar(Car car) {
+	public void deleteCar(Student car) {
 		carDAO.delete(car);
 	}
 
 	@Override
-	public List<Car> loadAllCars() {
+	public List<Student> loadAllCars() {
 		return carDAO.loadAll();
 	}
 

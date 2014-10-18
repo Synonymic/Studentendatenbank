@@ -1,8 +1,9 @@
 package de.nak.cars.action;
 
 import com.opensymphony.xwork2.ActionSupport;
-import de.nak.cars.model.Car;
+
 import de.nak.cars.service.CarService;
+import de.nak.studentendatenbank.model.Student;
 
 /**
  * Action for a single car.
@@ -14,7 +15,7 @@ public class CarAction extends ActionSupport {
 	private static final long serialVersionUID = -3393497662671380262L;
 
 	/** The current car. */
-	private Car car;
+	private Student car;
 
 	/** The car's identifier selected by the user. */
 	private Long carId;
@@ -75,11 +76,11 @@ public class CarAction extends ActionSupport {
 		}
 	}
 
-	public Car getCar() {
+	public Student getCar() {
 		return car;
 	}
 
-	public void setCar(Car car) {
+	public void setCar(Student car) {
 		this.car = car;
 	}
 

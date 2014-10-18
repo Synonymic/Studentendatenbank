@@ -1,6 +1,6 @@
 package de.nak.cars.service;
 
-import de.nak.cars.model.Car;
+import de.nak.studentendatenbank.model.Student;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public interface CarService {
 	 *
 	 * @param car The car.
 	 */
-	void saveCar(Car car);
+	void saveCar(Student car);
 
 	/**
 	 * Loads a single car.
@@ -24,20 +24,20 @@ public interface CarService {
 	 * @param id The identifier.
 	 * @return a car or null.
 	 */
-	Car loadCar(Long id);
+	Student loadCar(Long id);
 
 	/**
 	 * Deletes the given car.
 	 *
 	 * @param car The car.
 	 */
-	void deleteCar(Car car);
+	void deleteCar(Student car);
 
 	/**
 	 * Loads a list of all cars.
 	 *
 	 * @return a list which is empty if no car was found.
 	 */
-	List<Car> loadAllCars();
+	List<Student> loadAllCars();
 
 }

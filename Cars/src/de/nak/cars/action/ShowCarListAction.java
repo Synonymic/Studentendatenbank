@@ -1,8 +1,9 @@
 package de.nak.cars.action;
 
 import com.opensymphony.xwork2.Action;
-import de.nak.cars.model.Car;
+
 import de.nak.cars.service.CarService;
+import de.nak.studentendatenbank.model.Student;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public class ShowCarListAction implements Action {
 	/** The list of cars. */
-	private List<Car> carList;
+	private List<Student> carList;
 
 	/** The car service. */
 	private CarService carService;
@@ -24,7 +25,7 @@ public class ShowCarListAction implements Action {
 		return SUCCESS;
 	}
 
-	public List<Car> getCarList() {
+	public List<Student> getCarList() {
 		return carList;
 	}
 

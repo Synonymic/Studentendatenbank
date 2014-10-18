@@ -1,6 +1,7 @@
 package de.nak.cars.dao;
 
-import de.nak.cars.model.Car;
+import de.nak.studentendatenbank.model.Student;
+
 import org.hibernate.SessionFactory;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public class CarDAO {
 	 *
 	 * @param car The car to persist. The given entity can be transient or detached.
 	 */
-	public void save(Car car) {
+	public void save(Student car) {
 		sessionFactory.getCurrentSession().saveOrUpdate(car);
 	}
 
@@ -29,8 +30,8 @@ public class CarDAO {
 	 * @param id The identifier.
 	 * @return a car or null if no car was found with the given identifier.
 	 */
-	public Car load(Long id) {
-		return (Car) sessionFactory.getCurrentSession().get(Car.class, id);
+	public Student load(Long id) {
+		return (Student) sessionFactory.getCurrentSession().get(Student.class, id);
 	}
 
 	/**
@@ -38,7 +39,7 @@ public class CarDAO {
 	 *
 	 * @param car The car to be deleted.
 	 */
-	public void delete(Car car) {
+	public void delete(Student car) {
 		sessionFactory.getCurrentSession().delete(car);
 	}
 
@@ -48,7 +49,7 @@ public class CarDAO {
 	 * @return a list or car which is empty if no car was found.
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Car> loadAll() {
+	public List<Student> loadAll() {
 		return sessionFactory.getCurrentSession().createQuery("from Car").list();
 	}
 
