@@ -4,31 +4,46 @@
 		"http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
 
 <validators>
-	<field name="brand">
-		<field-validator type="requiredstring">
-			<message key="msg.validator.required"/>
-		</field-validator>
-	</field>
-	<field name="color">
-		<field-validator type="requiredstring">
-			<message key="msg.validator.required"/>
-		</field-validator>
-	</field>
-	<field name="wheelCount">
+	<field name="matrikelnummer">
 		<field-validator type="required">
 			<message key="msg.validator.required"/>
 		</field-validator>
-		<field-validator type="int">
-			<param name="min">0</param>
-			<param name="max">6</param>
-			<message key="msg.validator.intRange"/>
+	</field>
+	<field name="userkennung">
+		<field-validator type="required">
+			<message key="msg.validator.required"/>
 		</field-validator>
 	</field>
-	<field name="yearOfProduction">
-		<field-validator type="int">
-			<param name="min">1900</param>
-			<param name="max">2099</param>
-			<message key="msg.validator.intRange"/>
+	<field name="name">
+		<field-validator type="requiredstring">
+			<message key="msg.validator.required"/>
+		</field-validator>
+	</field>
+	<field name="vorname">
+		<field-validator type="requiredstring">
+			<message key="msg.validator.required"/>
+		</field-validator>
+	</field>
+	<field name="anrede">
+		<field-validator type="requiredstring">
+			<message key="msg.validator.required"/>
+		</field-validator>
+	</field>
+	<field name="geschlecht">
+		<field-validator type="requiredstring">
+			<message key="msg.validator.required"/>
+		</field-validator>
+	</field>
+	<field name="geburtstag">
+		<field-validator type="date">
+          <param name="min">01/01/1900</param>
+          <param name="max">12/31/2100</param>
+			<message key="msg.validator.dateRange"/>
+		</field-validator>
+	</field>
+	<field name="geburtsort">
+		<field-validator type="requiredstring">
+			<message key="msg.validator.required"/>
 		</field-validator>
 	</field>
 </validators>

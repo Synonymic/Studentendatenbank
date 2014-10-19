@@ -152,7 +152,7 @@ public class Student {
 	}
 	
 	@ManyToOne
-	@JoinColumn(name = "ADRESSE_ID")
+	@JoinColumn(name = "MANIPEL_ID")
 	public Manipel getManipel() {
 		return manipel;
 	}

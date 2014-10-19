@@ -1,6 +1,6 @@
 package de.nak.cars.service;
 
-import de.nak.cars.dao.CarDAO;
+import de.nak.studentendatenbank.dao.StudentDAO;
 import de.nak.studentendatenbank.model.Student;
 
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class CarServiceImpl implements CarService {
 	/** The car DAO. */
-	private CarDAO carDAO;
+	private StudentDAO carDAO;
 
 	@Override
 	public void saveCar(Student car) {
@@ -34,7 +34,7 @@ public class CarServiceImpl implements CarService {
 		return carDAO.loadAll();
 	}
 
-	public void setCarDAO(CarDAO carDAO) {
+	public void setCarDAO(StudentDAO carDAO) {
 		this.carDAO = carDAO;
 	}
 
