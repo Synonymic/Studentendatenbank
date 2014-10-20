@@ -1,4 +1,4 @@
-package de.nak.studentendatenbank.model;
+package de.nak.studentsdatabase.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 
 /**
- * Manipelentität.
+ * Entity of a manipel.
  *
  * @author Andreas Krey
  */
@@ -19,11 +19,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name= "MANIPEL")
 public class Manipel {
-	/** Die eindeutige Identifikation. */
+	/** The identifier. */
 	private Long id;
-	/** Der Jahrgang eines Manipels. */
-	private Integer jahrgang;
-	/** Die Zenturie eines Manipels. */
+	/** The vintage of a manipel. */
+	private Integer vintage;
+	/** The zenturie of a manipel. */
 	private Zenturie zenturie;
 	
 	
@@ -38,12 +38,12 @@ public class Manipel {
 	}
 	
 	@Column(length = 4, nullable = false)
-	public Integer getJahrgang() {
-		return jahrgang;
+	public Integer getVintage() {
+		return vintage;
 	}
 	
-	public void setJahrgang(Integer jahrgang) {
-		this.jahrgang = jahrgang;
+	public void setVintage(Integer vintage) {
+		this.vintage = vintage;
 	}
 
 	@OneToMany

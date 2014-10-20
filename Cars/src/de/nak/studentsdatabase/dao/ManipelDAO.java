@@ -1,52 +1,52 @@
-package de.nak.studentendatenbank.dao;
+package de.nak.studentsdatabase.dao;
 
-import de.nak.studentendatenbank.model.Manipel;
+import de.nak.studentsdatabase.model.Manipel;
 
 import org.hibernate.SessionFactory;
 
 import java.util.List;
 
 /**
- * Das Manipel-DAO.
+ * Manipel data access object.
  *
  * @author Andreas Krey
  */
 public class ManipelDAO {
-	/** Die Hibernate Session factory. */
+	/** The Hibernate Session factory. */
 	private SessionFactory sessionFactory;
 
 	/**
-	 * Persistiert oder führt ein Manipel in die Datenbank.
+	 * Persists or merges the manipel into the database.
 	 *
-	 * @param manipel Das Manipel, das persistiert wird. Die vorliegende Entität kann transient oder separat sein.
+	 * @param manipel The manipel to persist. The given entity can be transient or detached.
 	 */
 	public void save(Manipel manipel) {
 		sessionFactory.getCurrentSession().saveOrUpdate(manipel);
 	}
 
 	/**
-	 * Lädt eine Manipelentität aus der Datenbank.
+	 * Loads a single manipel entity from the database.
 	 *
-	 * @param id Die Identifikationsnummer.
-	 * @return ein Manipel oder null, wenn kein Manipel zu der id zugeordnet ist.
+	 * @param id The identifier.
+	 * @return a manipel or null if no manipel was found with the given identifier.
 	 */
 	public Manipel load(Long id) {
 		return (Manipel) sessionFactory.getCurrentSession().get(Manipel.class, id);
 	}
 
 	/**
-	 * Löscht ein Manipel aus der Datenbank.
+	 * Deletes the manipel from the database.
 	 *
-	 * @param manipel Das zu löschende Manipel.
+	 * @param manipel The manipel to be deleted.
 	 */
 	public void delete(Manipel manipel) {
 		sessionFactory.getCurrentSession().delete(manipel);
 	}
 
 	/**
-	 * Lädt alle Manipel aus der Datenbank.
+	 * Loads all manipel's from the database.
 	 *
-	 * @return eine Liste oder ein Manipel, welches leer ist, falls Manipel nicht gefunden wurde.
+	 * @return a list or manipel which is empty if no manipel was found.
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Manipel> loadAll() {

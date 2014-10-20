@@ -1,52 +1,52 @@
-package de.nak.studentendatenbank.dao;
+package de.nak.studentsdatabase.dao;
 
-import de.nak.studentendatenbank.model.Zenturie;
+import de.nak.studentsdatabase.model.Zenturie;
 
 import org.hibernate.SessionFactory;
 
 import java.util.List;
 
 /**
- * Das Zenturie-DAO.
+ * Zenturie data access object.
  *
  * @author Andreas Krey
  */
 public class ZenturieDAO {
-	/** Die Hibernate Session factory. */
+	/** The Hibernate Session factory. */
 	private SessionFactory sessionFactory;
 
 	/**
-	 * Persistiert oder führt eine Zenturie in die Datenbank.
+	 * Persists or merges the zenturie into the database..
 	 *
-	 * @param zenturie Die Zenturie, die persistiert wird. Die vorliegende Entität kann transient oder separat sein.
+	 * @param zenturie The zenturie to persist. The given entity can be transient or detached.
 	 */
 	public void save(Zenturie zenturie) {
 		sessionFactory.getCurrentSession().saveOrUpdate(zenturie);
 	}
 
 	/**
-	 * Lädt eine Zenturienentität aus der Datenbank.
+	 * Loads a single zenturie entity from the database.
 	 *
-	 * @param id Die Identifikationsnummer.
-	 * @return eine Zenturie oder null, wenn keine Zenturie zu der id zugeordnet ist.
+	 * @param id The identifier.
+	 * @return a zenturie or null if no zenturie was found with the given identifier.
 	 */
 	public Zenturie load(Long id) {
 		return (Zenturie) sessionFactory.getCurrentSession().get(Zenturie.class, id);
 	}
 
 	/**
-	 * Löscht eine Zenturie aus der Datenbank.
+	 * Deletes the zenturie from the database.
 	 *
-	 * @param zenturie Die zu löschende Zenturie.
+	 * @param zenturie The zenturie to be deleted.
 	 */
 	public void delete(Zenturie zenturie) {
 		sessionFactory.getCurrentSession().delete(zenturie);
 	}
 
 	/**
-	 * Lädt alle Zenturien aus der Datenbank.
+	 * Loads all zenturie's from the database.
 	 *
-	 * @return eine Liste oder eine Zenturie, welcher leer ist, falls Zenturie nicht gefunden wurde.
+	 * @return a list or zenturie which is empty if no car was found.
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Zenturie> loadAll() {

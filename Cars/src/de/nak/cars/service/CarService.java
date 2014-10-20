@@ -1,6 +1,6 @@
 package de.nak.cars.service;
 
-import de.nak.studentendatenbank.model.Student;
+import de.nak.studentsdatabase.model.Student;
 
 import java.util.List;
 

@@ -3,7 +3,7 @@ package de.nak.cars.action;
 import com.opensymphony.xwork2.Action;
 
 import de.nak.cars.service.CarService;
-import de.nak.studentendatenbank.model.Student;
+import de.nak.studentsdatabase.model.Student;
 
 import java.util.List;
 

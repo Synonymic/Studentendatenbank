@@ -1,4 +1,4 @@
-package de.nak.studentendatenbank.model;
+package de.nak.studentsdatabase.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,19 +10,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * Die Prüfungsentität.
+ * Entity of exam.
  * @author Andreas Krey
  */
 @Entity
-@Table(name = "Pruefung")
+@Table(name = "EXAM")
 public class Exam {
-	/** Die eindeutige Identifikation. */
+	/** The identifier. */
 	private Long id;
-	/** Der Name einer Prüfung. */
+	/** The name of an exam. */
 	private String name;
-	/** Die Note einer Prüfung. */
-	private Integer note;
-	/** Der Student einer Prüfung. */
+	/** The grade of an exam. */
+	private Integer grade;
+	/** The student of an exam. */
 	private Student student;
 	/** The zenturie of an exam. **/
 	private Zenturie zenturie;
@@ -49,12 +49,12 @@ public class Exam {
 	}
 	
 	@Column(length = 3, nullable = false)	
-	public Integer getNote() {
-		return note;
+	public Integer getGrade() {
+		return grade;
 	}
 	
-	public void setNote(Integer note) {
-		this.note = note;
+	public void setGrade(Integer grade) {
+		this.grade = grade;
 	}
 	
 	@ManyToOne

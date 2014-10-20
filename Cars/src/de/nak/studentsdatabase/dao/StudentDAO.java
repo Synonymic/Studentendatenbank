@@ -1,52 +1,52 @@
-package de.nak.studentendatenbank.dao;
+package de.nak.studentsdatabase.dao;
 
-import de.nak.studentendatenbank.model.Student;
+import de.nak.studentsdatabase.model.Student;
 
 import org.hibernate.SessionFactory;
 
 import java.util.List;
 
 /**
- * Das Studenten-DAO.
+ * Student data access object.
  *
  * @author Andreas Krey
  */
 public class StudentDAO {
-	/** Die Hibernate Session factory. */
+	/** The Hibernate Session factory. */
 	private SessionFactory sessionFactory;
 
 	/**
-	 * Persistiert oder führt einen Studenten in die Datenbank.
+	 * Persists or merges the student into the database.
 	 *
-	 * @param student Der Student, der persistiert wird. Die vorliegende Entität kann transient oder separat sein.
+	 * @param student The student to persist. The given entity can be transient or detached.
 	 */
 	public void save(Student student) {
 		sessionFactory.getCurrentSession().saveOrUpdate(student);
 	}
 
 	/**
-	 * Lädt eine Studentenentität aus der Datenbank.
+	 * Loads a single student entity from the database.
 	 *
-	 * @param id Die Identifikationsnummer.
-	 * @return einen Studenten oder null, wenn kein Student zu der id zugeordnet ist.
+	 * @param id The identifier.
+	 * @return a student or null if no student was found with the given identifier.
 	 */
 	public Student load(Long id) {
 		return (Student) sessionFactory.getCurrentSession().get(Student.class, id);
 	}
 
 	/**
-	 * Löscht einen Studenten aus der Datenbank.
+	 * Deletes the student from the database.
 	 *
-	 * @param student Der zu löschende Student.
+	 * @param student The student to be deleted.
 	 */
 	public void delete(Student student) {
 		sessionFactory.getCurrentSession().delete(student);
 	}
 
 	/**
-	 * Lädt alle Studenten aus der Datenbank.
+	 * Loads all students from the database.
 	 *
-	 * @return eine Liste oder ein Studenten, welcher leer ist, falls Student nicht gefunden wurde.
+	 * @return a list or student which is empty if no student was found.
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Student> loadAll() {

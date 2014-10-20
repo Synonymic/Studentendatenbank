@@ -3,7 +3,7 @@ package de.nak.cars.action;
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.cars.service.CarService;
-import de.nak.studentendatenbank.model.Student;
+import de.nak.studentsdatabase.model.Student;
 
 /**
  * Action for a single car.

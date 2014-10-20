@@ -1,4 +1,4 @@
-package de.nak.studentendatenbank.model;
+package de.nak.studentsdatabase.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,19 +10,19 @@ import javax.persistence.Table;
 import org.hibernate.annotations.NaturalId;
 
 /**
- * Adress entity.
+ * Address entity.
  *
  * @author Andreas Krey
  */
 
 @Entity 
-@Table(name= "ADRESS")
-public class Adress {
+@Table(name= "ADDRESS")
+public class Address {
 	/** The identifier. */
 	private Long id;
-	/** The addition of an adress. */
+	/** The addition of an address. */
 	private String addition;
-	/** The street name of an adress. */
+	/** The street name of an address. */
 	private String street;
 	/** The postcode of a city. */
 	private Integer postcode;
@@ -32,7 +32,7 @@ public class Adress {
 	private Integer number;
 	/** The fax number. */
 	private Integer fax;
-	/** The e-mail adress. */
+	/** The e-mail address. */
 	private String email;
 	
 	@Id

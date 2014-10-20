@@ -1,52 +1,52 @@
-package de.nak.studentendatenbank.dao;
+package de.nak.studentsdatabase.dao;
 
-import de.nak.studentendatenbank.model.User;
+import de.nak.studentsdatabase.model.User;
 
 import org.hibernate.SessionFactory;
 
 import java.util.List;
 
 /**
- * Das User-DAO.
+ * User data access object.
  *
  * @author Andreas Krey
  */
 public class UserDAO {
-	/** Die Hibernate Session factory. */
+	/** The Hibernate Session factory. */
 	private SessionFactory sessionFactory;
 
 	/**
-	 * Persistiert oder führt einen User in die Datenbank.
+	 * Persists or merges the user into the database.
 	 *
-	 * @param user Der User, der persistiert wird. Die vorliegende Entität kann transient oder separat sein.
+	 * @param user The user to persist. The given entity can be transient or detached.
 	 */
 	public void save(User user) {
 		sessionFactory.getCurrentSession().saveOrUpdate(user);
 	}
 
 	/**
-	 * Lädt eine Userentität aus der Datenbank.
+	 * Loads a single user entity from the database.
 	 *
-	 * @param id Die Identifikationsnummer.
-	 * @return einen User oder null, wenn kein User zu der id zugeordnet ist.
+	 * @param id The identifier.
+	 * @return an user or null if no user was found with the given identifier.
 	 */
 	public User load(Long id) {
 		return (User) sessionFactory.getCurrentSession().get(User.class, id);
 	}
 
 	/**
-	 * Löscht einen User aus der Datenbank.
+	 * Deletes the user from the database.
 	 *
-	 * @param user Der zu löschende User.
+	 * @param user The user to be deleted.
 	 */
 	public void delete(User user) {
 		sessionFactory.getCurrentSession().delete(user);
 	}
 
 	/**
-	 * Lädt alle User aus der Datenbank.
+	 * Loads all users from the database.
 	 *
-	 * @return eine Liste oder einen User, welcher leer ist, falls User nicht gefunden wurde.
+	 * @return a list or user which is empty if no user was found.
 	 */
 	@SuppressWarnings("unchecked")
 	public List<User> loadAll() {

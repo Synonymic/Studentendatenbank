@@ -1,4 +1,4 @@
-package de.nak.studentendatenbank.model;
+package de.nak.studentsdatabase.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,26 +7,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 /**
- * Zenturienentität.
+ * Entity of user.
  *
  * @author Andreas Krey
  */
 
 @Entity
-@Table(name= "ZENTURIE")
-public class Zenturie {
-	/** Die eindeutige Identifikation. */
+@Table(name= "USER")
+public class User {
+	/** The identifier. */
 	private Long id;
-	/** Der Name einer Zenturie. */
+	/** The name of an user. */
 	private String name;
-	/** Der Studiengang einer Zenturie. */
-	private String studiengang;
-	
+	/** The password of an user. */
+	private String password;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)	
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
 		return id;
 	}
@@ -45,11 +43,13 @@ public class Zenturie {
 	}
 	
 	@Column(length = 100, nullable = false)
-	public String getStudiengang() {
-		return studiengang;
+	public String getPassword() {
+		return password;
 	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	
-	public void setStudiengang(String studiengang) {
-		this.studiengang = studiengang;
-	}
+	
 }
