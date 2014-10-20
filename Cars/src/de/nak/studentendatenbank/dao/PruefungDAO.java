@@ -1,6 +1,6 @@
 package de.nak.studentendatenbank.dao;
 
-import de.nak.studentendatenbank.model.Pruefung;
+import de.nak.studentendatenbank.model.Exam;
 
 import org.hibernate.SessionFactory;
 
@@ -20,7 +20,7 @@ public class PruefungDAO {
 	 *
 	 * @param pruefung Die Prüfung, die persistiert wird. Die vorliegende Entität kann transient oder separat sein.
 	 */
-	public void save(Pruefung pruefung) {
+	public void save(Exam pruefung) {
 		sessionFactory.getCurrentSession().saveOrUpdate(pruefung);
 	}
 
@@ -30,8 +30,8 @@ public class PruefungDAO {
 	 * @param id Die Identifikationsnummer.
 	 * @return eine Prüfung oder null, wenn keine Prüfung zu der id zugeordnet ist.
 	 */
-	public Pruefung load(Long id) {
-		return (Pruefung) sessionFactory.getCurrentSession().get(Pruefung.class, id);
+	public Exam load(Long id) {
+		return (Exam) sessionFactory.getCurrentSession().get(Exam.class, id);
 	}
 
 	/**
@@ -39,7 +39,7 @@ public class PruefungDAO {
 	 *
 	 * @param pruefung Die zu löschende Prüfung.
 	 */
-	public void delete(Pruefung pruefung) {
+	public void delete(Exam pruefung) {
 		sessionFactory.getCurrentSession().delete(pruefung);
 	}
 
@@ -49,7 +49,7 @@ public class PruefungDAO {
 	 * @return eine Liste oder eine Prüfung, welcher leer ist, falls Prüfung nicht gefunden wurde.
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Pruefung> loadAll() {
+	public List<Exam> loadAll() {
 		return sessionFactory.getCurrentSession().createQuery("from PRUEFUNG").list();
 	}
 

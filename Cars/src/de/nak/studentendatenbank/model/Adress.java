@@ -10,29 +10,29 @@ import javax.persistence.Table;
 import org.hibernate.annotations.NaturalId;
 
 /**
- * Adressenenentit‰t.
+ * Adress entity.
  *
  * @author Andreas Krey
  */
 
 @Entity 
-@Table(name= "ADRESSE")
-public class Adresse {
-	/** Die eindeutige Identifikation. */
+@Table(name= "ADRESS")
+public class Adress {
+	/** The identifier. */
 	private Long id;
-	/** Der Adresszusatz. */
-	private String adresszusatz;
-	/** Der Straﬂenname. */
-	private String straﬂe;
-	/** Die Postleitzahl des Ortes. */
-	private Integer plz;
-	/** Der Ortsname. */
-	private String ort;
-	/** Die Telefonnummer. */
-	private Integer telefon;
-	/** Die Faxnummer. */
+	/** The addition of an adress. */
+	private String addition;
+	/** The street name of an adress. */
+	private String street;
+	/** The postcode of a city. */
+	private Integer postcode;
+	/** The name of the city. */
+	private String city;
+	/** The telephone number. */
+	private Integer number;
+	/** The fax number. */
 	private Integer fax;
-	/** Die E-Mailadresse. */
+	/** The e-mail adress. */
 	private String email;
 	
 	@Id
@@ -46,50 +46,50 @@ public class Adresse {
 	}
 	
 	@Column(length = 100, nullable = true)
-	public String getAdresszusatz() {
-		return adresszusatz;
+	public String getAddition() {
+		return addition;
 	}
 	
-	public void setAdresszusatz(String adresszusatz) {
-		this.adresszusatz = adresszusatz;
+	public void setAddition(String addition) {
+		this.addition = addition;
 	}
 	
 	@Column(length = 100, nullable = false)
-	public String getStraﬂe() {
-		return straﬂe;
+	public String getStreet() {
+		return street;
 	}
 	
-	public void setStraﬂe(String straﬂe) {
-		this.straﬂe = straﬂe;
+	public void setStreet(String street) {
+		this.street = street;
 	}
 	
 	@NaturalId
 	@Column(length = 5, nullable = false)
-	public Integer getPlz() {
-		return plz;
+	public Integer getPostcode() {
+		return postcode;
 	}
 	
-	public void setPlz(Integer plz) {
-		this.plz = plz;
+	public void setPostcode(Integer postcode) {
+		this.postcode = postcode;
 	}
 	
 	@NaturalId
 	@Column(length = 100, nullable = false)
-	public String getOrt() {
-		return ort;
+	public String getCity() {
+		return city;
 	}
 	
-	public void setOrt(String ort) {
-		this.ort = ort;
+	public void setCity(String city) {
+		this.city = city;
 	}
 	
 	@Column(length = 100, nullable = false)
-	public Integer getTelefon() {
-		return telefon;
+	public Integer getNumber() {
+		return number;
 	}
 	
-	public void setTelefon(Integer telefon) {
-		this.telefon = telefon;
+	public void setNumber(Integer number) {
+		this.number = number;
 	}
 	
 	@Column(length = 100, nullable = true)

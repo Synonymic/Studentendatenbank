@@ -17,7 +17,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name= "FIRMA")
-public class Firma {
+public class Company {
 	/** Die eindeutige Identifikation. */
 	private Long id;
 	/** Der Name einer Firma. */
@@ -29,7 +29,7 @@ public class Firma {
 	/** Der Ansprechpartner einer Firma. */
 	private String ansprechpartner;
 	/** Die Adresse einer Firma */
-	private Adresse adresse;
+	private Adress adresse;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)	
@@ -80,11 +80,11 @@ public class Firma {
 	
 	@OneToOne
 	@JoinColumn(name = "ADRESSE_ID")
-	public Adresse getAdresse() {
+	public Adress getAdresse() {
 		return adresse;
 	}
 	
-	public void setAdresse(Adresse adresse) {
+	public void setAdresse(Adress adresse) {
 		this.adresse = adresse;
 	}
 	

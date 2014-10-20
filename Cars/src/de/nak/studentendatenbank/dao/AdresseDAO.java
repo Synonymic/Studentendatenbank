@@ -1,6 +1,6 @@
 package de.nak.studentendatenbank.dao;
 
-import de.nak.studentendatenbank.model.Adresse;
+import de.nak.studentendatenbank.model.Adress;
 
 import org.hibernate.SessionFactory;
 
@@ -20,7 +20,7 @@ public class AdresseDAO {
 	 *
 	 * @param adresse Die Adresse, die persistiert wird. Die vorliegende Entität kann transient oder separat sein.
 	 */
-	public void save(Adresse adresse) {
+	public void save(Adress adresse) {
 		sessionFactory.getCurrentSession().saveOrUpdate(adresse);
 	}
 
@@ -30,8 +30,8 @@ public class AdresseDAO {
 	 * @param id Die Identifikationsnummer.
 	 * @return eine Adresse oder null, wenn keine Adresse zu der id zugeordnet ist.
 	 */
-	public Adresse load(Long id) {
-		return (Adresse) sessionFactory.getCurrentSession().get(Adresse.class, id);
+	public Adress load(Long id) {
+		return (Adress) sessionFactory.getCurrentSession().get(Adress.class, id);
 	}
 
 	/**
@@ -39,7 +39,7 @@ public class AdresseDAO {
 	 *
 	 * @param adresse Die zu löschende Adresse.
 	 */
-	public void delete(Adresse adresse) {
+	public void delete(Adress adresse) {
 		sessionFactory.getCurrentSession().delete(adresse);
 	}
 
@@ -49,7 +49,7 @@ public class AdresseDAO {
 	 * @return eine Liste oder eine Adresse, welcher leer ist, falls Adresse nicht gefunden wurde.
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Adresse> loadAll() {
+	public List<Adress> loadAll() {
 		return sessionFactory.getCurrentSession().createQuery("from ADRESSE").list();
 	}
 

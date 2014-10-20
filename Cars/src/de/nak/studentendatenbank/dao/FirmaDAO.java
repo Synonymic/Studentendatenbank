@@ -1,6 +1,6 @@
 package de.nak.studentendatenbank.dao;
 
-import de.nak.studentendatenbank.model.Firma;
+import de.nak.studentendatenbank.model.Company;
 
 import org.hibernate.SessionFactory;
 
@@ -20,7 +20,7 @@ public class FirmaDAO {
 	 *
 	 * @param firma Die Firma, die persistiert wird. Die vorliegende Entität kann transient oder separat sein.
 	 */
-	public void save(Firma firma) {
+	public void save(Company firma) {
 		sessionFactory.getCurrentSession().saveOrUpdate(firma);
 	}
 
@@ -30,8 +30,8 @@ public class FirmaDAO {
 	 * @param id Die Identifikationsnummer.
 	 * @return eine Firma oder null, wenn keine Firma zu der id zugeordnet ist.
 	 */
-	public Firma load(Long id) {
-		return (Firma) sessionFactory.getCurrentSession().get(Firma.class, id);
+	public Company load(Long id) {
+		return (Company) sessionFactory.getCurrentSession().get(Company.class, id);
 	}
 
 	/**
@@ -39,7 +39,7 @@ public class FirmaDAO {
 	 *
 	 * @param firma Die zu löschende Firma.
 	 */
-	public void delete(Firma firma) {
+	public void delete(Company firma) {
 		sessionFactory.getCurrentSession().delete(firma);
 	}
 
@@ -49,7 +49,7 @@ public class FirmaDAO {
 	 * @return eine Liste oder eine Firma, welche leer ist, falls Firma nicht gefunden wurde.
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Firma> loadAll() {
+	public List<Company> loadAll() {
 		return sessionFactory.getCurrentSession().createQuery("from FIRMA").list();
 	}
 

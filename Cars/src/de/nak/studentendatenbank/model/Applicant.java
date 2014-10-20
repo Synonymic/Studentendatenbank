@@ -11,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name= "Bewerber")
-public class Bewerber {
+public class Applicant {
 	/** Die eindeutige Identifikation. */
 	private Long id;
 	/** Der Name eines Bewerbers. */
@@ -27,7 +27,7 @@ public class Bewerber {
 	/** Der Geburtsort eines Bewerbers. */
 	private String geburtsort;
 	/** Die Adresse eines Bewerbers. */
-	private Adresse adresse;
+	private Adress adresse;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)	
@@ -94,11 +94,11 @@ public class Bewerber {
 	
 	@OneToOne
 	@JoinColumn(name = "ADRESSE_ID")
-	public Adresse getAdresse() {
+	public Adress getAdresse() {
 		return adresse;
 	}
 	
-	public void setAdresse(Adresse adresse) {
+	public void setAdresse(Adress adresse) {
 		this.adresse = adresse;
 	}
 

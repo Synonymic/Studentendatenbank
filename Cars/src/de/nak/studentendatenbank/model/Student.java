@@ -35,9 +35,9 @@ public class Student {
 	/** Der Status des Studenten. */
 	private Boolean status;
 	/** Die Adresse eines Studenten. */
-	private Adresse adresse;
+	private Adress adresse;
 	/** Die Firma eines Studenten. */
-	private Firma firma;
+	private Company firma;
 	/** Das Manipel eines Studenten. */
 	private Manipel manipel;
 	
@@ -133,21 +133,21 @@ public class Student {
 	
 	@OneToOne
 	@JoinColumn(name = "ADRESSE_ID")
-	public Adresse getAdresse() {
+	public Adress getAdresse() {
 		return adresse;
 	}
 	
-	public void setAdresse(Adresse adresse) {
+	public void setAdresse(Adress adresse) {
 		this.adresse = adresse;
 	}
 	
 	@ManyToOne
 	@JoinColumn(name = "FIRMA_ID")
-	public Firma getFirma() {
+	public Company getFirma() {
 		return firma;
 	}
 	
-	public void setFirma(Firma firma) {
+	public void setFirma(Company firma) {
 		this.firma = firma;
 	}
 	

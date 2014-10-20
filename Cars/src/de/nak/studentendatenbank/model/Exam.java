@@ -15,7 +15,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Pruefung")
-public class Pruefung {
+public class Exam {
 	/** Die eindeutige Identifikation. */
 	private Long id;
 	/** Der Name einer Prüfung. */
@@ -24,6 +24,10 @@ public class Pruefung {
 	private Integer note;
 	/** Der Student einer Prüfung. */
 	private Student student;
+	/** The zenturie of an exam. **/
+	private Zenturie zenturie;
+	/** The manipel of an exam. **/
+	private Manipel manipel;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -62,6 +66,27 @@ public class Pruefung {
 	public void setStudent(Student student) {
 		this.student = student;
 	}
+
+	@ManyToOne
+	@JoinColumn(name = "ZENTURIE_ID")
+	public Zenturie getZenturie() {
+		return zenturie;
+	}
+
+	public void setZenturie(Zenturie zenturie) {
+		this.zenturie = zenturie;
+	}
+
+	@ManyToOne
+	@JoinColumn(name = "MANIPEL_ID")
+	public Manipel getManipel() {
+		return manipel;
+	}
+
+	public void setManipel(Manipel manipel) {
+		this.manipel = manipel;
+	}
+	
 	
 	
 	

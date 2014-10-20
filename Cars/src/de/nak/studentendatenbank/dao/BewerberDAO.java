@@ -1,6 +1,6 @@
 package de.nak.studentendatenbank.dao;
 
-import de.nak.studentendatenbank.model.Bewerber;
+import de.nak.studentendatenbank.model.Applicant;
 
 import org.hibernate.SessionFactory;
 
@@ -20,7 +20,7 @@ public class BewerberDAO {
 	 *
 	 * @param bewerber Der Bewerber, der persistiert wird. Die vorliegende Entität kann transient oder separat sein.
 	 */
-	public void save(Bewerber bewerber) {
+	public void save(Applicant bewerber) {
 		sessionFactory.getCurrentSession().saveOrUpdate(bewerber);
 	}
 
@@ -30,8 +30,8 @@ public class BewerberDAO {
 	 * @param id Die Identifikationsnummer.
 	 * @return einen Bewerber oder null, wenn kein Bewerber zu der id zugeordnet ist.
 	 */
-	public Bewerber load(Long id) {
-		return (Bewerber) sessionFactory.getCurrentSession().get(Bewerber.class, id);
+	public Applicant load(Long id) {
+		return (Applicant) sessionFactory.getCurrentSession().get(Applicant.class, id);
 	}
 
 	/**
@@ -39,7 +39,7 @@ public class BewerberDAO {
 	 *
 	 * @param bewerber Der zu löschende Bewerber.
 	 */
-	public void delete(Bewerber bewerber) {
+	public void delete(Applicant bewerber) {
 		sessionFactory.getCurrentSession().delete(bewerber);
 	}
 
@@ -49,7 +49,7 @@ public class BewerberDAO {
 	 * @return eine Liste oder einen Bewerber, welcher leer ist, falls Bewerber nicht gefunden wurde.
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Bewerber> loadAll() {
+	public List<Applicant> loadAll() {
 		return sessionFactory.getCurrentSession().createQuery("from BEWERBER").list();
 	}
 
