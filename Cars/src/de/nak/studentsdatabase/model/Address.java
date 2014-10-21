@@ -24,12 +24,14 @@ public class Address {
 	private String addition;
 	/** The street name of an address. */
 	private String street;
+	/** The house number of an address. */
+	private Integer houseNumber;
 	/** The postcode of a city. */
 	private Integer postcode;
 	/** The name of the city. */
 	private String city;
 	/** The telephone number. */
-	private Integer number;
+	private Integer telephoneNumber;
 	/** The fax number. */
 	private Integer fax;
 	/** The e-mail address. */
@@ -84,12 +86,12 @@ public class Address {
 	}
 	
 	@Column(length = 100, nullable = false)
-	public Integer getNumber() {
-		return number;
+	public Integer getTelephoneNumber() {
+		return telephoneNumber;
 	}
 	
-	public void setNumber(Integer number) {
-		this.number = number;
+	public void setTelephoneNumber(Integer telephoneNumber) {
+		this.telephoneNumber = telephoneNumber;
 	}
 	
 	@Column(length = 100, nullable = true)
@@ -109,5 +111,15 @@ public class Address {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	@Column(length = 100, nullable = false)
+	public Integer getHouseNumber() {
+		return houseNumber;
+	}
+
+	public void setHouseNumber(Integer houseNumber) {
+		this.houseNumber = houseNumber;
+	}
+	
+	
 	
 }
