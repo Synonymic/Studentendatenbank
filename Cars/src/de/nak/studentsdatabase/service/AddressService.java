@@ -1,4 +1,4 @@
-package de.nak.studentendatenbank.service;
+package de.nak.studentsdatabase.service;
 
 import java.util.List;
 import de.nak.studentsdatabase.model.Address;
