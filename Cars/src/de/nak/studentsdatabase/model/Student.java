@@ -1,10 +1,12 @@
 package de.nak.studentsdatabase.model;
 
 import java.util.GregorianCalendar;
+import java.util.Set;
 
 import javax.persistence.*;
 
 import org.hibernate.annotations.NaturalId;
+
 
 /**
  * Entity of a student.
@@ -40,6 +42,10 @@ public class Student {
 	private Company company;
 	/** The manipel of a student. */
 	private Manipel manipel;
+	/** The name of exam of a student. */
+	private String exam;
+	/** The set of associated exams. */
+	private Set<Exam> exams;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)	
@@ -105,7 +111,7 @@ public class Student {
 	}
 	
 	@Column(length = 10, nullable = false)
-	public GregorianCalendar getDayofBirth() {
+	public GregorianCalendar getDayOfBirth() {
 		return dayOfBirth;
 	}
 	
@@ -132,7 +138,7 @@ public class Student {
 	}
 	
 	@OneToOne
-	@JoinColumn(name = "ADRESS_ID")
+	@JoinColumn(name = "ADDRESS_ID")
 	public Address getAddress() {
 		return address;
 	}
@@ -160,5 +166,49 @@ public class Student {
 	public void setManipel(Manipel manipel) {
 		this.manipel = manipel;
 	}
+	
+	@Column(length = 100, nullable = true)
+	public String getExam() {
+		return exam;
+	}
+
+	public void setExam(String exam) {
+		this.exam = exam;
+	}
+	
+	
+	/**
+	 * Associates the given exam to this student.
+	 * @param exam The exam to associate.
+	 */
+	public void associateExam(Exam exam) {
+		if (exam == null) {
+			throw new IllegalArgumentException();
+		}
+		if (this.equals(exam.getStudent())) {
+			// The same student is already associated
+			return;
+		}
+		if (exam.getStudent() != null) {
+			exam.getStudent().getExams().remove(exam);
+		}
+		exam.setStudent(this);
+		this.exams.add(exam);
+	}
+	
+	@OneToMany(mappedBy = "STUDENT")
+	public Set<Exam> getExams() {
+		return exams;
+	}
+
+	/**
+	 * Sets the set of associated exams.
+	 * @param exams the exams to set.
+	 */
+	public void setExams(Set<Exam> exams) {
+		this.exams = exams;
+	}
+
+
 
 }
