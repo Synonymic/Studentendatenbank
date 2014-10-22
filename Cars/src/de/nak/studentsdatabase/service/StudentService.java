@@ -28,13 +28,6 @@ public interface StudentService {
 	Student load(Long id);
 	
 	/**
-	 * Deletes the given student.
-	 * 
-	 * @param student The STudent.
-	 */
-	void delete(Student student);
-	
-	/**
 	 * Loads a list of all students.
 	 * 
 	 * @return a list which is empty if no student was found.

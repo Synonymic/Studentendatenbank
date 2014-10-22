@@ -30,11 +30,6 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	@Override
-	public void delete(Student student) {
-		studentDAO.delete(student);
-	}
-
-	@Override
 	public List<Student> loadAll() {
 		return studentDAO.loadAll();
 	}
