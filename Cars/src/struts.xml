@@ -6,6 +6,11 @@
 
 <struts>
 	<package name="default" extends="tiles-default">
+	
+		<!-- Action that displays the list of applicants. -->
+		<action name="ShowApplicantList" class="de.nak.studentsdatabase.action.ShowApplicantListAction">
+			<result type="tiles">applicantList</result>
+		</action>
 
 	</package>
 </struts>

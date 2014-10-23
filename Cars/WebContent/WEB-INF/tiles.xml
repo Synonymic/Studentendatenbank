@@ -10,5 +10,10 @@
 		<put-attribute name="title" value="Studentendatenbank"/>
 		<put-attribute name="header" value="/header.jsp"/>
 	</definition>
+	
+	<!-- The welcome screen. -->
+	<definition name="welcomeView" extends="mainLayout">
+		<put-attribute name="content" value="/welcomeView.jsp"/>
+	</definition>
 
 </tiles-definitions>
