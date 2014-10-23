@@ -4,7 +4,6 @@ import java.util.Set;
 
 import javax.persistence.*;
 
-import org.hibernate.annotations.NaturalId;
 
 
 /**
@@ -14,9 +13,11 @@ import org.hibernate.annotations.NaturalId;
  */
 @Entity
 @Table(name= "STUDENT")
+@PrimaryKeyJoinColumn(name="APPLICANT_ID")
+
 public class Student extends Applicant{
-	/** The identifier. */
-	private Long id;
+//	/** The identifier. */
+//	private Long id;
 	/** The matriculation number of a student. */
 	private Integer matriculationNumber;
 	/** The company of a student. */
@@ -28,16 +29,15 @@ public class Student extends Applicant{
 	/** The set of associated exams. */
 	private Set<Exam> exams;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)	
-	public Long getId() {
-		return id;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
-	}
-	@NaturalId
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.AUTO)	
+//	public Long getId() {
+//		return id;
+//	}
+//	
+//	public void setId(Long id) {
+//		this.id = id;
+//	}
 	@Column(length = 10, nullable = false)
 	public Integer getMatriculationNumber() {
 		return matriculationNumber;

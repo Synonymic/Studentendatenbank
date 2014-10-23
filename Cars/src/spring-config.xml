@@ -25,13 +25,13 @@
 				<prop key="hibernate.hbm2ddl.auto">update</prop>				
 			</props>
 		</property>
-		<property name="annotatedClasses">
+ 		<property name="annotatedClasses">
 			<list>
 				<value> de.nak.studentsdatabase.model.Student </value>
 				<value> de.nak.studentsdatabase.model.Exam </value>
 			</list>
 		</property>
-	</bean>
+ 	</bean>
 
 	<!-- The transaction manager -->
 	<bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
