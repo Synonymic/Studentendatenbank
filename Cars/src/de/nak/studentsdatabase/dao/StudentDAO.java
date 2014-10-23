@@ -1,5 +1,8 @@
 package de.nak.studentsdatabase.dao;
 
+import de.nak.studentsdatabase.model.DiscontinuedStudent;
+import de.nak.studentsdatabase.model.ExmatriculatedStudent;
+import de.nak.studentsdatabase.model.ImmatriculatedStudent;
 import de.nak.studentsdatabase.model.Student;
 
 import org.hibernate.SessionFactory;
@@ -35,12 +38,30 @@ public class StudentDAO {
 	}
 
 	/**
-	 * Deletes the student from the database.
+	 * Inserts the student into table EXMATRICULATEDSTUDENT.
 	 *
-	 * @param student The student to be deleted.
+	 * @param student The student to be exmatriculated.
 	 */
-	public void delete(Student student) {
-		sessionFactory.getCurrentSession().delete(student);
+	public void exmatriculate(Student student) {
+		sessionFactory.getCurrentSession().saveOrUpdate((ExmatriculatedStudent) student);
+	}
+	
+	/**
+	 * Inserts the student into table DISCONTINUEDSTUDENT.
+	 *
+	 * @param student The student to be discontinued.
+	 */
+	public void discontinue(Student student) {
+		sessionFactory.getCurrentSession().saveOrUpdate((DiscontinuedStudent) student);
+	}
+	
+	/**
+	 * Inserts the student into table IMMATRICULATEDSTUDENT.
+	 *
+	 * @param student The student to be immatriculated.
+	 */
+	public void immatriculate(Student student) {
+		sessionFactory.getCurrentSession().saveOrUpdate((ImmatriculatedStudent) student);
 	}
 
 	/**

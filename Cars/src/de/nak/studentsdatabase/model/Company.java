@@ -1,13 +1,18 @@
 package de.nak.studentsdatabase.model;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.NaturalId;
 
 /**
  * Entity of a company.
@@ -30,6 +35,8 @@ public class Company {
 	private String contact;
 	/** The address of a company */
 	private Address address;
+	/** The set of associated students. */
+	private Set<Student> students;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)	
@@ -41,6 +48,7 @@ public class Company {
 		this.id = id;
 	}
 	
+	@NaturalId
 	@Column(length = 100, nullable = false)
 	public String getName() {
 		return name;
@@ -50,12 +58,12 @@ public class Company {
 		this.name = name;
 	}
 	
+	@NaturalId
 	@Column(length = 100, nullable = false)
 	public String getAddition() {
 		return addition;
 	}
 	
-	@Column(length = 100, nullable = false)
 	public void setAddition(String addition) {
 		this.addition = addition;
 	}
@@ -87,7 +95,54 @@ public class Company {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	
-	
 
+	@OneToMany(mappedBy = "COMPANY")
+	public Set<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(Set<Student> students) {
+		this.students = students;
+	}
+
+	/**
+	 * Associates the given student to this company.
+	 * @param student The student to associate.
+	 */
+	public void associateStudent(Student student) {
+		if (student == null) {
+			throw new IllegalArgumentException();
+		}
+		if (this.equals(student.getCompany())) {
+			// The same company is already associated
+			return;
+		}
+		if (student.getCompany() != null) {
+			student.getCompany().getStudents().remove(student);
+		}
+		student.setCompany(this);
+		this.students.add(student);
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		final Company other = (Company) obj;
+		if (abbreviation == null) {
+			if (other.abbreviation != null)
+				return false;
+		} else if (!abbreviation.equals(other.abbreviation))
+			return false;
+		if (name != other.name)
+			return false;
+		return true;
+	}
+	
+	
 }
