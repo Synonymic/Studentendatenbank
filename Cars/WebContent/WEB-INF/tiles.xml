@@ -15,5 +15,15 @@
 	<definition name="welcomeView" extends="mainLayout">
 		<put-attribute name="content" value="/welcomeView.jsp"/>
 	</definition>
+	
+	<!-- The applicantList screen. -->
+	<definition name="applicantList" extends="mainLayout">
+		<put-attribute name="content" value="/applicantList.jsp"/>
+	</definition>
+	
+	<!-- The applicantForm. -->
+	<definition name="applicantForm" extends="mainLayout">
+		<put-attribute name="content" value="/applicantForm.jsp"/>
+	</definition>
 
 </tiles-definitions>
