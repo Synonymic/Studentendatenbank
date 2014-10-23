@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -62,7 +63,8 @@ public class Manipel {
 		this.vintage = vintage;
 	}
 
-	@OneToMany(mappedBy = "MANIPEL")
+	@OneToMany//(mappedBy = "MANIPEL")
+	@JoinColumn(name = "ZENTURIE_ID")
 	public Set<Zenturie> getZenturies() {
 		return zenturies;
 	}

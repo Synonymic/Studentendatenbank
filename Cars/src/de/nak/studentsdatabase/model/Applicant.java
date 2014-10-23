@@ -11,6 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name= "APPLICANT")
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Applicant {
 	/** The identifier. */
 	private Long id;

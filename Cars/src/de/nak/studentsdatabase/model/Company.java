@@ -96,7 +96,8 @@ public class Company {
 		this.address = address;
 	}
 
-	@OneToMany(mappedBy = "COMPANY")
+	@OneToMany//(mappedBy = "COMPANY")
+	@JoinColumn(name = "STUDENT_ID")
 	public Set<Student> getStudents() {
 		return students;
 	}
