@@ -40,4 +40,11 @@ public class UserServiceImpl implements UserService {
 		return userDAO.loadAll();
 	}
 
+	public void setUserDAO(UserDAO userDAO) {
+		this.userDAO = userDAO;
+	}
+
+	
+	
+
 }

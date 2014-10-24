@@ -51,4 +51,5 @@ public class ImmatriculatedStudentDAO extends StudentDAO{
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
+	
 }

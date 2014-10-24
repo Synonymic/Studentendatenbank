@@ -41,4 +41,11 @@ public class ZenturieServiceImpl implements ZenturieService {
 		return zenturieDAO.loadAll();
 	}
 
+	public void setZenturieDAO(ZenturieDAO zenturieDAO) {
+		this.zenturieDAO = zenturieDAO;
+	}
+
+	
+	
+
 }

@@ -1,6 +1,8 @@
 package de.nak.studentsdatabase.service;
 
 import java.util.List;
+
+
 import de.nak.studentsdatabase.model.Address;
 
 /**
@@ -39,5 +41,6 @@ public interface AddressService {
 	 * @return a List which is empty if there is no address.
 	 */
 	List<Address> loadAll();
+	
 
 }

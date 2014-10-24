@@ -40,4 +40,12 @@ public class ExamServiceImpl implements ExamService {
 		return examDAO.loadAll();
 	}
 
+	public void setExamDAO(ExamDAO examDAO) {
+		this.examDAO = examDAO;
+	}
+
+
+	
+	
+
 }

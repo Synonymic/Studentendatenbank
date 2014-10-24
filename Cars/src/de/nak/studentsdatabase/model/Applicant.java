@@ -80,7 +80,7 @@ public class Applicant {
 		return dayOfBirth;
 	}
 	
-	public void setDayofBirth(GregorianCalendar dayOfBirth) {
+	public void setDayOfBirth(GregorianCalendar dayOfBirth) {
 		this.dayOfBirth = dayOfBirth;
 	}
 	

@@ -34,4 +34,12 @@ public class StudentServiceImpl implements StudentService {
 		return studentDAO.loadAll();
 	}
 
+	public void setStudentDAO(StudentDAO studentDAO) {
+		this.studentDAO = studentDAO;
+	}
+
+	
+	
+	
+
 }

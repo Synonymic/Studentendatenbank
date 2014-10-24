@@ -34,4 +34,12 @@ public class ManipelServiceImpl implements ManipelService {
 	return manipelDAO.loadAll();
 	}
 
+	public void setManipelDAO(ManipelDAO manipelDAO) {
+		this.manipelDAO = manipelDAO;
+	}
+
+	
+	
+	
+
 }

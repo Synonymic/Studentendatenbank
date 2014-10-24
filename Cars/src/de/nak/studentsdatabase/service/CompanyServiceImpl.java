@@ -34,4 +34,11 @@ public class CompanyServiceImpl implements CompanyService {
 		return companyDAO.loadAll();
 	}
 
+	public void setCompanyDAO(CompanyDAO companyDAO) {
+		this.companyDAO = companyDAO;
+	}
+
+	
+	
+
 }

@@ -48,4 +48,5 @@ public class DiscontinuedStudentDAO extends StudentDAO{
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
+	
 }

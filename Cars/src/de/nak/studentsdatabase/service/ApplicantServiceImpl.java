@@ -40,4 +40,12 @@ public class ApplicantServiceImpl implements ApplicantService {
 		return applicantDAO.loadAll();
 	}
 
+	public void setApplicantDAO(ApplicantDAO applicantDAO) {
+		this.applicantDAO = applicantDAO;
+	}
+
+	
+	
+	
+
 }

@@ -39,4 +39,12 @@ public class AddressServiceImpl implements AddressService {
 		return addressDAO.loadAll();
 	}
 
+	public void setAddressDAO(AddressDAO addressDAO) {
+		this.addressDAO = addressDAO;
+	}
+
+	
+
+	
+
 }

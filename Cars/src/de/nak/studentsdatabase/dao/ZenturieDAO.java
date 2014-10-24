@@ -56,4 +56,6 @@ public class ZenturieDAO {
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
+
+
 }
