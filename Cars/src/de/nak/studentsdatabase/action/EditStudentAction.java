@@ -1,5 +1,6 @@
 package de.nak.studentsdatabase.action;
 
+import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.studentsdatabase.model.Student;
@@ -11,7 +12,7 @@ import de.nak.studentsdatabase.service.StudentService;
  * @author Dirk Johannﬂen
  *
  */
-public class EditStudentAction extends ActionSupport{
+public class EditStudentAction extends ActionSupport implements Action{
 
 	/** The serial UID. */
 	private static final long serialVersionUID = -9124145633944553666L;

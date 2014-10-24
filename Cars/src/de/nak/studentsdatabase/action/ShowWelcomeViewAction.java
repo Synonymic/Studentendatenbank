@@ -1,6 +1,6 @@
 package de.nak.studentsdatabase.action;
 
-import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.Action;
 
 /**
  * Action for showing the welcomeView.
@@ -8,12 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author Dirk Johannﬂen
  *
  */
-public class ShowWelcomeViewAction extends ActionSupport {
-
-	/**
-	 * The serial UID.
-	 */
-	private static final long serialVersionUID = 2021826484571201207L;
+public class ShowWelcomeViewAction implements Action{
 	
 	/**
 	 * This method is implemented in order to avoid problems with parameter submit and validation.

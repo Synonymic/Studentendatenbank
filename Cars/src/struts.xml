@@ -7,9 +7,53 @@
 <struts>
 	<package name="default" extends="tiles-default">
 	
+		<!-- Action that shows the welcome screen. -->
+		<action name="ShowWelcomeView" class="de.nak.studentsdatabase.action.ShowWelcomeViewAction">
+			<result type="tiles">welcomeView</result>
+		</action>
+	
 		<!-- Action that displays the list of applicants. -->
 		<action name="ShowApplicantList" class="de.nak.studentsdatabase.action.ShowApplicantListAction">
 			<result type="tiles">applicantList</result>
+		</action>
+		
+		<!-- Shows the empty applicantForm. -->
+		<action name="NewApplicant">
+			<result type="tiles">applicantForm</result>
+		</action>
+		
+		<!-- Action for the cancel button. Is required to avoid stack traces in log. -->
+		<action name="SaveApplicant" class="de.nak.studentsdatabase.action.SaveApplicantAction">
+			<result type="tiles" name="input">applicantForm</result>
+			<result type="redirect">ShowApplicantList.action</result>
+		</action>
+		
+		<!-- Action for the cancel button. Is required to avoid stack traces in log. -->
+		<action name="EditApplicant" class="de.nak.studentsdatabase.action.EditApplicantAction">
+			<result type="chain" name="input">ShowApplicantsList</result>
+			<result type="tiles">applicantForm</result>
+		</action>
+		
+		<!-- Action for the cancel button. Is required to avoid stack traces in log. -->
+		<action name="DeleteApplicant" class="de.nak.studentsdatabase.action.DeleteApplicantAction">
+			<result type="chain" name="input">ShowApplicantList</result>
+			<result type="redirect">ShowApplicantList.action</result>
+		</action>
+		
+		<!-- Action for the cancel button. Is required to avoid stack traces in log. -->
+		<action name="CancelApplicant" class="de.nak.studentsdatabase.action.CancelApplicantAction">
+			<result type="redirect">ShowApplicantList.action</result>
+		</action>
+		
+		<!-- Shows the view for searching applicant for student. -->
+		<action name="NewAStudent">
+			<result type="tiles">newStudentByApplicantForm</result>
+		</action>
+		
+		<!-- Action for the cancel button. Is required to avoid stack traces in log. -->
+		<action name="EditStudent" class="de.nak.studentsdatabase.action.EditStudentAction">
+			<result type="chain" name="input">ShowStudentList</result>
+			<result type="tiles">studentForm</result>
 		</action>
 
 	</package>
