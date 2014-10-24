@@ -3,23 +3,24 @@
 
 <s:form>
 	<s:actionerror/>
-	<%-- The applicant table --%>
+	<%-- The student table --%>
 	<table>
 		<tr>
 			<th><s:text name="lbl.lastName" /> </th>
 			<th><s:text name="lbl.dayOfBirth" /></th>
+			<th><s:text name="lbl.enrolmentNumbr" /></th>
 		</tr>
-		<s:iterator value="applicantList">
+		<s:iterator value="studentList">
 			<tr>
-				<td><s:radio name="applicantId" list="#{id:''}" theme="simple" /></td>
+				<td><s:radio name="studentId" list="#{id:''}" theme="simple" /></td>
 				<td><s:property value="name"/></td>
 				<td><s:property value="dayOfBirth"/></td>
+				<td><s:property value="matriculationNumber" /> </td>
 			</tr>
 		</s:iterator>
 	</table>
 	<%-- The buttons --%>
-	<s:submit key="btn.add" action="NewApplicant" />
-	<s:submit key="btn.edit" action="EditApplicant" />
-	<s:submit key="btn.delete" action="DeleteApplicant" />
+	<s:submit key="btn.add" action="NewStudent" />
+	<s:submit key="btn.edit" action="EditStudent" />
 	<s:submit key="btn.back" action="ShowWelcomeView" />
 </s:form>

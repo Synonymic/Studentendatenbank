@@ -25,5 +25,25 @@
 	<definition name="applicantForm" extends="mainLayout">
 		<put-attribute name="content" value="/applicantForm.jsp"/>
 	</definition>
+	
+	<!-- The studentList screen. -->
+	<definition name="studentList" extends="mainLayout">
+		<put-attribute name="content" value="/studentList.jsp"/>
+	</definition>
+	
+	<!-- The newStudentByApplicantForm screen. -->
+	<definition name="newStudentByApplicantForm" extends="mainLayout">
+		<put-attribute name="content" value="/newStudentByApplicantForm.jsp"/>
+	</definition>
+	
+	<!-- The studentForm. -->
+	<definition name="studentForm" extends="mainLayout">
+		<put-attribute name="content" value="/studentForm.jsp"/>
+	</definition>
+	
+	<!-- The editStudentForm screen. -->
+	<definition name="editStudentForm" extends="mainLayout">
+		<put-attribute name="content" value="/editStudentForm.jsp"/>
+	</definition>
 
 </tiles-definitions>

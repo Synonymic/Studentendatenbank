@@ -1,5 +1,6 @@
 package de.nak.studentsdatabase.action;
 
+import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -8,7 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author Dirk Johannﬂen
  *
  */
-public class NewApplicantAction extends ActionSupport {
+public class NewApplicantAction extends ActionSupport implements Action {
 
 	/**
 	 * The serial UID.

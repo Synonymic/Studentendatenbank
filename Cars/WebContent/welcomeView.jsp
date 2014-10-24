@@ -5,4 +5,5 @@
 
 <%-- The buttons --%>
 <s:submit key="btn.manageApplicants" action="ShowApplicantListAction" />
+<s:submit key="btn.manageStudents" action="ShowStudentListAction" />
 </s:form>
