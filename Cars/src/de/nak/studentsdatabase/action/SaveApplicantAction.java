@@ -1,7 +1,5 @@
 package de.nak.studentsdatabase.action;
 
-import java.util.List;
-
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -28,25 +26,12 @@ public class SaveApplicantAction extends ActionSupport implements Action {
 	/** the studentId */
 	private Long applicantId;
 
-	/** the studentList */
-	private List<Applicant> applicantList;
-
 	/** the studentService */
 	private ApplicantService applicantService;
 
-	/**
-	 * Saves the student to the database.
-	 *
-	 * @return the result string.
-	 */
-	public String save() {
-		applicantService.save(applicant);
-		return SUCCESS;
-	}
-
 	@Override
 	public String execute() throws Exception {
-		applicantList = applicantService.loadAll();
+		applicantService.save(applicant);
 		return SUCCESS;
 	}
 
@@ -64,10 +49,6 @@ public class SaveApplicantAction extends ActionSupport implements Action {
 
 	public void setApplicantId(Long applicantId) {
 		this.applicantId = applicantId;
-	}
-
-	public List<Applicant> getApplicantList() {
-		return applicantList;
 	}
 
 	public void setApplicantService(ApplicantService applicantService) {

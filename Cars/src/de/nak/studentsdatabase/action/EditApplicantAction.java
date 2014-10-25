@@ -1,47 +1,32 @@
 package de.nak.studentsdatabase.action;
 
-import java.util.List;
-
 import com.opensymphony.xwork2.Action;
-import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.studentsdatabase.model.Applicant;
 import de.nak.studentsdatabase.service.ApplicantService;
 
 /**
- * Action for deleting an applicant and showing the applicantList.
+ * Displays the selected applicant in the applicantForm.
  * 
  * @author Dirk Johannﬂen
  *
  */
-public class DeleteApplicantAction extends ActionSupport implements Action {
-
-	/**
-	 * The serial UID
-	 */
-	private static final long serialVersionUID = -2914624160483684551L;
+public class EditApplicantAction implements Action {
 	
-	/** the applicant */
-	private Applicant applicant;
-	
-	/** the applicantId */
-	private Long applicantId;
-	
-	/** the applicantService */
+	/**The applicant service. */
 	private ApplicantService applicantService;
 	
-	/** the applicantList */
-	private List<Applicant> applicantList;
+	/** The applicant. */
+	private Applicant applicant;
 	
+	/** The applicantId */
+	private Long applicantId;
+
 	@Override
 	public String execute() throws Exception {
 		applicant = applicantService.load(applicantId);
-		if (applicant != null) {
-			applicantService.delete(applicant);
-		}
 		return SUCCESS;
 	}
-	
 
 	public Applicant getApplicant() {
 		return applicant;
@@ -61,10 +46,6 @@ public class DeleteApplicantAction extends ActionSupport implements Action {
 
 	public void setApplicantService(ApplicantService applicantService) {
 		this.applicantService = applicantService;
-	}
-
-	public List<Applicant> getApplicantList() {
-		return applicantList;
 	}
 
 }
