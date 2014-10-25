@@ -5,7 +5,7 @@
 		"http://struts.apache.org/dtds/struts-2.1.dtd">
 
 <struts>
-	<package name="default" extends="tiles-default">
+	<package name="default" extends="tiles-default" namespace="/">
 	
 		<!-- Action that shows the welcome screen. -->
 		<action name="ShowWelcomeView" class="de.nak.studentsdatabase.action.ShowWelcomeViewAction">

@@ -7,7 +7,7 @@
 <tiles-definitions>
 	<!-- The main layout. -->
 	<definition name="mainLayout" template="/layout/mainLayout.jsp">
-		<put-attribute name="title" value="Studentendatenbank"/>
+		<put-attribute name="title" value="Studentsdatabase"/>
 		<put-attribute name="header" value="/header.jsp"/>
 	</definition>
 	
