@@ -2,8 +2,8 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 
 <s:form>
-
+<s:actionerror/>
 <%-- The buttons --%>
-<s:submit key="btn.manageApplicants" action="ShowApplicantListAction" />
-<s:submit key="btn.manageStudents" action="ShowStudentListAction" />
+<s:submit key="btn.manageApplicants" action="ShowApplicantList"/>
+<s:submit key="btn.manageStudents" action="ShowStudentList"/>
 </s:form>

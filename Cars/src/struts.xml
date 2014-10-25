@@ -5,15 +5,18 @@
 		"http://struts.apache.org/dtds/struts-2.1.dtd">
 
 <struts>
-	<package name="default" extends="tiles-default" namespace="/">
+	<constant name="struts.devMode" value="true" /> 
+	<package name="default" extends="tiles-default">
 	
 		<!-- Action that shows the welcome screen. -->
-		<action name="ShowWelcomeView" class="de.nak.studentsdatabase.action.ShowWelcomeViewAction">
+		<action name="ShowWelcomeView" class="de.nak.studentsdatabase.action.ShowWelcomeViewAction"
+		method="execute">
 			<result type="tiles">welcomeView</result>
 		</action>
 	
 		<!-- Action that displays the list of applicants. -->
-		<action name="ShowApplicantList" class="de.nak.studentsdatabase.action.ShowApplicantListAction">
+		<action name="ShowApplicantList" class="de.nak.studentsdatabase.action.ShowApplicantListAction"
+		method="execute">
 			<result type="tiles">applicantList</result>
 		</action>
 		
