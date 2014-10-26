@@ -25,7 +25,7 @@ public class Address {
 	/** The street name of an address. */
 	private String street;
 	/** The house number of an address. */
-	private Integer houseNumber;
+	private String houseNumber;
 	/** The postcode of a city. */
 	private Integer postcode;
 	/** The name of the city. */
@@ -112,11 +112,11 @@ public class Address {
 		this.email = email;
 	}
 	@Column(length = 100, nullable = false)
-	public Integer getHouseNumber() {
+	public String getHouseNumber() {
 		return houseNumber;
 	}
 
-	public void setHouseNumber(Integer houseNumber) {
+	public void setHouseNumber(String houseNumber) {
 		this.houseNumber = houseNumber;
 	}
 	
