@@ -10,7 +10,6 @@ import javax.persistence.*;
  * @author Andreas Krey
  */
 @Entity
-@Table(name= "Applicant")
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Applicant {
 	/** The identifier. */
@@ -92,7 +91,7 @@ public class Applicant {
 		this.placeOfBirth = placeOfBirth;
 	}
 	
-	@OneToOne
+	@OneToOne (cascade=CascadeType.ALL)
 	@JoinColumn(name = "ADDRESS_ID")
 	public Address getAddress() {
 		return address;

@@ -5,14 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * Entity of exam.
  * @author Andreas Krey
  */
 @Entity
-@Table(name = "Exam")
 public class Exam {
 	/** The identifier. */
 	private Long id;

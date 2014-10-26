@@ -2,6 +2,7 @@ package de.nak.studentsdatabase.model;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 import org.hibernate.annotations.NaturalId;
 
@@ -21,7 +21,6 @@ import org.hibernate.annotations.NaturalId;
  */
 
 @Entity
-@Table(name= "Company")
 public class Company {
 	/** The identifier. */
 	private Long id;
@@ -86,7 +85,7 @@ public class Company {
 		this.contact = contact;
 	}
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "ADDRESS_ID")
 	public Address getAddress() {
 		return address;

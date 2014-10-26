@@ -12,7 +12,6 @@ import javax.persistence.*;
  * @author Andreas Krey
  */
 @Entity
-@Table(name= "Student")
 @PrimaryKeyJoinColumn(name="APPLICANT_ID")
 
 public class Student extends Applicant{
