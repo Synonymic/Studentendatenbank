@@ -71,7 +71,7 @@ public class StudentDAO {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Student> loadAll() {
-		return sessionFactory.getCurrentSession().createQuery("from STUDENT").list();
+		return sessionFactory.getCurrentSession().createQuery("from Student").list();
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {

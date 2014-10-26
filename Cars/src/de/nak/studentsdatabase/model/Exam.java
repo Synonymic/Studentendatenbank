@@ -12,7 +12,7 @@ import javax.persistence.Table;
  * @author Andreas Krey
  */
 @Entity
-@Table(name = "EXAM")
+@Table(name = "Exam")
 public class Exam {
 	/** The identifier. */
 	private Long id;

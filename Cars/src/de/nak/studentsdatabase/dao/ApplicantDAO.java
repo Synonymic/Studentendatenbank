@@ -50,7 +50,7 @@ public class ApplicantDAO {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Applicant> loadAll() {
-		return sessionFactory.getCurrentSession().createQuery("from APPLICANT").list();
+		return sessionFactory.getCurrentSession().createQuery("from Applicant").list();
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {

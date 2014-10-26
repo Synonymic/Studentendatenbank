@@ -10,7 +10,7 @@ import javax.persistence.*;
  * @author Andreas Krey
  */
 @Entity
-@Table(name= "APPLICANT")
+@Table(name= "Applicant")
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Applicant {
 	/** The identifier. */

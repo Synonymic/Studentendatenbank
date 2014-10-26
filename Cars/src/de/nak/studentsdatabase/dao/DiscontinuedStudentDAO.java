@@ -42,7 +42,7 @@ public class DiscontinuedStudentDAO extends StudentDAO{
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Student> loadAll() {
-		return sessionFactory.getCurrentSession().createQuery("from DISCONTINUEDSTUDENT").list();
+		return sessionFactory.getCurrentSession().createQuery("from Discountedstudent").list();
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {

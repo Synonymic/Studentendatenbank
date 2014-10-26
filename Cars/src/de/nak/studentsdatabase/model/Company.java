@@ -21,7 +21,7 @@ import org.hibernate.annotations.NaturalId;
  */
 
 @Entity
-@Table(name= "COMPANY")
+@Table(name= "Company")
 public class Company {
 	/** The identifier. */
 	private Long id;

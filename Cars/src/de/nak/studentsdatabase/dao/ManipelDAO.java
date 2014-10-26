@@ -50,7 +50,7 @@ public class ManipelDAO {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Manipel> loadAll() {
-		return sessionFactory.getCurrentSession().createQuery("from MANIPEL").list();
+		return sessionFactory.getCurrentSession().createQuery("from Manipel").list();
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {

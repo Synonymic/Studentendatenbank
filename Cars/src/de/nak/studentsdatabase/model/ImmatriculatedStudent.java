@@ -10,7 +10,7 @@ import javax.persistence.*;
  * @author Andreas Krey
  */
 @Entity
-@Table(name= "IMMATRICULATEDSTUDENT")
+@Table(name= "Immatriculatedtstudent")
 @PrimaryKeyJoinColumn(name="STUDENT_ID")
 public class ImmatriculatedStudent extends Student{
 //	/** The identifier. */

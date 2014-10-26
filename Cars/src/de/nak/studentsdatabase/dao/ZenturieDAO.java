@@ -50,7 +50,7 @@ public class ZenturieDAO {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Zenturie> loadAll() {
-		return sessionFactory.getCurrentSession().createQuery("from ZENTURIE").list();
+		return sessionFactory.getCurrentSession().createQuery("from Zenturie").list();
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {

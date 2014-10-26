@@ -50,7 +50,7 @@ public class CompanyDAO {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Company> loadAll() {
-		return sessionFactory.getCurrentSession().createQuery("from COMPANY").list();
+		return sessionFactory.getCurrentSession().createQuery("from Company").list();
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {

@@ -45,7 +45,7 @@ public class ImmatriculatedStudentDAO extends StudentDAO{
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Student> loadAll() {
-		return sessionFactory.getCurrentSession().createQuery("from IMMATRICULATEDSTUDENT").list();
+		return sessionFactory.getCurrentSession().createQuery("from Immatriculatedstudent").list();
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {

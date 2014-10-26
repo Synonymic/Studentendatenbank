@@ -50,7 +50,7 @@ public class ExamDAO {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Exam> loadAll() {
-		return sessionFactory.getCurrentSession().createQuery("from EXAM").list();
+		return sessionFactory.getCurrentSession().createQuery("from Exam").list();
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {

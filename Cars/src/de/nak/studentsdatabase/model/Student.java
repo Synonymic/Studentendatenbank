@@ -12,7 +12,7 @@ import javax.persistence.*;
  * @author Andreas Krey
  */
 @Entity
-@Table(name= "STUDENT")
+@Table(name= "Student")
 @PrimaryKeyJoinColumn(name="APPLICANT_ID")
 
 public class Student extends Applicant{

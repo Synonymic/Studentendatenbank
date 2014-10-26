@@ -50,7 +50,7 @@ public class AddressDAO {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Address> loadAll() {
-		return sessionFactory.getCurrentSession().createQuery("from ADDRESS").list();
+		return sessionFactory.getCurrentSession().createQuery("from Address").list();
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {

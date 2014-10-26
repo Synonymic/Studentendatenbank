@@ -19,7 +19,7 @@ import org.hibernate.annotations.NaturalId;
  */
 
 @Entity
-@Table(name= "ZENTURIE")
+@Table(name= "Zenturie")
 public class Zenturie {
 	/** The identifier. */
 	private Long id;

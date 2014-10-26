@@ -50,7 +50,7 @@ public class UserDAO {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<User> loadAll() {
-		return sessionFactory.getCurrentSession().createQuery("from USER").list();
+		return sessionFactory.getCurrentSession().createQuery("from User").list();
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
