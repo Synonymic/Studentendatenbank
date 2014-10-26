@@ -17,8 +17,8 @@ public class Applicant {
 	private Long id;
 	/** The  last name of an applicant. */
 	private String name;
-	/** The forename of an applicant. */
-	private String forename;
+	/** The first name of an applicant. */
+	private String firstName;
 	/** The salutation of an applicant. */
 	private String salutation;
 	/** The gender of an applicant. */
@@ -47,14 +47,13 @@ public class Applicant {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
 	@Column(length = 100, nullable = false)
-	public String getForename() {
-		return forename;
+	public String getFirstName() {
+		return firstName;
 	}
-	
-	public void setForename(String forename) {
-		this.forename = forename;
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 	
 	@Column(length = 100, nullable = false)
