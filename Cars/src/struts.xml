@@ -69,5 +69,11 @@
 			<result type="tiles">studentForm</result>
 		</action>
 
+		<!-- Action that displays welcomeView after successful login. -->		
+		<action name="Login" class="de.nak.studentsdatabase.action.LogInAction" >  
+            <result name="success">welcomeView.jsp</result>  
+            <result name="input">login.jsp</result>  
+        </action> 
+
 	</package>
 </struts>
