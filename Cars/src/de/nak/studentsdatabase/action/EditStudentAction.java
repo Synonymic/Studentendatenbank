@@ -38,7 +38,7 @@ public class EditStudentAction extends ActionSupport implements Action{
 	
 	@Override
 	public void validate() {
-		// If the car is not set, the car ID has to be set.
+		// If the student is not set, the student ID has to be set.
 		if (student == null && studentId == null) {
 			addActionError(getText("msg.selectStudent"));
 		}

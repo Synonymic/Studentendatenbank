@@ -20,7 +20,7 @@
 		</s:iterator>
 	</table>
 	<%-- The buttons --%>
-	<s:submit key="btn.add" action="NewStudent" />
+	<s:submit key="btn.add" action="isNewStudentApplicant" />
 	<s:submit key="btn.edit" action="EditStudent" />
 	<s:submit key="btn.back" action="ShowWelcomeView" />
 </s:form>

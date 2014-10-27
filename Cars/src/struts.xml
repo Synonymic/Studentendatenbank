@@ -53,13 +53,24 @@
 		</action>
 		
 		<!-- Action that displays the list of applicants. -->
-		<action name="ShowStudentList" class="de.nak.studentsdatabase.action.ShowStudentListAction"
+		<action name="ShowStudentList" 
+		class="de.nak.studentsdatabase.action.ShowStudentListAction"
 		method="execute">
 			<result type="tiles">studentList</result>
 		</action>
 		
 		<!-- Shows the view for searching applicant for student. -->
-		<action name="NewAStudent">
+		<action name="NewStudent"
+		class="de.nak.studentsdatabase.action.NewStudentAction"
+		method="execute">
+			<result type="tiles">studentForm</result>
+		</action>
+		
+		<action name="NewStudentByApplicant">
+			<result type="tiles">studentForm</result>
+		</action>
+		
+		<action name="isNewStudentApplicant">
 			<result type="tiles">newStudentByApplicantForm</result>
 		</action>
 		
