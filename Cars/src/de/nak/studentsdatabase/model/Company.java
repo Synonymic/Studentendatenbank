@@ -1,5 +1,7 @@
 package de.nak.studentsdatabase.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -31,7 +33,7 @@ public class Company {
 	/** The abbreviation of a company. */
 	private String abbreviation;
 	/** The contact of a company. */
-	private String contact;
+	private List<String> contact = new ArrayList<String>();
 	/** The address of a company */
 	private Address address;
 	/** The set of associated students. */
@@ -76,14 +78,16 @@ public class Company {
 		this.abbreviation = abbreviation;
 	}
 	
-	@Column(length = 100, nullable = false)
-	public String getContact() {
-		return contact;
+	
+	@Column(length = 100, nullable = false)	
+	public List<String> getContact() {
+	    return contact;
 	}
 	
-	public void setContact(String contact) {
+	public void setContact(List<String> contact) {
 		this.contact = contact;
 	}
+	
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "ADDRESS_ID")
