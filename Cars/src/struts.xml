@@ -3,77 +3,99 @@
 <!DOCTYPE struts PUBLIC
 		"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
 		"http://struts.apache.org/dtds/struts-2.1.dtd">
-
 <struts>
-	<constant name="struts.devMode" value="true" /> 
+	<constant name="struts.devMode" value="true" />
+
 	<package name="default" extends="tiles-default">
-	
+		<interceptors>
+			<interceptor name="loginInterceptor"
+				class="de.nak.studentsdatabase.interceptors.LoginInterceptor"></interceptor>
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="loginInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
 		<!-- Action that shows the welcome screen. -->
-		<action name="ShowWelcomeView" class="de.nak.studentsdatabase.action.ShowWelcomeViewAction"
-		method="execute">
-			<result type="tiles">welcomeView</result>
+		<action name="ShowWelcomeView"
+			class="de.nak.studentsdatabase.action.ShowWelcomeViewAction" method="execute">
+			<interceptor-ref name="loginStack" />
+			<result name="login">login.jsp</result>
+			<result name="success" type="tiles">welcomeView</result>
 		</action>
-	
+
 		<!-- Action that displays the list of applicants. -->
-		<action name="ShowApplicantList" class="de.nak.studentsdatabase.action.ShowApplicantListAction"
-		method="execute">
+		<action name="ShowApplicantList"
+			class="de.nak.studentsdatabase.action.ShowApplicantListAction"
+			method="execute">
 			<result type="tiles">applicantList</result>
 		</action>
-		
+
 		<!-- Shows the empty applicantForm. -->
 		<action name="NewApplicant">
 			<result type="tiles">applicantForm</result>
 		</action>
-		
-		<!-- Action for the cancel button. Is required to avoid stack traces in log. -->
-		<action name="SaveApplicant" class="de.nak.studentsdatabase.action.SaveApplicantAction"
-		method="execute">
+
+		<!-- Action for the cancel button. Is required to avoid stack traces in 
+			log. -->
+		<action name="SaveApplicant"
+			class="de.nak.studentsdatabase.action.SaveApplicantAction" method="execute">
 			<result type="redirect">ShowApplicantList.action</result>
 			<result type="tiles" name="input">applicantForm</result>
 		</action>
-		
-		<!-- Action for the cancel button. Is required to avoid stack traces in log. -->
-		<action name="EditApplicant" class="de.nak.studentsdatabase.action.EditApplicantAction"
-		method="execute">
+
+		<!-- Action for the cancel button. Is required to avoid stack traces in 
+			log. -->
+		<action name="EditApplicant"
+			class="de.nak.studentsdatabase.action.EditApplicantAction" method="execute">
 			<result type="tiles">applicantForm</result>
 			<result type="chain" name="input">ShowApplicantsList</result>
 		</action>
-		
-		<!-- Action for the cancel button. Is required to avoid stack traces in log. -->
-		<action name="DeleteApplicant" class="de.nak.studentsdatabase.action.DeleteApplicantAction"
-		method="execute">
+
+		<!-- Action for the cancel button. Is required to avoid stack traces in 
+			log. -->
+		<action name="DeleteApplicant"
+			class="de.nak.studentsdatabase.action.DeleteApplicantAction" method="execute">
 			<result type="redirect">ShowApplicantList.action</result>
 			<result type="chain" name="input">ShowApplicantList</result>
 		</action>
-		
-		<!-- Action for the cancel button. Is required to avoid stack traces in log. -->
-		<action name="CancelApplicant" class="de.nak.studentsdatabase.action.CancelApplicantAction"
-		method="execute">
+
+		<!-- Action for the cancel button. Is required to avoid stack traces in 
+			log. -->
+		<action name="CancelApplicant"
+			class="de.nak.studentsdatabase.action.CancelApplicantAction" method="execute">
 			<result type="redirect">ShowApplicantList.action</result>
 		</action>
-		
+
 		<!-- Action that displays the list of applicants. -->
-		<action name="ShowStudentList" class="de.nak.studentsdatabase.action.ShowStudentListAction"
-		method="execute">
+		<action name="ShowStudentList"
+			class="de.nak.studentsdatabase.action.ShowStudentListAction" method="execute">
 			<result type="tiles">studentList</result>
 		</action>
-		
+
 		<!-- Shows the view for searching applicant for student. -->
 		<action name="NewAStudent">
 			<result type="tiles">newStudentByApplicantForm</result>
 		</action>
-		
-		<!-- Action for the cancel button. Is required to avoid stack traces in log. -->
+
+		<!-- Action for the cancel button. Is required to avoid stack traces in 
+			log. -->
 		<action name="EditStudent" class="de.nak.studentsdatabase.action.EditStudentAction">
 			<result type="chain" name="input">ShowStudentList</result>
 			<result type="tiles">studentForm</result>
 		</action>
 
-		<!-- Action that displays welcomeView after successful login. -->		
-		<action name="Login" class="de.nak.studentsdatabase.action.LogInAction" >  
-            <result name="success" type="tiles">welcomeView</result>  
-            <result name="input">login.jsp</result>  
-        </action> 
+		<!-- Action that displays welcomeView after successful login. -->
+		<action name="Login" class="de.nak.studentsdatabase.action.LogInAction"
+			method="login">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success" type="tiles">welcomeView</result>
+			<result name="input">login.jsp</result>
+		</action>
+		<!-- Action for logging out an user. -->
+		<action name="logOut" class="de.nak.studentsdatabase.action.LogInAction" method="logOut">
+			<result>login.jsp</result>
+		</action>
 
 	</package>
 </struts>

@@ -20,6 +20,9 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
     <filter-name>struts2</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  <session-config>
+    <session-timeout>1</session-timeout>
+  </session-config>
   
    <welcome-file-list>  
      <welcome-file>login.jsp</welcome-file>  

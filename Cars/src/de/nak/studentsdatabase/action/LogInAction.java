@@ -1,5 +1,9 @@
 package de.nak.studentsdatabase.action;
 
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -10,40 +14,42 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 
 @SuppressWarnings("serial")
-public class LogInAction extends ActionSupport {
-	/** The name of a user. */
+public class LogInAction extends ActionSupport implements SessionAware {
 	private String userName;
-	/** The password of a user. */
-	private String password;
+	private Map<String, Object> session;
 
-	public String execute() {
+	// Log out user
+	public String logOut() {
+		session.remove("loginId");
+		addActionMessage("You have been Successfully Logged Out");
 		return SUCCESS;
+	}
+
+	// Login user
+	public String login() {
+		if (userName.isEmpty()) {
+			addActionError("Username can't be blanked");
+			return LOGIN;
+		} else {
+			session.put("loginId", userName);
+			return SUCCESS;
+		}
 	}
 
 	public String getUserName() {
 		return userName;
 	}
 
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
-	public String getPassword() {
-		return password;
+	public void setSession(Map<String, Object> map) {
+		this.session = map;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public void validate() {
-		if (getUserName().length() == 0) {
-			addFieldError("userName", "UserName.required");
-		} else if (!getUserName().equals("Admin")) {
-			addFieldError("userName", "Sorry, User is invalid!");
-		}
-		if (getPassword().length() == 0) {
-			addFieldError("password", getText("password.required"));
-		}
-	}
 }

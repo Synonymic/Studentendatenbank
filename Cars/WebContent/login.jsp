@@ -9,6 +9,7 @@
 <s:head />  
 </head>
 <body>
+<h1>Welcome to LogIn-Page of Studentsdatabase</h1>
 <s:form action="Login">  
     <s:textfield name="userName" label="User Name" />  
     <s:password name="password" label="Password" />  
