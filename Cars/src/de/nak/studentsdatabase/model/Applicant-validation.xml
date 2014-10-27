@@ -4,27 +4,37 @@
 		"http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
 
 <validators>
-	<field name="matriculationNumber">
+	<field name="name">
 		<field-validator type="required">
 			<message key="msg.validator.required"/>
 		</field-validator>
 	</field>
-	<field name="company">
+	<field name="firstName">
 		<field-validator type="required">
 			<message key="msg.validator.required"/>
 		</field-validator>
 	</field>
-	<field name="manipel">
+	<field name="salutation">
 		<field-validator type="requiredstring">
 			<message key="msg.validator.required"/>
 		</field-validator>
 	</field>
-	<field name="exam">
+	<field name="gender">
 		<field-validator type="requiredstring">
 			<message key="msg.validator.required"/>
 		</field-validator>
 	</field>
-	<field name="exams">
+	<field name="dayOfBirth">
+		<field-validator type="requiredstring">
+			<message key="msg.validator.required"/>
+		</field-validator>
+	</field>
+	<field name="placeOfBirth">
+		<field-validator type="requiredstring">
+			<message key="msg.validator.required"/>
+		</field-validator>
+	</field>
+	<field name="address">
 		<field-validator type="requiredstring">
 			<message key="msg.validator.required"/>
 		</field-validator>
