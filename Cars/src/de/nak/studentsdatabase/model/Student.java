@@ -13,8 +13,9 @@ import javax.persistence.*;
  */
 @Entity
 @PrimaryKeyJoinColumn(name="APPLICANT_ID")
-
 public class Student extends Applicant{
+	/** The identifier */
+	private Long id;
 	/** The matriculation number of a student. */
 	private Integer matriculationNumber;
 	/** The company of a student. */
@@ -28,7 +29,18 @@ public class Student extends Applicant{
 	/** The associated zenturie of a student. */
 	private Zenturie zenturie;
 	
-	@Column(name ="matriculationNumber", length = 10, nullable = false)
+	
+	
+	@Column(name="student_id")
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	@Column(name ="matriculation_number", length = 10, nullable = false)
 	public Integer getMatriculationNumber() {
 		return matriculationNumber;
 	}

@@ -67,8 +67,7 @@ public class Company {
 		this.abbreviation = abbreviation;
 	}
 	
-	@OneToMany//(mappedBy = "Company")
-	@JoinColumn(name = "CONTACT_ID")
+	@OneToMany(mappedBy = "company")
 	public Set<Contact> getContacts() {
 		return contacts;
 	}
@@ -87,8 +86,7 @@ public class Company {
 		this.address = address;
 	}
 
-	@OneToMany//(mappedBy = "COMPANY")
-	@JoinColumn(name = "STUDENT_ID")
+	@OneToMany(mappedBy = "company")
 	public Set<Student> getStudents() {
 		return students;
 	}

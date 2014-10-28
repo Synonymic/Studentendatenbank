@@ -1,6 +1,5 @@
 package de.nak.studentsdatabase.model;
 
-import java.util.Set;
 
 import javax.persistence.*;
 
@@ -22,7 +21,7 @@ public class Zenturie {
 	/** The associated manipel of a zenturie. */
 	private Manipel manipel;
 	/** The associated set of students. */
-	private Set<Student> students;
+	private Student students;
 	
 	
 	@Id
@@ -57,12 +56,12 @@ public class Zenturie {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "COMPANY_ID")
-	public Set<Student> getStudents() {
+	@JoinColumn(name = "STUDENT_ID")
+	public Student getStudents() {
 		return students;
 	}
 
-	public void setStudents(Set<Student> students) {
+	public void setStudents(Student students) {
 		this.students = students;
 	}
 }

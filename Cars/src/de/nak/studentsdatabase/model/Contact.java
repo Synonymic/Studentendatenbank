@@ -22,6 +22,7 @@ public class Contact {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="contact_id")
 	public Long getId() {
 		return id;
 	}
