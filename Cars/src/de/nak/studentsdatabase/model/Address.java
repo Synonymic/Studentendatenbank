@@ -1,7 +1,6 @@
 package de.nak.studentsdatabase.model;
 
 import javax.persistence.*;
-import org.hibernate.annotations.NaturalId;
 
 /**
  * Address entity.
@@ -58,7 +57,7 @@ public class Address {
 		this.street = street;
 	}
 	
-	@NaturalId
+	
 	@Column(length = 5, nullable = false)
 	public Integer getPostcode() {
 		return postcode;
@@ -68,7 +67,7 @@ public class Address {
 		this.postcode = postcode;
 	}
 	
-	@NaturalId
+	
 	@Column(length = 100, nullable = false)
 	public String getCity() {
 		return city;
