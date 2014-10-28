@@ -19,13 +19,13 @@ public class Address {
 	/** The house number of an address. */
 	private String houseNumber;
 	/** The postcode of a city. */
-	private Integer postcode;
+	private String postcode;
 	/** The name of the city. */
 	private String city;
 	/** The telephone number. */
-	private Integer telephoneNumber;
+	private String telephoneNumber;
 	/** The fax number. */
-	private Integer fax;
+	private String fax;
 	/** The e-mail address. */
 	private String email;
 	
@@ -59,11 +59,11 @@ public class Address {
 	
 	
 	@Column(length = 5, nullable = false)
-	public Integer getPostcode() {
+	public String getPostcode() {
 		return postcode;
 	}
 	
-	public void setPostcode(Integer postcode) {
+	public void setPostcode(String postcode) {
 		this.postcode = postcode;
 	}
 	
@@ -78,20 +78,20 @@ public class Address {
 	}
 	
 	@Column(name="telephone_number",length = 100, nullable = false)
-	public Integer getTelephoneNumber() {
+	public String getTelephoneNumber() {
 		return telephoneNumber;
 	}
 	
-	public void setTelephoneNumber(Integer telephoneNumber) {
+	public void setTelephoneNumber(String telephoneNumber) {
 		this.telephoneNumber = telephoneNumber;
 	}
 	
 	@Column(length = 100, nullable = true)
-	public Integer getFax() {
+	public String getFax() {
 		return fax;
 	}
 	
-	public void setFax(Integer fax) {
+	public void setFax(String fax) {
 		this.fax = fax;
 	}
 	
