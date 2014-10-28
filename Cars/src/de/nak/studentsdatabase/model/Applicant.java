@@ -1,7 +1,5 @@
 package de.nak.studentsdatabase.model;
 
-import java.util.GregorianCalendar;
-
 import javax.persistence.*;
 
 /**
@@ -23,7 +21,7 @@ public class Applicant {
 	/** The gender of an applicant. */
 	private String gender;
 	/** The day of birth of an applicant. */
-	private GregorianCalendar dayOfBirth;
+	private String dayOfBirth;
 	/** The place of birth of an applicant. */
 	private String placeOfBirth;
 	/** The address of an applicant. */
@@ -74,11 +72,11 @@ public class Applicant {
 	}
 	
 	@Column(name="day_of_birth",length = 10, nullable = false)
-	public GregorianCalendar getDayOfBirth() {
+	public String getDayOfBirth() {
 		return dayOfBirth;
 	}
 	
-	public void setDayOfBirth(GregorianCalendar dayOfBirth) {
+	public void setDayOfBirth(String dayOfBirth) {
 		this.dayOfBirth = dayOfBirth;
 	}
 	
