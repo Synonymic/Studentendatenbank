@@ -1,6 +1,11 @@
 package de.nak.studentsdatabase.action;
 
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.opensymphony.xwork2.ActionSupport;
+
 
 /**
  * Action for login.
@@ -10,40 +15,47 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 
 @SuppressWarnings("serial")
-public class LogInAction extends ActionSupport {
-	/** The name of a user. */
-	private String userName;
-	/** The password of a user. */
-	private String password;
+public class LogInAction extends ActionSupport implements SessionAware {
+    private String userName;
+    private Map<String, Object> session;
+    
+    /**
+     * Method for log out.
+     * @return
+     */
+    public String logOut() {
+            session.remove("loginId");
+            addActionMessage("You have been Successfully Logged Out");
+            return SUCCESS;
+    }
 
-	public String execute() {
-		return SUCCESS;
-	}
+    /**
+     * Method for log in.
+     * @return
+     */
+    public String login() {
+            if (userName.isEmpty()) {
+                    addActionError("Please insert a user name!");
+                    return LOGIN;
+            } else {
+                    session.put("loginId", userName);
+                    return SUCCESS;
+            }
+    }
 
-	public String getUserName() {
-		return userName;
-	}
+    public String getUserName() {
+            return userName;
+    }
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+    public Map<String, Object> getSession() {
+            return session;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public void setUserName(String userName) {
+            this.userName = userName;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public void validate() {
-		if (getUserName().length() == 0) {
-			addFieldError("userName", "UserName.required");
-		} else if (!getUserName().equals("Admin")) {
-			addFieldError("userName", "Sorry, User is invalid!");
-		}
-		if (getPassword().length() == 0) {
-			addFieldError("password", getText("password.required"));
-		}
-	}
+    public void setSession(Map<String, Object> map) {
+            this.session = map;
+    }
 }
