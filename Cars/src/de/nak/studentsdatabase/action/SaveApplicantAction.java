@@ -3,7 +3,7 @@ package de.nak.studentsdatabase.action;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
-import de.nak.studentsdatabase.model.Address;
+//import de.nak.studentsdatabase.model.Address;
 import de.nak.studentsdatabase.model.Applicant;
 import de.nak.studentsdatabase.service.ApplicantService;
 
@@ -27,8 +27,8 @@ public class SaveApplicantAction extends ActionSupport implements Action {
 	/** the studentId */
 	private Long applicantId;
 	
-	/** the Address */
-	private Address address;
+//	/** the Address */
+//	private Address address;
 	
 	/** the addressId */
 	private Long addressId;
@@ -38,7 +38,7 @@ public class SaveApplicantAction extends ActionSupport implements Action {
 
 	@Override
 	public String execute() throws Exception {
-		applicant.setAddress(address);
+//		applicant.setAddress(address);
 		applicantService.save(applicant);
 		return SUCCESS;
 	}
@@ -63,13 +63,13 @@ public class SaveApplicantAction extends ActionSupport implements Action {
 		this.applicantService = applicantService;
 	}
 
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
+//	public Address getAddress() {
+//		return address;
+//	}
+//
+//	public void setAddress(Address address) {
+//		this.address = address;
+//	}
 
 	public Long getAddressId() {
 		return addressId;
