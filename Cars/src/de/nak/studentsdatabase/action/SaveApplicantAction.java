@@ -1,7 +1,5 @@
 package de.nak.studentsdatabase.action;
 
-import java.util.GregorianCalendar;
-
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -26,27 +24,6 @@ public class SaveApplicantAction extends ActionSupport implements Action {
 	/** the Student */
 	private Applicant applicant;
 	
-	/** the dayOfBirth-String */
-	private String dayOfBirthString;
-	
-	/** the dayOfBirth-Int */
-	private Integer dayOfBirthInt;
-	
-	/** the monthOfBirthString */
-	private String monthOfBirthString; 
-	
-	/** the monthOfBirthInt. */
-	private Integer monthOfBirthInt;
-	
-	/** the dayOfBirthCalendar */
-	private GregorianCalendar dayOfBirthCalendar;
-	
-	/** the yearOfBirthString */
-	private String yearOfBirthString;
-	
-	/** the yearOfBirthInt */
-	private Integer yearOfBirthInt;
-
 	/** the studentId */
 	private Long applicantId;
 	
@@ -61,14 +38,7 @@ public class SaveApplicantAction extends ActionSupport implements Action {
 
 	@Override
 	public String execute() throws Exception {
-		dayOfBirthInt = Integer.parseInt(dayOfBirthString);
-		monthOfBirthInt = Integer.parseInt(monthOfBirthString);
-		yearOfBirthInt = Integer.parseInt(yearOfBirthString);
-		dayOfBirthCalendar = new GregorianCalendar();
-		dayOfBirthCalendar.set(dayOfBirthInt, monthOfBirthInt, yearOfBirthInt);
-		applicant.setDayOfBirth(dayOfBirthCalendar);
 		applicant.setAddress(address);
-		
 		applicantService.save(applicant);
 		return SUCCESS;
 	}
@@ -107,62 +77,6 @@ public class SaveApplicantAction extends ActionSupport implements Action {
 
 	public void setAddressId(Long addressId) {
 		this.addressId = addressId;
-	}
-
-	public String getDayOfBirthString() {
-		return dayOfBirthString;
-	}
-
-	public void setDayOfBirthString(String dayOfBirthString) {
-		this.dayOfBirthString = dayOfBirthString;
-	}
-
-	public Integer getDayOfBirthInt() {
-		return dayOfBirthInt;
-	}
-
-	public void setDayOfBirthInt(Integer dayOfBirthInt) {
-		this.dayOfBirthInt = dayOfBirthInt;
-	}
-
-	public String getMonthOfBirthString() {
-		return monthOfBirthString;
-	}
-
-	public void setMonthOfBirthString(String monthOfBirthString) {
-		this.monthOfBirthString = monthOfBirthString;
-	}
-
-	public Integer getMonthOfBirthInt() {
-		return monthOfBirthInt;
-	}
-
-	public void setMonthOfBirthInt(Integer monthOfBirthInt) {
-		this.monthOfBirthInt = monthOfBirthInt;
-	}
-
-	public String getYearOfBirthString() {
-		return yearOfBirthString;
-	}
-
-	public void setYearOfBirthString(String yearOfBirthString) {
-		this.yearOfBirthString = yearOfBirthString;
-	}
-
-	public Integer getYearOfBirthInt() {
-		return yearOfBirthInt;
-	}
-
-	public void setYearOfBirthInt(Integer yearOfBirthInt) {
-		this.yearOfBirthInt = yearOfBirthInt;
-	}
-
-	public GregorianCalendar getDayOfBirthCalendar() {
-		return dayOfBirthCalendar;
-	}
-
-	public void setDayOfBirthCalendar(GregorianCalendar dayOfBirthCalendar) {
-		this.dayOfBirthCalendar = dayOfBirthCalendar;
 	}
 
 }

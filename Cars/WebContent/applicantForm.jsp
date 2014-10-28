@@ -9,10 +9,7 @@
 	<s:textfield name="applicant.firstName" key="lbl.firstName" size="40" maxlength="100" requiredLabel="true" />
 	<s:select name="applicant.salutation" key="lbl.salutation"
 		list="{'Herr','Frau'}" />
-	<s:label  key="lbl.dateOfBirth" />
-	<s:textfield name="dayOfBirthString" key="lbl.dayOfBirth" requiredLabel="true" size="2" maxsize="2"/>
-	<s:textfield name="monthOfBirthString" key="lbl.monthOfBirth" requiredLabel="true" size="2" maxsize="2"/>
-	<s:textfield name="yearOfBirthString" key="lbl.yearOfBirth" requiredLabel="true" size="4" maxsize="4"/>
+	<s:textfield name="applicant.dayOfBirth" key="lbl.dayOfBirth" requiredLabel="true" size="10" maxsize="10"/>
 	<s:radio key="lbl.gender" name="applicant.gender" list="{'male','female'}" />
 	<s:textfield name="applicant.placeOfBirth" key="lbl.placeOfBirth" requiredLabel="true" />
 	<s:textfield name="address.street" key="lbl.streetName" requiredLabel="true" size="40" maxsize="51"/>
