@@ -94,12 +94,18 @@
 			<result type="chain" name="input">ShowStudentList</result>
 			<result type="tiles">studentForm</result>
 		</action>
+		
+		<!-- Action that displays a list of students for attendanceList -->
+		<action name="GenerateAttendanceList"
+			class="de.nak.studentsdatabase.action.GenerateAttendanceListAction" method="execute">
+			<result type="tiles">attendanceList</result>
+		</action>
 
 		<!-- Action that displays welcomeView after successful login. -->
 		<action name="Login" class="de.nak.studentsdatabase.action.LogInAction"
 			method="login">
 			<interceptor-ref name="defaultStack"></interceptor-ref>
-			<result name="success" type="tiles">welcomeView</result>
+			<result type="redirect">ShowWelcomeView.action</result>
 			<result name="input">login.jsp</result>
 		</action>
 		<!-- Action for logging out an user. -->

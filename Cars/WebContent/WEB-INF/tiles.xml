@@ -21,6 +21,11 @@
 		<put-attribute name="content" value="/applicantList.jsp"/>
 	</definition>
 	
+	<!-- The attendanceList screen. -->
+	<definition name="attendanceList" extends="mainLayout">
+		<put-attribute name="content" value="/attendanceList.jsp"/>
+	</definition>
+	
 	<!-- The applicantForm. -->
 	<definition name="applicantForm" extends="mainLayout">
 		<put-attribute name="content" value="/applicantForm.jsp"/>

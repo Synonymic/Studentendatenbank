@@ -10,10 +10,8 @@
 	<s:select name="student.salutation" key="lbl.salutation"
 		list="{'Herr','Frau'}" />
 	<s:label  key="lbl.dateOfBirth" />
-	<s:textfield name="dayOfBirthString" key="lbl.dayOfBirth" requiredLabel="true" size="2" maxsize="2"/>
-	<s:textfield name="monthOfBirthString" key="lbl.monthOfBirth" requiredLabel="true" size="2" maxsize="2"/>
-	<s:textfield name="yearOfBirthString" key="lbl.yearOfBirth" requiredLabel="true" size="4" maxsize="4"/>
-	<s:radio key="lbl.gender" name="applicant.gender" list="{'male','female'}" />
+	<s:textfield name="dayOfBirthString" key="lbl.dayOfBirth" requiredLabel="true" size="10" maxsize="10"/>
+	<s:radio key="lbl.gender" name="student.gender" list="{'male','female'}" />
 	<s:textfield name="student.placeOfBirth" key="lbl.placeOfBirth" requiredLabel="true" />
 	<s:textfield name="student.matriculationNumber" key="lbl.enrolmentNumber" />
 	<s:select name="student.zenturie" key="lbl.zenturie" list="zenturieList" />
