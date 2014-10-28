@@ -46,7 +46,7 @@ public class Applicant {
 	public void setName(String name) {
 		this.name = name;
 	}
-	@Column(length = 100, nullable = false)
+	@Column(name="first_name",length = 100, nullable = false)
 	public String getFirstName() {
 		return firstName;
 	}
@@ -73,7 +73,7 @@ public class Applicant {
 		this.gender = gender;
 	}
 	
-	@Column(length = 10, nullable = false)
+	@Column(name="day_of_birth",length = 10, nullable = false)
 	public GregorianCalendar getDayOfBirth() {
 		return dayOfBirth;
 	}
@@ -82,7 +82,7 @@ public class Applicant {
 		this.dayOfBirth = dayOfBirth;
 	}
 	
-	@Column(length = 100, nullable = true)
+	@Column(name="place_of_birth",length = 100, nullable = true)
 	public String getPlaceOfBirth() {
 		return placeOfBirth;
 	}

@@ -1,13 +1,6 @@
 package de.nak.studentsdatabase.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
+import javax.persistence.*;
 import org.hibernate.annotations.NaturalId;
 
 /**
@@ -47,7 +40,7 @@ public class Contact {
 	}
 	
 	@NaturalId
-	@Column(length = 100, nullable = false)
+	@Column(name="first_name",length = 100, nullable = false)
 	public String getFirstName() {
 		return firstName;
 	}

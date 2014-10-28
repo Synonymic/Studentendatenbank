@@ -12,27 +12,16 @@ import javax.persistence.*;
 @Entity
 @PrimaryKeyJoinColumn(name="STUDENT_ID")
 public class ImmatriculatedStudent extends Student{
-//	/** The identifier. */
-//	private Long id;
 	/** The user identification for university systems of an immatriculated student. */
 	private Integer userIdentification;
 	/** The zenturie of an immatriculated student */
 	private Zenturie zenturie;
 	
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)	
-//	public Long getId() {
-//		return id;
-//	}
-//	
-//	public void setId(Long id) {
-//		this.id = id;
-//	}
-	
-	@Column(length = 100, nullable = false)
+	@Column(name= "user_identification",length = 100, nullable = false)
 	public Integer getUserIdentification() {
 		return userIdentification;
 	}
+	
 	public void setUserIdentification(Integer userIdentification) {
 		this.userIdentification = userIdentification;
 	}

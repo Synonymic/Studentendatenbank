@@ -1,7 +1,6 @@
 package de.nak.studentsdatabase.model;
 
 import java.util.Set;
-
 import javax.persistence.*;
 
 
@@ -15,8 +14,6 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(name="APPLICANT_ID")
 
 public class Student extends Applicant{
-//	/** The identifier. */
-//	private Long id;
 	/** The matriculation number of a student. */
 	private Integer matriculationNumber;
 	/** The company of a student. */
@@ -28,16 +25,7 @@ public class Student extends Applicant{
 	/** The set of associated exams. */
 	private Set<Exam> exams;
 	
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)	
-//	public Long getId() {
-//		return id;
-//	}
-//	
-//	public void setId(Long id) {
-//		this.id = id;
-//	}
-	@Column(length = 10, nullable = false)
+	@Column(name ="matriculation", length = 10, nullable = false)
 	public Integer getMatriculationNumber() {
 		return matriculationNumber;
 	}

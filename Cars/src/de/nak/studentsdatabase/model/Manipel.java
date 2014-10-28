@@ -2,14 +2,7 @@ package de.nak.studentsdatabase.model;
 
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-
+import javax.persistence.*;
 import org.hibernate.annotations.NaturalId;
 
 
@@ -42,7 +35,7 @@ public class Manipel {
 	}
 	
 	@NaturalId
-	@Column(length = 100, nullable = false)
+	@Column(name= "course_of_study",length = 100, nullable = false)
 	public String getCourseOfStudy() {
 		return courseOfStudy;
 	}

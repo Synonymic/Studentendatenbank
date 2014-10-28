@@ -1,11 +1,6 @@
 package de.nak.studentsdatabase.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
+import javax.persistence.*;
 import org.hibernate.annotations.NaturalId;
 
 /**
@@ -83,7 +78,7 @@ public class Address {
 		this.city = city;
 	}
 	
-	@Column(length = 100, nullable = false)
+	@Column(name="telephone_number",length = 100, nullable = false)
 	public Integer getTelephoneNumber() {
 		return telephoneNumber;
 	}
@@ -109,7 +104,7 @@ public class Address {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	@Column(length = 100, nullable = false)
+	@Column(name="house_number",length = 100, nullable = false)
 	public String getHouseNumber() {
 		return houseNumber;
 	}
