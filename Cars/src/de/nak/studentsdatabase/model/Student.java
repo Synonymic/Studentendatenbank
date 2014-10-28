@@ -1,6 +1,7 @@
 package de.nak.studentsdatabase.model;
 
 import java.util.Set;
+
 import javax.persistence.*;
 
 
@@ -24,8 +25,10 @@ public class Student extends Applicant{
 	private String exam;
 	/** The set of associated exams. */
 	private Set<Exam> exams;
+	/** The associated zenturie of a student. */
+	private Zenturie zenturie;
 	
-	@Column(name ="matriculation", length = 10, nullable = false)
+	@Column(name ="matriculationNumber", length = 10, nullable = false)
 	public Integer getMatriculationNumber() {
 		return matriculationNumber;
 	}
@@ -74,6 +77,16 @@ public class Student extends Applicant{
 	public void setExams(Set<Exam> exams) {
 		this.exams = exams;
 	}
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name = "ZENTURIE_ID")
+	public Zenturie getZenturie() {
+		return zenturie;
+	}
+
+	public void setZenturie(Zenturie zenturie) {
+		this.zenturie = zenturie;
+	}	
 
 	/** {@inheritDoc} */
 	@Override
@@ -97,7 +110,6 @@ public class Student extends Applicant{
 		if (matriculationNumber != other.matriculationNumber)
 			return false;
 		return true;
-	}	
-
+	}
 
 }

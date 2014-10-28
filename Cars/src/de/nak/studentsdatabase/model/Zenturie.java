@@ -1,5 +1,7 @@
 package de.nak.studentsdatabase.model;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 import org.hibernate.annotations.NaturalId;
@@ -19,6 +21,8 @@ public class Zenturie {
 	private String name;
 	/** The associated manipel of a zenturie. */
 	private Manipel manipel;
+	/** The associated set of students. */
+	private Set<Student> students;
 	
 	
 	@Id
@@ -50,5 +54,15 @@ public class Zenturie {
 
 	public void setManipel(Manipel manipel) {
 		this.manipel = manipel;
+	}
+
+	@ManyToOne
+	@JoinColumn(name = "COMPANY_ID")
+	public Set<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(Set<Student> students) {
+		this.students = students;
 	}
 }
