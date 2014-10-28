@@ -135,4 +135,14 @@
 		<property name="zenturieDAO" ref="zenturieDAO"/>
 	</bean>
 
+
+	<!-- Zenturie DAO -->
+	<bean id="contactDAO" class="de.nak.studentsdatabase.dao.ContactDAO">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<!-- Zenturie Service -->
+	<bean id="contactService" class="de.nak.studentsdatabase.service.ContactServiceImpl">
+		<property name="contactDAO" ref="contactDAO"/>
+	</bean>
 </beans>

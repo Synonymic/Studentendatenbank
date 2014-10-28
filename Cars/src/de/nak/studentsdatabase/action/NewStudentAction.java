@@ -5,9 +5,11 @@ import java.util.List;
 import com.opensymphony.xwork2.Action;
 
 import de.nak.studentsdatabase.model.Company;
+import de.nak.studentsdatabase.model.Contact;
 import de.nak.studentsdatabase.model.Manipel;
 import de.nak.studentsdatabase.model.Zenturie;
 import de.nak.studentsdatabase.service.CompanyService;
+import de.nak.studentsdatabase.service.ContactService;
 import de.nak.studentsdatabase.service.ManipelService;
 import de.nak.studentsdatabase.service.ZenturieService;
 
@@ -22,6 +24,9 @@ public class NewStudentAction implements Action {
 	/** the companyService */
 	private CompanyService companyService; 
 	
+	/** the contactService */
+	private ContactService contactService;
+	
 	/** the zenturieService */
 	private ZenturieService zenturieService;
 	
@@ -31,6 +36,9 @@ public class NewStudentAction implements Action {
 	/** the companyList */
 	private List<Company> companyList;
 	
+	/** the contactList */
+	private List<Contact> contactList;
+
 	/** the manipelList */
 	private List<Manipel> manipelList;
 	
@@ -48,8 +56,9 @@ public class NewStudentAction implements Action {
 	@Override
 	public String execute() throws Exception {
 		companyList = companyService.loadAll();
-		manipelList = manipelService.loadAll();
 		zenturieList = zenturieService.loadAll();
+		manipelList = manipelService.loadAll();
+		contactList = contactService.loadAll();
 		return SUCCESS;
 	}
 
@@ -67,6 +76,14 @@ public class NewStudentAction implements Action {
 
 	public void setManipelService(ManipelService manipelService) {
 		this.manipelService = manipelService;
+	}
+
+	public void setContactService(ContactService contactService) {
+		this.contactService = contactService;
+	}
+	
+	public List<Contact> getContactList() {
+		return contactList;
 	}
 
 }
