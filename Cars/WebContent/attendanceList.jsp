@@ -10,7 +10,7 @@
 		</tr>
 		<s:iterator value="studentsOfZenturieList">
 			<tr>
-				<td><s:property value="student.name"/></td>
+				<td><s:property value="name"/></td>
 			</tr>
 		</s:iterator>
 	</table>
