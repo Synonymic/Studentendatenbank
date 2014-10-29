@@ -18,7 +18,7 @@ public class ContactServiceImpl implements ContactService {
 	@Override
 	public Contact load(long id) {
 		return contactDAO.load(id);
-	}
+	} 
 
 	public void setContactDAO(ContactDAO contactDAO) {
 		this.contactDAO = contactDAO;
