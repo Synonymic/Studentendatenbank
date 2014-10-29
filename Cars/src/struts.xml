@@ -84,6 +84,12 @@
 			<result type="tiles">studentForm</result>
 		</action>
 		
+		<action name="SaveStudent"
+			class="de.nak.studentsdatabase.action.SaveStudentAction" method="execute">
+			<result type="redirect">ShowStudentList.action</result>
+			<result type="tiles" name="input">studentForm</result>
+		</action>
+		
 		<action name="isNewStudentApplicant">
 			<result type="tiles">newStudentByApplicantForm</result>
 		</action>

@@ -6,7 +6,11 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.studentsdatabase.model.Student;
+import de.nak.studentsdatabase.service.CompanyService;
+import de.nak.studentsdatabase.service.ContactService;
+import de.nak.studentsdatabase.service.ManipelService;
 import de.nak.studentsdatabase.service.StudentService;
+import de.nak.studentsdatabase.service.ZenturieService;
 
 /**
  * The action for saving a student to the database and displaying
@@ -26,6 +30,22 @@ public class SaveStudentAction extends ActionSupport implements Action {
 	 */
 	private static final long serialVersionUID = -4165196061954364976L;
 
+	private Long inputIdManipel;
+	
+	private Long inputIdZenturie;
+	
+	private Long inputIdCompany;
+	
+	private Long inputIdContact;
+	
+	private ManipelService manipelService;
+	
+	private ZenturieService zenturieService;
+	
+	private CompanyService companyService;
+	
+	private ContactService contactService;
+	
 	/** the Student */
 	private Student student;
 
@@ -44,6 +64,9 @@ public class SaveStudentAction extends ActionSupport implements Action {
 	 * @return the result string.
 	 */
 	public String save() {
+		student.setManipel(manipelService.load(inputIdManipel));
+		student.setZenturie(zenturieService.load(inputIdZenturie));
+		student.setCompany(companyService.load(inputIdCompany));
 		studentService.save(student);
 		return SUCCESS;
 	}
@@ -72,6 +95,54 @@ public class SaveStudentAction extends ActionSupport implements Action {
 
 	public void setStudentService(StudentService studentService) {
 		this.studentService = studentService;
+	}
+
+	public Long getInputIdManipel() {
+		return inputIdManipel;
+	}
+
+	public void setInputIdManipel(Long inputIdManipel) {
+		this.inputIdManipel = inputIdManipel;
+	}
+
+	public Long getInputIdZenturie() {
+		return inputIdZenturie;
+	}
+
+	public void setInputIdZenturie(Long inputIdZenturie) {
+		this.inputIdZenturie = inputIdZenturie;
+	}
+
+	public Long getInputIdCompany() {
+		return inputIdCompany;
+	}
+
+	public void setInputIdCompany(Long inputIdCompany) {
+		this.inputIdCompany = inputIdCompany;
+	}
+
+	public Long getInputIdContact() {
+		return inputIdContact;
+	}
+
+	public void setInputIdContact(Long inputIdContact) {
+		this.inputIdContact = inputIdContact;
+	}
+
+	public void setManipelService(ManipelService manipelService) {
+		this.manipelService = manipelService;
+	}
+
+	public void setZenturieService(ZenturieService zenturieService) {
+		this.zenturieService = zenturieService;
+	}
+
+	public void setCompanyService(CompanyService companyService) {
+		this.companyService = companyService;
+	}
+
+	public void setContactService(ContactService contactService) {
+		this.contactService = contactService;
 	}
 
 }

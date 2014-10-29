@@ -13,11 +13,13 @@
 	<s:radio key="lbl.gender" name="student.gender" list="{'male','female'}" />
 	<s:textfield name="student.placeOfBirth" key="lbl.placeOfBirth" requiredLabel="true" />
 	<s:textfield name="student.matriculationNumber" key="lbl.enrolmentNumber" />
-	<s:select name="zenturie" key="lbl.zenturie" list="zenturieList" />
-	<s:select name="manipel" key="lbl.manipel" list="manipelList" />
-	<s:select name="student.company" key="lbl.company" list="companyList" />
-	<s:select name="student.company.contact" key="lbl.contact" list="contactList" />
-	<s:textfield name="student.company.contact" key="lbl.advisor" /> 
+
+	<s:select name="inputIdManipel" key="lbl.manipel" list="manipelDisplayMap" />
+	<s:select name="inputIdZenturie" key="lbl.zenturie" list="zenturieDisplayMap" />
+	<s:select name="inputIdCompany" key="lbl.company" list="companyDisplayMap" />
+	<s:select name="inputIdContact" key="lbl.advisor" list="contactDisplayMap" />
+	
+
 	<s:textfield name="student.address.street" key="lbl.streetName" requiredLabel="true" size="40" maxsize="51"/>
 	<s:textfield name="student.address.houseNumber" key="lbl.houseNumber" requiredLabel="true" size="5" maxsize="5" />
 	<s:textfield name="student.address.postcode" key="lbl.cityCode" requiredLabel="true" size="5" maxsize="5"/>
