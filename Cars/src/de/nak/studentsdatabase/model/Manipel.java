@@ -3,6 +3,7 @@ package de.nak.studentsdatabase.model;
 import java.util.Set;
 
 import javax.persistence.*;
+
 import org.hibernate.annotations.NaturalId;
 
 
@@ -22,6 +23,8 @@ public class Manipel {
 	private Integer vintage;
 	/** The set of zenturie's of a manipel. */
 	private Set<Zenturie> zenturies;
+	/** The set of exams of a manipel. */
+	private Set<Exam> exams;
 	
 	
 	@Id
@@ -81,6 +84,17 @@ public class Manipel {
 		}
 		zenturie.setManipel(this);
 		this.zenturies.add(zenturie);
+	}
+	
+	@ManyToMany
+	@JoinTable(name="MANIPEL_EXAM", joinColumns={ @JoinColumn(name="MANIPEL_ID")},
+				inverseJoinColumns={@JoinColumn(name="EXAM_ID") })
+	public Set<Exam> getExams() {
+		return exams;
+	}
+
+	public void setExams(Set<Exam> exams) {
+		this.exams = exams;
 	}
 	
 
