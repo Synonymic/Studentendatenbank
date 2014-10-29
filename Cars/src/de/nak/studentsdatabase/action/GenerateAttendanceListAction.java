@@ -5,7 +5,6 @@ import java.util.List;
 import com.opensymphony.xwork2.Action;
 
 import de.nak.studentsdatabase.model.Student;
-import de.nak.studentsdatabase.model.Zenturie;
 import de.nak.studentsdatabase.service.StudentService;
 
 /**
@@ -17,13 +16,13 @@ import de.nak.studentsdatabase.service.StudentService;
  */
 public class GenerateAttendanceListAction implements Action {
 	
-	/** the zenturie */
-	private Zenturie zenturie;
-	
-	/** the studentService */
+	/** the inputId for a zenturie */
+	private Long inputId;
+
+	/** The student service */
 	private StudentService studentService;
 	
-	/** the studentList */
+	/** the student list. */
 	private List<Student> studentList;
 	
 	/** the list that holds all students that belong to the zenturie */
@@ -33,7 +32,7 @@ public class GenerateAttendanceListAction implements Action {
 	public String execute() throws Exception {
 		studentList = studentService.loadAll();
 		for(Student student : studentList){
-			if(zenturie.getId().equals(student.getZenturie().getId())){
+			if(inputId.equals(student.getZenturie().getId())){
 				studentsOfZenturieList.add(student);
 			}
 		}
@@ -44,16 +43,16 @@ public class GenerateAttendanceListAction implements Action {
 		return studentList;
 	}
 
-	public void setZenturie(Zenturie zenturie) {
-		this.zenturie = zenturie;
-	}
-
 	public void setStudentService(StudentService studentService) {
 		this.studentService = studentService;
 	}
 
 	public List<Student> getStudentsOfZenturieList() {
 		return studentsOfZenturieList;
+	}
+	
+	public void setInputId(Long inputId) {
+		this.inputId = inputId;
 	}
 
 }

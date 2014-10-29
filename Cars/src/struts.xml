@@ -100,6 +100,12 @@
 			class="de.nak.studentsdatabase.action.GenerateAttendanceListAction" method="execute">
 			<result type="tiles">attendanceList</result>
 		</action>
+		
+		<!-- Action that displays a list of results for resultList -->
+		<action name="GenerateResultsList"
+			class="de.nak.studentsdatabase.action.GenerateResultsListAction" method="execute">
+			<result type="tiles">resultsList</result>
+		</action>
 
 		<!-- Action that displays welcomeView after successful login. -->
 		<action name="Login" class="de.nak.studentsdatabase.action.LogInAction"
