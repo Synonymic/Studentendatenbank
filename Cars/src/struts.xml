@@ -115,8 +115,8 @@
 			<result name="login">login.jsp</result>
 		</action>
 		<!-- Action for logging out an user. -->
-		<action name="logOut" class="de.nak.studentsdatabase.action.LogInAction" method="logOut">
-			<result>login.jsp</result>
+		<action name="logout" class="de.nak.studentsdatabase.action.LogInAction" method="logout">
+			<result name="login">login.jsp</result>
 		</action>
 
 	</package>
