@@ -14,6 +14,6 @@
 	<s:submit action="GenerateAttendanceList" key="btn.generateAttendanceList" />
 </s:form>
 <s:form>
-	<s:select name="manipel.id" key="lbl.manipel" list="manipelDisplayMap" />
-	<s:submit key="btn.generateResultsList" />
+	<s:select name="inputId" key="lbl.manipel" list="manipelDisplayMap" />
+	<s:submit action="GenerateResultsList" key="btn.generateResultsList" />
 </s:form>
