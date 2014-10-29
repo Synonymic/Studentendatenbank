@@ -106,7 +106,7 @@
 			method="login">
 			<interceptor-ref name="defaultStack"></interceptor-ref>
 			<result type="redirect">ShowWelcomeView.action</result>
-			<result name="input">login.jsp</result>
+			<result name="login">login.jsp</result>
 		</action>
 		<!-- Action for logging out an user. -->
 		<action name="logOut" class="de.nak.studentsdatabase.action.LogInAction" method="logOut">

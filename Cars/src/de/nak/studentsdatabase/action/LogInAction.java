@@ -38,25 +38,34 @@ public class LogInAction extends ActionSupport implements SessionAware, Action {
 	 */
 	public String login() throws Exception {
 		userList = userService.loadAll();
-		
-		
+
 		if (userName.isEmpty()) {
-			addActionError("Please insert a user name!");
+			addFieldError("userName", "Please insert a user name!");
 			return LOGIN;
 		} else {
-			if (validateLogin(userName, password)){
-			session.put("loginId", userName);
-			return SUCCESS;}
-			else {
+			if (password.isEmpty()) {
+				addFieldError("userName", "Please insert a password!");
 				return LOGIN;
+
 			}
 
+			else {
+				if (validateLogin(userName, password)) {
+					session.put("loginId", userName);
+					return SUCCESS;
+				} else {
+					addFieldError("userName", "User name or password invalid");
+					return LOGIN;
+				}
+
+			}
 		}
 	}
 
 	private boolean validateLogin(String userName, String password) {
 		for (User user : userList) {
-			if (userName.equals(user.getName()) && password.equals(user.getPassword())){
+			if (userName.equals(user.getName())
+					&& password.equals(user.getPassword())) {
 				return true;
 			}
 		}
