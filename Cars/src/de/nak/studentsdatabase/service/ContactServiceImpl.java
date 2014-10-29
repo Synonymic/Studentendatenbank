@@ -20,6 +20,10 @@ public class ContactServiceImpl implements ContactService {
 		return contactDAO.load(id);
 	}
 
+	public void setContactDAO(ContactDAO contactDAO) {
+		this.contactDAO = contactDAO;
+	}
+
 	@Override
 	public void delete(Contact contact) {
 		contactDAO.delete(contact);
