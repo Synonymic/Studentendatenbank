@@ -23,7 +23,7 @@ public class LogInAction extends ActionSupport implements SessionAware, Action {
 	/** User name value of input. */
 	private String userName;
 	/** Password value of input. */
-	private String Password;
+	private String password;
 	/** List of users */
 	private List<User> userList;
 	/** The user service */
@@ -44,10 +44,23 @@ public class LogInAction extends ActionSupport implements SessionAware, Action {
 			addActionError("Please insert a user name!");
 			return LOGIN;
 		} else {
+			if (validateLogin(userName, password)){
 			session.put("loginId", userName);
-			return SUCCESS;
+			return SUCCESS;}
+			else {
+				return LOGIN;
+			}
 
 		}
+	}
+
+	private boolean validateLogin(String userName, String password) {
+		for (User user : userList) {
+			if (userName.equals(user.getName()) && password.equals(user.getPassword())){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -78,11 +91,11 @@ public class LogInAction extends ActionSupport implements SessionAware, Action {
 	}
 
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
 
 	public List<User> getUserList() {
