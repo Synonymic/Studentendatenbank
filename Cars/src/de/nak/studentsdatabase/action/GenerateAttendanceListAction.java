@@ -1,5 +1,6 @@
 package de.nak.studentsdatabase.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.opensymphony.xwork2.Action;
@@ -31,6 +32,7 @@ public class GenerateAttendanceListAction implements Action {
 	@Override
 	public String execute() throws Exception {
 		studentList = studentService.loadAll();
+		studentsOfZenturieList = new ArrayList<Student>();
 		for(Student student : studentList){
 			if(inputId.equals(student.getZenturie().getId())){
 				studentsOfZenturieList.add(student);
