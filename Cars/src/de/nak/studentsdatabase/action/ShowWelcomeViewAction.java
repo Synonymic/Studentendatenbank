@@ -1,5 +1,6 @@
 package de.nak.studentsdatabase.action;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.opensymphony.xwork2.Action;
@@ -28,11 +29,28 @@ public class ShowWelcomeViewAction implements Action {
 	
 	/** the manipelList */
 	private List<Manipel> manipelList;
+	
+	/** the zenturieDisplayMap hashMap */
+	private HashMap<Long, String> zenturieDisplayMap = new HashMap<Long, String>();
+	
+
+	/** the manipelDisplayMap hashMap */
+	private HashMap<Long, String> manipelDisplayMap = new HashMap<Long, String>();
 
 	@Override
 	public String execute() throws Exception {
 		zenturieList = zenturieService.loadAll();
 		manipelList = manipelService.loadAll();
+		
+		for(Zenturie zenturie : zenturieList){
+			zenturieDisplayMap.put(zenturie.getId(), zenturie.getName());
+		}
+		
+		for(Manipel manipel : manipelList) {
+			manipelDisplayMap.put(manipel.getId(), manipel.getCourseOfStudy() + 
+					manipel.getVintage().toString());
+		}
+		
 		return SUCCESS;
 	}
 
@@ -50,6 +68,22 @@ public class ShowWelcomeViewAction implements Action {
 
 	public void setManipelService(ManipelService manipelService) {
 		this.manipelService = manipelService;
+	}
+	
+	public HashMap<Long, String> getZenturieDisplayMap() {
+		return zenturieDisplayMap;
+	}
+
+	public void setZenturieDisplayMap(HashMap<Long, String> zenturieDisplayMap) {
+		this.zenturieDisplayMap = zenturieDisplayMap;
+	}
+
+	public HashMap<Long, String> getManipelDisplayMap() {
+		return manipelDisplayMap;
+	}
+
+	public void setManipelDisplayMap(HashMap<Long, String> manipelDisplayMap) {
+		this.manipelDisplayMap = manipelDisplayMap;
 	}
 
 

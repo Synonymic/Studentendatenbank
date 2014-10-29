@@ -33,7 +33,7 @@ public class GenerateAttendanceListAction implements Action {
 	public String execute() throws Exception {
 		studentList = studentService.loadAll();
 		for(Student student : studentList){
-			if(student.getZenturie().equals(zenturie)){
+			if(zenturie.getId().equals(student.getZenturie().getId())){
 				studentsOfZenturieList.add(student);
 			}
 		}

@@ -9,8 +9,8 @@
 	<s:submit key="btn.manageApplicants" action="ShowApplicantList"/>
 	<s:submit key="btn.manageStudents" action="ShowStudentList"/>
 	
-	<s:select name="zenturie" key="lbl.zenturie" list="zenturieList" />
+	<s:select name="zenturie.id" key="lbl.zenturie" list="zenturieDisplayMap" />
 	<s:submit action="GenerateAttendanceList" key="btn.generateAttendanceList" />
-	<s:select name="manipel" key="lbl.manipel" list="manipelList" />
+	<s:select name="manipel.id" key="lbl.manipel" list="manipelDisplayMap" />
 	<s:submit key="btn.generateResultsList" />
 </s:form>
