@@ -51,6 +51,11 @@
 		<put-attribute name="content" value="/studentForm.jsp"/>
 	</definition>
 	
+	<!-- The studentForm. -->
+	<definition name="searchStudentForm" extends="mainLayout">
+		<put-attribute name="content" value="/searchStudentForm.jsp"/>
+	</definition>
+	
 	<!-- The editStudentForm screen. -->
 	<definition name="editStudentForm" extends="mainLayout">
 		<put-attribute name="content" value="/editStudentForm.jsp"/>

@@ -7,7 +7,6 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.studentsdatabase.model.Student;
 import de.nak.studentsdatabase.service.CompanyService;
-import de.nak.studentsdatabase.service.ContactService;
 import de.nak.studentsdatabase.service.ManipelService;
 import de.nak.studentsdatabase.service.StudentService;
 import de.nak.studentsdatabase.service.ZenturieService;
@@ -43,8 +42,6 @@ public class SaveStudentAction extends ActionSupport implements Action {
 	private ZenturieService zenturieService;
 	
 	private CompanyService companyService;
-	
-	private ContactService contactService;
 	
 	/** the Student */
 	private Student student;
@@ -139,10 +136,6 @@ public class SaveStudentAction extends ActionSupport implements Action {
 
 	public void setCompanyService(CompanyService companyService) {
 		this.companyService = companyService;
-	}
-
-	public void setContactService(ContactService contactService) {
-		this.contactService = contactService;
 	}
 
 }

@@ -19,6 +19,23 @@
 	<s:select name="inputIdCompany" key="lbl.company" list="companyDisplayMap" />
 	<s:select name="inputIdContact" key="lbl.advisor" list="contactDisplayMap" />
 	
+	
+	
+	<s:doubleselect label="Data Type" 
+	name="datatype1" list="{'string','integer'}" 
+	doubleName="datatype2" 
+	doubleList="top == 'string' ? {'A', 'B','C'} : {'1', '2', '3'}" />
+
+	<s:set name="nameList" 
+	value="#{'BoysName': {'Mukund', 'Harsh', 'Somaru'},'GirlsName': {'Kavita', 'Sita','Radha'}}" />
+	<s:doubleselect label="Student" 
+	name="BoysName" list="#nameList.keySet()" doubleName="GirlsName" doubleList="#nameList[top]" />
+	
+	
+	
+	
+	
+	
 
 	<s:textfield name="student.address.street" key="lbl.streetName" requiredLabel="true" size="40" maxsize="51"/>
 	<s:textfield name="student.address.houseNumber" key="lbl.houseNumber" requiredLabel="true" size="5" maxsize="5" />
