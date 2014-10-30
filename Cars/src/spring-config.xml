@@ -1,150 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
-	   xmlns:aop="http://www.springframework.org/schema/aop"
-	   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	   http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx 
 	   http://www.springframework.org/schema/tx/spring-tx-2.5.xsd http://www.springframework.org/schema/aop 
 	   http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
 
 	<!-- The data source -->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-		<property name="driverClassName" value="org.h2.Driver"/>
-		<property name="url"
-				  value="jdbc:h2:~/temp/db/nak"/>
-		<property name="username" value="sa"/>
-		<property name="password" value=""/>
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="org.h2.Driver" />
+		<property name="url" value="jdbc:h2:~/temp/db/nak" />
+		<property name="username" value="sa" />
+		<property name="password" value="" />
 	</bean>
 
 	<!-- The session factory -->
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref="dataSource"/>
-		<property name="packagesToScan" value="de.nak.studentsdatabase.model"/>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="de.nak.studentsdatabase.model" />
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>	
-				<prop key="hibernate.hbm2ddl.import_files">initial-sql.sql</prop>			
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.import_files">initial-sql.sql</prop>
 			</props>
 		</property>
- 		<property name="annotatedClasses">
+		<property name="annotatedClasses">
 			<list>
 				<value> de.nak.studentsdatabase.model.Student </value>
 				<value> de.nak.studentsdatabase.model.Exam </value>
 			</list>
 		</property>
- 	</bean>
+	</bean>
 
 	<!-- The transaction manager -->
-	<bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionFactory"/>
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 	<!-- The advice -->
 	<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
-			<tx:method name="*" propagation="REQUIRED"/>
+			<tx:method name="*" propagation="REQUIRED" />
 		</tx:attributes>
 	</tx:advice>
 
 	<!-- The pointcut definition -->
 	<aop:config>
-		<aop:pointcut id="serviceMethods" expression="execution(* de.nak.studentsdatabase.service.*.*(..))"/>
-		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods"/>
+		<aop:pointcut id="serviceMethods"
+			expression="execution(* de.nak.studentsdatabase.service.*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods" />
 	</aop:config>
-	
+
 	<!-- Address DAO -->
 	<bean id="addressDAO" class="de.nak.studentsdatabase.dao.AddressDAO">
-		<property name="sessionFactory" ref="sessionFactory"/>
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 	<!-- Address Service -->
 	<bean id="addressService" class="de.nak.studentsdatabase.service.AddressServiceImpl">
-		<property name="addressDAO" ref="addressDAO"/>
+		<property name="addressDAO" ref="addressDAO" />
 	</bean>
-	
+
 	<!-- Applicant DAO -->
 	<bean id="applicantDAO" class="de.nak.studentsdatabase.dao.ApplicantDAO">
-		<property name="sessionFactory" ref="sessionFactory"/>
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 	<!-- Applicant Service -->
 	<bean id="applicantService" class="de.nak.studentsdatabase.service.ApplicantServiceImpl">
-		<property name="applicantDAO" ref="applicantDAO"/>
+		<property name="applicantDAO" ref="applicantDAO" />
 	</bean>
-	
+
 	<!-- Company DAO -->
 	<bean id="companyDAO" class="de.nak.studentsdatabase.dao.CompanyDAO">
-		<property name="sessionFactory" ref="sessionFactory"/>
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 	<!-- Applicant Service -->
 	<bean id="companyService" class="de.nak.studentsdatabase.service.CompanyServiceImpl">
-		<property name="companyDAO" ref="companyDAO"/>
+		<property name="companyDAO" ref="companyDAO" />
 	</bean>
-	
+
 	<!-- Exam DAO -->
 	<bean id="examDAO" class="de.nak.studentsdatabase.dao.ExamDAO">
-		<property name="sessionFactory" ref="sessionFactory"/>
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 	<!-- Exam Service -->
 	<bean id="examService" class="de.nak.studentsdatabase.service.ExamServiceImpl">
-		<property name="examDAO" ref="examDAO"/>
+		<property name="examDAO" ref="examDAO" />
 	</bean>
-	
+
 	<!-- Manipel DAO -->
 	<bean id="manipelDAO" class="de.nak.studentsdatabase.dao.ManipelDAO">
-		<property name="sessionFactory" ref="sessionFactory"/>
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 	<!-- Manipel Service -->
 	<bean id="manipelService" class="de.nak.studentsdatabase.service.ManipelServiceImpl">
-		<property name="manipelDAO" ref="manipelDAO"/>
+		<property name="manipelDAO" ref="manipelDAO" />
 	</bean>
-	
+
 	<!-- Student DAO -->
 	<bean id="studentDAO" class="de.nak.studentsdatabase.dao.StudentDAO">
-		<property name="sessionFactory" ref="sessionFactory"/>
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 	<!-- Student Service -->
 	<bean id="studentService" class="de.nak.studentsdatabase.service.StudentServiceImpl">
-		<property name="studentDAO" ref="studentDAO"/>
+		<property name="studentDAO" ref="studentDAO" />
 	</bean>
-	
+
 	<!-- User DAO -->
 	<bean id="userDAO" class="de.nak.studentsdatabase.dao.UserDAO">
-		<property name="sessionFactory" ref="sessionFactory"/>
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 	<!-- User Service -->
 	<bean id="userService" class="de.nak.studentsdatabase.service.UserServiceImpl">
-		<property name="userDAO" ref="userDAO"/>
+		<property name="userDAO" ref="userDAO" />
 	</bean>
-	
+
 	<!-- Zenturie DAO -->
 	<bean id="zenturieDAO" class="de.nak.studentsdatabase.dao.ZenturieDAO">
-		<property name="sessionFactory" ref="sessionFactory"/>
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 	<!-- Zenturie Service -->
 	<bean id="zenturieService" class="de.nak.studentsdatabase.service.ZenturieServiceImpl">
-		<property name="zenturieDAO" ref="zenturieDAO"/>
+		<property name="zenturieDAO" ref="zenturieDAO" />
 	</bean>
 
 
 	<!-- Contact DAO -->
 	<bean id="contactDAO" class="de.nak.studentsdatabase.dao.ContactDAO">
-		<property name="sessionFactory" ref="sessionFactory"/>
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 	<!-- Contact Service -->
 	<bean id="contactService" class="de.nak.studentsdatabase.service.ContactServiceImpl">
-		<property name="contactDAO" ref="contactDAO"/>
+		<property name="contactDAO" ref="contactDAO" />
 	</bean>
-	
-	
+
+
 </beans>

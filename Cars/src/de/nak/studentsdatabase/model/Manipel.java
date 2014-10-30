@@ -86,7 +86,7 @@ public class Manipel {
 		this.zenturies.add(zenturie);
 	}
 	
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="MANIPEL_EXAM", joinColumns={ @JoinColumn(name="MANIPEL_ID")},
 				inverseJoinColumns={@JoinColumn(name="EXAM_ID") })
 	public Set<Exam> getExams() {
