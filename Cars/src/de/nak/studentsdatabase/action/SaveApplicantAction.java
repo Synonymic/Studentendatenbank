@@ -27,9 +27,6 @@ public class SaveApplicantAction extends ActionSupport implements Action {
 	/** the studentId */
 	private Long applicantId;
 	
-//	/** the Address */
-//	private Address address;
-	
 	/** the addressId */
 	private Long addressId;
 
@@ -38,7 +35,6 @@ public class SaveApplicantAction extends ActionSupport implements Action {
 
 	@Override
 	public String execute() throws Exception {
-//		applicant.setAddress(address);
 		applicantService.save(applicant);
 		return SUCCESS;
 	}
@@ -62,14 +58,6 @@ public class SaveApplicantAction extends ActionSupport implements Action {
 	public void setApplicantService(ApplicantService applicantService) {
 		this.applicantService = applicantService;
 	}
-
-//	public Address getAddress() {
-//		return address;
-//	}
-//
-//	public void setAddress(Address address) {
-//		this.address = address;
-//	}
 
 	public Long getAddressId() {
 		return addressId;

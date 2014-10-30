@@ -5,11 +5,15 @@ import java.util.List;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
+import de.nak.studentsdatabase.model.Company;
+import de.nak.studentsdatabase.model.Manipel;
 import de.nak.studentsdatabase.model.Student;
+import de.nak.studentsdatabase.model.Zenturie;
 import de.nak.studentsdatabase.service.CompanyService;
 import de.nak.studentsdatabase.service.ManipelService;
 import de.nak.studentsdatabase.service.StudentService;
 import de.nak.studentsdatabase.service.ZenturieService;
+
 
 /**
  * The action for saving a student to the database and displaying
@@ -29,20 +33,6 @@ public class SaveStudentAction extends ActionSupport implements Action {
 	 */
 	private static final long serialVersionUID = -4165196061954364976L;
 
-	private Long inputIdManipel;
-	
-	private Long inputIdZenturie;
-	
-	private Long inputIdCompany;
-	
-	private Long inputIdContact;
-	
-	private ManipelService manipelService;
-	
-	private ZenturieService zenturieService;
-	
-	private CompanyService companyService;
-	
 	/** the Student */
 	private Student student;
 
@@ -54,26 +44,29 @@ public class SaveStudentAction extends ActionSupport implements Action {
 
 	/** the studentService */
 	private StudentService studentService;
-
-	/**
-	 * Saves the student to the database.
-	 *
-	 * @return the result string.
-	 */
-	public String save() {
-		student.setManipel(manipelService.load(inputIdManipel));
-		student.setZenturie(zenturieService.load(inputIdZenturie));
-		student.setCompany(companyService.load(inputIdCompany));
-		studentService.save(student);
-		return SUCCESS;
-	}
+	
+	private List<Manipel> manipelList;
+	
+	private List<Zenturie> zenturieList;
+	
+	private List<Company> companyList;
+	
+	private ManipelService manipelService;
+	
+	private ZenturieService zenturieService;
+	
+	private CompanyService companyService;
 
 	@Override
 	public String execute() throws Exception {
-		studentList = studentService.loadAll();
+		manipelList = manipelService.loadAll();
+		zenturieList = zenturieService.loadAll();
+		companyList = companyService.loadAll();
+		
+		studentService.save(student);
 		return SUCCESS;
 	}
-
+ 
 	public Student getStudent() {
 		return student;
 	}
@@ -94,48 +87,60 @@ public class SaveStudentAction extends ActionSupport implements Action {
 		this.studentService = studentService;
 	}
 
-	public Long getInputIdManipel() {
-		return inputIdManipel;
+	public List<Manipel> getManipelList() {
+		return manipelList;
 	}
 
-	public void setInputIdManipel(Long inputIdManipel) {
-		this.inputIdManipel = inputIdManipel;
+	public void setManipelList(List<Manipel> manipelList) {
+		this.manipelList = manipelList;
 	}
 
-	public Long getInputIdZenturie() {
-		return inputIdZenturie;
+	public List<Zenturie> getZenturieList() {
+		return zenturieList;
 	}
 
-	public void setInputIdZenturie(Long inputIdZenturie) {
-		this.inputIdZenturie = inputIdZenturie;
+	public void setZenturieList(List<Zenturie> zenturieList) {
+		this.zenturieList = zenturieList;
 	}
 
-	public Long getInputIdCompany() {
-		return inputIdCompany;
+	public List<Company> getCompanyList() {
+		return companyList;
 	}
 
-	public void setInputIdCompany(Long inputIdCompany) {
-		this.inputIdCompany = inputIdCompany;
+	public void setCompanyList(List<Company> companyList) {
+		this.companyList = companyList;
 	}
 
-	public Long getInputIdContact() {
-		return inputIdContact;
-	}
-
-	public void setInputIdContact(Long inputIdContact) {
-		this.inputIdContact = inputIdContact;
+	public ManipelService getManipelService() {
+		return manipelService;
 	}
 
 	public void setManipelService(ManipelService manipelService) {
 		this.manipelService = manipelService;
 	}
 
+	public ZenturieService getZenturieService() {
+		return zenturieService;
+	}
+
 	public void setZenturieService(ZenturieService zenturieService) {
 		this.zenturieService = zenturieService;
 	}
 
+	public CompanyService getCompanyService() {
+		return companyService;
+	}
+
 	public void setCompanyService(CompanyService companyService) {
 		this.companyService = companyService;
+	}
+
+	public StudentService getStudentService() {
+		return studentService;
+	}
+
+	public void setStudentList(List<Student> studentList) {
+		this.studentList = studentList;
 	}
 
 }
