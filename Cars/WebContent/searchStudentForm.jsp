@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 
-</body>
-</html>
+<s:form>
+	<s:actionerror/>
+	
+	<s:radio key="lbl.gender" name="gender" list="{'male','female'}" />
+	<s:textfield name="matriculationNumber" key="lbl.enrolmentNumber" />
+	
+	<s:submit key="btn.search" action="SearchStudent" />
+</s:form>
