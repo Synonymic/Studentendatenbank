@@ -1,5 +1,6 @@
 package de.nak.studentsdatabase.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.opensymphony.xwork2.Action;
@@ -30,13 +31,28 @@ public class SearchStudentAction implements Action {
 	
 	/** the matriculationNumber */
 	private String matriculationNumber;
+	
+	/** the matriculationNumberInteger */
+	private Integer matriculationNumberInteger;
 
 	@Override
 	public String execute() throws Exception {
+		studentList = new ArrayList<Student>();
+		
+		if(matriculationNumber != null || matriculationNumber != ""){
+		matriculationNumberInteger = Integer.parseInt(matriculationNumber);
+		}else{
+			matriculationNumberInteger = -1;
+		}
+		
+		if(gender == "" || gender == null){
+			gender = "none";
+		}
+		
 		allStudentsList = studentService.loadAll();
 		for(Student student : allStudentsList){
 			
-			if(student.getMatriculationNumber().equals(matriculationNumber)){
+			if(student.getMatriculationNumber().equals(matriculationNumberInteger)){
 				studentList.add(student);
 			}else if(student.getGender().equals(gender)){
 				studentList.add(student);
@@ -71,6 +87,14 @@ public class SearchStudentAction implements Action {
 
 	public void setMatriculationNumber(String matriculationNumber) {
 		this.matriculationNumber = matriculationNumber;
+	}
+
+	public Integer getMatriculationNumberInteger() {
+		return matriculationNumberInteger;
+	}
+
+	public void setMatriculationNumberInteger(Integer matriculationNumberInteger) {
+		this.matriculationNumberInteger = matriculationNumberInteger;
 	}
 
 }
