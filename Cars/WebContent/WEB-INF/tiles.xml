@@ -7,63 +7,67 @@
 <tiles-definitions>
 	<!-- The main layout. -->
 	<definition name="mainLayout" template="/layout/mainLayout.jsp">
-		<put-attribute name="title" value="Studentsdatabase"/>
-		<put-attribute name="header" value="/header.jsp"/>
-	</definition>
-	
-	<!-- The welcome screen. -->
-	<definition name="welcomeView" extends="mainLayout">
-		<put-attribute name="content" value="/welcomeView.jsp"/>
-	</definition>
-	
-	<!-- The applicantList screen. -->
-	<definition name="applicantList" extends="mainLayout">
-		<put-attribute name="content" value="/applicantList.jsp"/>
-	</definition>
-	
-	<!-- The attendanceList screen. -->
-	<definition name="attendanceList" extends="mainLayout">
-		<put-attribute name="content" value="/attendanceList.jsp"/>
-	</definition>
-	
-	<!-- The resultsList screen. -->
-	<definition name="resultsList" extends="mainLayout">
-		<put-attribute name="content" value="/resultsList.jsp"/>
-	</definition>
-	
-	<!-- The applicantForm. -->
-	<definition name="applicantForm" extends="mainLayout">
-		<put-attribute name="content" value="/applicantForm.jsp"/>
-	</definition>
-	
-	<!-- The studentList screen. -->
-	<definition name="studentList" extends="mainLayout">
-		<put-attribute name="content" value="/studentList.jsp"/>
-	</definition>
-	
-	<!-- The newStudentByApplicantForm screen. -->
-	<definition name="newStudentByApplicantForm" extends="mainLayout">
-		<put-attribute name="content" value="/newStudentByApplicantForm.jsp"/>
-	</definition>
-	
-	<!-- The studentForm. -->
-	<definition name="studentForm" extends="mainLayout">
-		<put-attribute name="content" value="/studentForm.jsp"/>
-	</definition>
-	
-	<!-- The studentForm. -->
-	<definition name="searchStudentForm" extends="mainLayout">
-		<put-attribute name="content" value="/searchStudentForm.jsp"/>
-	</definition>
-	
-	<!-- The editStudentForm screen. -->
-	<definition name="editStudentForm" extends="mainLayout">
-		<put-attribute name="content" value="/editStudentForm.jsp"/>
-	</definition>
-	
-		<!-- The userForm. -->
-	<definition name="userForm" extends="mainLayout">
-		<put-attribute name="content" value="/userForm.jsp"/>
+		<put-attribute name="title" value="Studentsdatabase" />
+		<put-attribute name="header" value="/header.jsp" />
 	</definition>
 
+	<!-- The welcome screen. -->
+	<definition name="welcomeView" extends="mainLayout">
+		<put-attribute name="content" value="/welcomeView.jsp" />
+	</definition>
+
+	<!-- The applicantList screen. -->
+	<definition name="applicantList" extends="mainLayout">
+		<put-attribute name="content" value="/applicantList.jsp" />
+	</definition>
+
+	<!-- The attendanceList screen. -->
+	<definition name="attendanceList" extends="mainLayout">
+		<put-attribute name="content" value="/attendanceList.jsp" />
+	</definition>
+
+	<!-- The resultsList screen. -->
+	<definition name="resultsList" extends="mainLayout">
+		<put-attribute name="content" value="/resultsList.jsp" />
+	</definition>
+
+	<!-- The applicantForm. -->
+	<definition name="applicantForm" extends="mainLayout">
+		<put-attribute name="content" value="/applicantForm.jsp" />
+	</definition>
+
+	<!-- The studentList screen. -->
+	<definition name="studentList" extends="mainLayout">
+		<put-attribute name="content" value="/studentList.jsp" />
+	</definition>
+
+	<!-- The newStudentByApplicantForm screen. -->
+	<definition name="newStudentByApplicantForm" extends="mainLayout">
+		<put-attribute name="content" value="/newStudentByApplicantForm.jsp" />
+	</definition>
+
+	<!-- The studentForm. -->
+	<definition name="studentForm" extends="mainLayout">
+		<put-attribute name="content" value="/studentForm.jsp" />
+	</definition>
+
+	<!-- The studentForm. -->
+	<definition name="searchStudentForm" extends="mainLayout">
+		<put-attribute name="content" value="/searchStudentForm.jsp" />
+	</definition>
+
+	<!-- The editStudentForm screen. -->
+	<definition name="editStudentForm" extends="mainLayout">
+		<put-attribute name="content" value="/editStudentForm.jsp" />
+	</definition>
+
+	<!-- The userForm. -->
+	<definition name="userForm" extends="mainLayout">
+		<put-attribute name="content" value="/userForm.jsp" />
+	</definition>
+
+	<!-- The editTables screen. -->
+	<definition name="editTables" extends="mainLayout">
+		<put-attribute name="content" value="/editTables.jsp" />
+	</definition>
 </tiles-definitions>

@@ -157,7 +157,7 @@
 		<action name="CancelUser"
 			class="de.nak.studentsdatabase.action.CancelUserAction" method="execute">
 			<result type="redirect">ShowWelcomeView.action</result>
-		</action>
+		</action>			
 
 	</package>
 </struts>
