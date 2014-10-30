@@ -5,4 +5,5 @@
 <h1><s:label key="txt.welcome" /></h1>
 <s:form>
 	<s:submit key="btn.logout" action="Logout"/>
+	<s:submit key="btn.addUser" action="NewUser"/>
 </s:form>

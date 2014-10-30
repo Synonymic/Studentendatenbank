@@ -74,22 +74,21 @@
 		</action>
 
 		<!-- Shows the view for searching applicant for student. -->
-		<action name="NewStudent"
-		class="de.nak.studentsdatabase.action.NewStudentAction"
-		method="execute">
+		<action name="NewStudent" class="de.nak.studentsdatabase.action.NewStudentAction"
+			method="execute">
 			<result type="tiles">studentForm</result>
 		</action>
-		
+
 		<action name="NewStudentByApplicant">
 			<result type="tiles">studentForm</result>
 		</action>
-		
-		<action name="SaveStudent"
-			class="de.nak.studentsdatabase.action.SaveStudentAction" method="execute">
+
+		<action name="SaveStudent" class="de.nak.studentsdatabase.action.SaveStudentAction"
+			method="execute">
 			<result type="redirect">ShowStudentList.action</result>
 			<result type="tiles" name="input">studentForm</result>
 		</action>
-		
+
 		<action name="isNewStudentApplicant">
 			<result type="tiles">newStudentByApplicantForm</result>
 		</action>
@@ -100,16 +99,18 @@
 			<result type="chain" name="input">ShowStudentList</result>
 			<result type="tiles">studentForm</result>
 		</action>
-		
+
 		<!-- Action that displays a list of students for attendanceList -->
 		<action name="GenerateAttendanceList"
-			class="de.nak.studentsdatabase.action.GenerateAttendanceListAction" method="execute">
+			class="de.nak.studentsdatabase.action.GenerateAttendanceListAction"
+			method="execute">
 			<result type="tiles">attendanceList</result>
 		</action>
-		
+
 		<!-- Action that displays a list of results for resultList -->
 		<action name="GenerateResultsList"
-			class="de.nak.studentsdatabase.action.GenerateResultsListAction" method="execute">
+			class="de.nak.studentsdatabase.action.GenerateResultsListAction"
+			method="execute">
 			<result type="tiles">resultsList</result>
 		</action>
 
@@ -121,8 +122,28 @@
 			<result name="login">login.jsp</result>
 		</action>
 		<!-- Action for logging out an user. -->
-		<action name="Logout" class="de.nak.studentsdatabase.action.LogInAction" method="logout">
+		<action name="Logout" class="de.nak.studentsdatabase.action.LogInAction"
+			method="logout">
 			<result name="login">login.jsp</result>
+		</action>
+
+		<!-- Shows the empty UserForm. -->
+		<action name="NewUser">
+			<result type="tiles">userForm</result>
+		</action>
+
+		<!-- Action for save an user. -->
+		<action name="SaveUser" class="de.nak.studentsdatabase.action.SaveUserAction"
+			method="execute">
+			<result type="redirect">ShowWelcomeView.action</result>
+			<result type="tiles" name="input">userForm</result>
+		</action>
+	
+		<!-- Action for the cancel button. Is required to avoid stack traces in 
+			log. -->
+		<action name="CancelUser"
+			class="de.nak.studentsdatabase.action.CancelUserAction" method="execute">
+			<result type="redirect">ShowWelcomeView.action</result>
 		</action>
 
 	</package>

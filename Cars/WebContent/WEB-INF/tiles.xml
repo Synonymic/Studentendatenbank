@@ -55,5 +55,10 @@
 	<definition name="editStudentForm" extends="mainLayout">
 		<put-attribute name="content" value="/editStudentForm.jsp"/>
 	</definition>
+	
+		<!-- The userForm. -->
+	<definition name="userForm" extends="mainLayout">
+		<put-attribute name="content" value="/userForm.jsp"/>
+	</definition>
 
 </tiles-definitions>
