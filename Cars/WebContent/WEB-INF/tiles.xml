@@ -66,8 +66,33 @@
 		<put-attribute name="content" value="/userForm.jsp" />
 	</definition>
 
-	<!-- The editTables screen. -->
-	<definition name="editTables" extends="mainLayout">
-		<put-attribute name="content" value="/editTables.jsp" />
+	<!-- The showTables screen. -->
+	<definition name="tablesList" extends="mainLayout">
+		<put-attribute name="content" value="/tablesList.jsp" />
+	</definition>
+
+	<!-- The editContactForm screen. -->
+	<definition name="contactForm" extends="mainLayout">
+		<put-attribute name="content" value="/contactForm.jsp" />
+	</definition>
+
+	<!-- The editCompanyForm screen. -->
+	<definition name="companyForm" extends="mainLayout">
+		<put-attribute name="content" value="/companyForm.jsp" />
+	</definition>
+
+	<!-- The editExamForm screen. -->
+	<definition name="examForm" extends="mainLayout">
+		<put-attribute name="content" value="/examForm.jsp" />
+	</definition>
+
+	<!-- The editManipelForm screen. -->
+	<definition name="manipelForm" extends="mainLayout">
+		<put-attribute name="content" value="/manipelForm.jsp" />
+	</definition>
+
+	<!-- The editZenturieForm screen. -->
+	<definition name="zenturieForm" extends="mainLayout">
+		<put-attribute name="content" value="/zenturieForm.jsp" />
 	</definition>
 </tiles-definitions>

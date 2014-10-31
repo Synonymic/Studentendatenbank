@@ -8,7 +8,7 @@
 	<%-- The buttons --%>
 	<s:submit key="btn.manageApplicants" action="ShowApplicantList"/>
 	<s:submit key="btn.manageStudents" action="ShowStudentList"/>
-	<s:submit key="btn.manageTables" action=""/>
+	<s:submit key="btn.manageTables" action="ShowTablesList"/>
 </s:form>
 <s:form>
 	<s:select name="inputId" key="lbl.zenturie" list="zenturieDisplayMap" />
