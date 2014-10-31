@@ -1,13 +1,8 @@
 package de.nak.studentsdatabase.action;
 
-import java.util.HashMap;
-import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
-
-import de.nak.studentsdatabase.model.Company;
 import de.nak.studentsdatabase.model.Contact;
-import de.nak.studentsdatabase.service.CompanyService;
 import de.nak.studentsdatabase.service.ContactService;
 
 /**
@@ -24,25 +19,8 @@ public class ContactAction extends ActionSupport {
 	private Long contactId;
 	/** The contact service. */
 	private ContactService contactService; 
-	/** the companyList */
-	private CompanyService companyService;
-	/** the zenturieList */
-	private List<Company> companyList;
-	/** the companyDisplayMap */
-	private HashMap<Long, String> companyDisplayMap = new HashMap<Long, String>();
 	
 	
-	@Override
-	public String execute() throws Exception {
-		companyList = companyService.loadAll();
-	
-		for(Company company : companyList) {
-			companyDisplayMap.put(company.getId(), company.getName());
-		}
-		
-		
-		return SUCCESS;
-	}
 	/**
 	 * Saves the contact to the database.
 	 *
@@ -114,26 +92,6 @@ public class ContactAction extends ActionSupport {
 		this.contactService = contactService;
 	}
 
-	public CompanyService getCompanyService() {
-		return companyService;
-	}
-	public void setCompanyService(CompanyService companyService) {
-		this.companyService = companyService;
-	}
-
-	public List<Company> getCompanyList() {
-		return companyList;
-	}
-	public void setCompanyList(List<Company> companyList) {
-		this.companyList = companyList;
-	}
-
-	public HashMap<Long, String> getCompanyDisplayMap() {
-		return companyDisplayMap;
-	}
-	public void setCompanyDisplayMap(HashMap<Long, String> companyDisplayMap) {
-		this.companyDisplayMap = companyDisplayMap;
-	}
 	public ContactService getContactService() {
 		return contactService;
 	}

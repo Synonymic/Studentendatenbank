@@ -9,5 +9,5 @@
 <%--    <s:select name="inputCompanyId" key="lbl.company" list="companyDisplayMap" /> --%>
 	<%-- The buttons --%>
 	<s:submit key="btn.save" action="SaveContact" />
-	<s:submit key="btn.cancel" action="ShowTablesList" />
+	<s:submit key="btn.cancel" action="ShowContactList" />
 </s:form>

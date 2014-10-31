@@ -176,7 +176,7 @@
 		<action name="EditContact" class="de.nak.studentsdatabase.action.ContactAction"
 			method="load">
 			<result type="tiles">contactForm</result>
-			<result type="chain" name="input">ShowTablesList</result>
+			<result type="chain" name="input">ShowContactList</result>
 		</action>
 		<!-- Shows the empty form for a new contact. -->
 		<action name="AddContact">
@@ -186,19 +186,19 @@
 		<action name="DeleteContact" class="de.nak.studentsdatabase.action.ContactAction"
 			method="delete">
 			<result type="redirect">ShowTablesList.action</result>
-			<result type="chain" name="input">ShowTablesList</result>
+			<result type="chain" name="input">Show>ContactList</result>
 		</action>
 		<!-- Action for the cancel button. Is required to avoid stack traces in 
 			log. -->
 		<action name="CancelContact" class="de.nak.studentsdatabase.action.ContactAction"
 			method="cancel">
-			<result type="redirect">ShowTablesList.action</result>
+			<result type="redirect">ShowContactList.action</result>
 		</action>
 		<!-- Saves the new or updated contact into the database and shows the tables 
 			list again. -->
 		<action name="SaveContact" class="de.nak.studentsdatabase.action.ContactAction"
 			method="save">
-			<result type="redirect">ShowTablesList.action</result>
+			<result type="redirect">ShowContactList.action</result>
 			<result type="tiles" name="input">contactForm</result>
 		</action>
 
@@ -206,7 +206,7 @@
 		<action name="EditCompany" class="de.nak.studentsdatabase.action.CompanyAction"
 			method="load">
 			<result type="tiles">companyForm</result>
-			<result type="chain" name="input">ShowTablesList</result>
+			<result type="chain" name="input">ShowCompanyList</result>
 		</action>
 		<!-- Shows the empty form for a new company. -->
 		<action name="AddCompany">
@@ -215,28 +215,28 @@
 		<!-- Deletes the selected company and shows the tables list again. -->
 		<action name="DeleteCompany" class="de.nak.studentsdatabase.action.CompanyAction"
 			method="delete">
-			<result type="redirect">ShowTablesList.action</result>
-			<result type="chain" name="input">ShowTablesList</result>
+			<result type="redirect">ShowCompanyList.action</result>
+			<result type="chain" name="input">ShowCompanyList</result>
 		</action>
 		<!-- Action for the cancel button. Is required to avoid stack traces in 
 			log. -->
 		<action name="CancelCompany" class="de.nak.studentsdatabase.action.CompanyAction"
 			method="cancel">
-			<result type="redirect">ShowTablesList.action</result>
+			<result type="redirect">ShowCompanyList.action</result>
 		</action>
 		<!-- Saves the new or updated company into the database and shows the tables 
 			list again. -->
 		<action name="SaveCompany" class="de.nak.studentsdatabase.action.CompanyAction"
 			method="save">
-			<result type="redirect">ShowTablesList.action</result>
+			<result type="redirect">ShowCompanyList.action</result>
 			<result type="tiles" name="input">companyForm</result>
 		</action>
-		
+
 		<!-- Loads an existing exam and shows it in the exam form. -->
 		<action name="EditExam" class="de.nak.studentsdatabase.action.ExamAction"
 			method="load">
 			<result type="tiles">examForm</result>
-			<result type="chain" name="input">ShowTablesList</result>
+			<result type="chain" name="input">ShowExamList</result>
 		</action>
 		<!-- Shows the empty form for a new exam. -->
 		<action name="AddExam">
@@ -245,28 +245,28 @@
 		<!-- Deletes the selected exam and shows the tables list again. -->
 		<action name="DeleteExam" class="de.nak.studentsdatabase.action.ExamAction"
 			method="delete">
-			<result type="redirect">ShowTablesList.action</result>
-			<result type="chain" name="input">ShowTablesList</result>
+			<result type="redirect">ShowExamList.action</result>
+			<result type="chain" name="input">ShowExamList</result>
 		</action>
 		<!-- Action for the cancel button. Is required to avoid stack traces in 
 			log. -->
 		<action name="CancelExam" class="de.nak.studentsdatabase.action.ExamAction"
 			method="cancel">
-			<result type="redirect">ShowTablesList.action</result>
+			<result type="redirect">ShowExamList.action</result>
 		</action>
-		<!-- Saves the new or updated exam into the database and shows the tables list 
-			again. -->
+		<!-- Saves the new or updated exam into the database and shows the tables 
+			list again. -->
 		<action name="SaveExam" class="de.nak.studentsdatabase.action.ExamAction"
 			method="save">
-			<result type="redirect">ShowTablesList.action</result>
+			<result type="redirect">ShowExamList.action</result>
 			<result type="tiles" name="input">examForm</result>
 		</action>
-		
+
 		<!-- Loads an existing manipel and shows it in the manipel form. -->
 		<action name="EditManipel" class="de.nak.studentsdatabase.action.ManipelAction"
 			method="load">
 			<result type="tiles">manipelForm</result>
-			<result type="chain" name="input">ShowTablesList</result>
+			<result type="chain" name="input">ShowManipelList</result>
 		</action>
 		<!-- Shows the empty form for a new manipel. -->
 		<action name="AddManipel">
@@ -275,28 +275,28 @@
 		<!-- Deletes the selected manipel and shows the tables list again. -->
 		<action name="DeleteManipel" class="de.nak.studentsdatabase.action.ManipelAction"
 			method="delete">
-			<result type="redirect">ShowTablesList.action</result>
+			<result type="redirect">ShowManipelList.action</result>
 			<result type="chain" name="input">ShowTablesList</result>
 		</action>
 		<!-- Action for the cancel button. Is required to avoid stack traces in 
 			log. -->
 		<action name="CancelManipel" class="de.nak.studentsdatabase.action.ManipelAction"
 			method="cancel">
-			<result type="redirect">ShowTablesList.action</result>
+			<result type="redirect">ShowManipelList.action</result>
 		</action>
-		<!-- Saves the new or updated manipel into the database and shows the tables list 
-			again. -->
+		<!-- Saves the new or updated manipel into the database and shows the tables 
+			list again. -->
 		<action name="SaveManipel" class="de.nak.studentsdatabase.action.ManipelAction"
 			method="save">
-			<result type="redirect">ShowTablesList.action</result>
+			<result type="redirect">ShowManipelList.action</result>
 			<result type="tiles" name="input">manipelForm</result>
 		</action>
-		
+
 		<!-- Loads a existing zenturie and shows it in the zenturie form. -->
 		<action name="EditZenturie" class="de.nak.studentsdatabase.action.ZenturieAction"
 			method="load">
 			<result type="tiles">zenturieForm</result>
-			<result type="chain" name="input">ShowTablesList</result>
+			<result type="chain" name="input">ShowZenturieList</result>
 		</action>
 		<!-- Shows the empty form for a new zenturie. -->
 		<action name="AddZenturie">
@@ -305,21 +305,52 @@
 		<!-- Deletes the selected zenturie and shows the tables list again. -->
 		<action name="DeleteZenturie" class="de.nak.studentsdatabase.action.ZenturieAction"
 			method="delete">
-			<result type="redirect">ShowTablesList.action</result>
-			<result type="chain" name="input">ShowTablesList</result>
+			<result type="redirect">ShowZenturieList.action</result>
+			<result type="chain" name="input">ShowZenturieList</result>
 		</action>
 		<!-- Action for the cancel button. Is required to avoid stack traces in 
 			log. -->
 		<action name="CancelZenturie" class="de.nak.studentsdatabase.action.ZenturieAction"
 			method="cancel">
-			<result type="redirect">ShowTablesList.action</result>
+			<result type="redirect">ShowZenturieList.action</result>
 		</action>
-		<!-- Saves the new or updated zenturie into the database and shows the tables list 
-			again. -->
+		<!-- Saves the new or updated zenturie into the database and shows the 
+			tables list again. -->
 		<action name="SaveZenturie" class="de.nak.studentsdatabase.action.ZenturieAction"
 			method="save">
-			<result type="redirect">ShowTablesList.action</result>
+			<result type="redirect">ShowZenturieList.action</result>
 			<result type="tiles" name="input">zenturieForm</result>
 		</action>
+
+		<!-- Action that displays the list of companies. -->
+		<action name="ShowCompanyList"
+			class="de.nak.studentsdatabase.action.ShowCompanyListAction" method="execute">
+			<result type="tiles">companyList</result>
+		</action>
+		
+				<!-- Action that displays the list of contacts. -->
+		<action name="ShowContactList"
+			class="de.nak.studentsdatabase.action.ShowContactListAction" method="execute">
+			<result type="tiles">contactList</result>
+		</action>
+		
+				<!-- Action that displays the list of exams. -->
+		<action name="ShowExamList"
+			class="de.nak.studentsdatabase.action.ShowExamListAction" method="execute">
+			<result type="tiles">examList</result>
+		</action>
+		
+				<!-- Action that displays the list of manipels. -->
+		<action name="ShowManipelList"
+			class="de.nak.studentsdatabase.action.ShowManipelListAction" method="execute">
+			<result type="tiles">manipelList</result>
+		</action>
+		
+				<!-- Action that displays the list of zenturies. -->
+		<action name="ShowZenturieList"
+			class="de.nak.studentsdatabase.action.ShowZenturieListAction" method="execute">
+			<result type="tiles">zenturieList</result>
+		</action>
+
 	</package>
 </struts>

@@ -8,5 +8,5 @@
 	<s:textfield name="exam.grade" key="lbl.grade" size="40" maxlength="100" requiredLabel="true" />
 	<%-- The buttons --%>
 	<s:submit key="btn.save" action="SaveExam" />
-	<s:submit key="btn.cancel" action="ShowTablesList" />
+	<s:submit key="btn.cancel" action="ShowExamList" />
 </s:form>

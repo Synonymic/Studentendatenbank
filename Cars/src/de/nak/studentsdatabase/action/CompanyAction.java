@@ -21,7 +21,7 @@ public class CompanyAction extends ActionSupport {
 	private CompanyService companyService;
 
 	/**
-	 * Saves the car to the database.
+	 * Saves the company to the database.
 	 *
 	 * @return the result string.
 	 */

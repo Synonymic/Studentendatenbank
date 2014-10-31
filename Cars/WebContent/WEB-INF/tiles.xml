@@ -95,4 +95,29 @@
 	<definition name="zenturieForm" extends="mainLayout">
 		<put-attribute name="content" value="/zenturieForm.jsp" />
 	</definition>
+
+	<!-- The companyList screen. -->
+	<definition name="companyList" extends="mainLayout">
+		<put-attribute name="content" value="/companyList.jsp" />
+	</definition>
+
+	<!-- The contactList screen. -->
+	<definition name="contactList" extends="mainLayout">
+		<put-attribute name="content" value="/contactList.jsp" />
+	</definition>
+
+	<!-- The examList screen. -->
+	<definition name="examList" extends="mainLayout">
+		<put-attribute name="content" value="/examList.jsp" />
+	</definition>
+
+	<!-- The manipelList screen. -->
+	<definition name="manipelList" extends="mainLayout">
+		<put-attribute name="content" value="/manipelList.jsp" />
+	</definition>
+
+	<!-- The zenturieList screen. -->
+	<definition name="zenturieList" extends="mainLayout">
+		<put-attribute name="content" value="/zenturieList.jsp" />
+	</definition>
 </tiles-definitions>
