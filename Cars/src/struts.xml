@@ -79,7 +79,9 @@
 			<result type="tiles">studentForm</result>
 		</action>
 
-		<action name="NewStudentByApplicant">
+		<action name="NewStudentByApplicant" class="de.nak.studentsdatabase.action.NewStudentByApplicantAction"
+		method="execute">
+			<result type="chain" name="input">newStudentByApplicantForm</result>
 			<result type="tiles">studentForm</result>
 		</action>
 
@@ -89,7 +91,8 @@
 			<result type="tiles" name="input">studentForm</result>
 		</action>
 
-		<action name="isNewStudentApplicant">
+		<action name="isNewStudentApplicant" class="de.nak.studentsdatabase.action.IsNewStudentApplicantAction"
+			method="execute">
 			<result type="tiles">newStudentByApplicantForm</result>
 		</action>
 
