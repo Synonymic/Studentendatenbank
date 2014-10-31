@@ -33,9 +33,14 @@ public class GenerateAttendanceListAction implements Action {
 	public String execute() throws Exception {
 		studentList = studentService.loadAll();
 		studentsOfZenturieList = new ArrayList<Student>();
+		
 		for(Student student : studentList){
+			try{
 			if(inputId.equals(student.getZenturie().getId())){
 				studentsOfZenturieList.add(student);
+			}
+			}catch(NullPointerException e){
+				continue;
 			}
 		}
 		return SUCCESS;

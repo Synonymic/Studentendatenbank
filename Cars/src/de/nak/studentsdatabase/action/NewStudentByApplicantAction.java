@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.opensymphony.xwork2.Action;
 
+import de.nak.studentsdatabase.model.Address;
 import de.nak.studentsdatabase.model.Applicant;
 import de.nak.studentsdatabase.model.Company;
 import de.nak.studentsdatabase.model.Contact;
@@ -61,6 +62,9 @@ public class NewStudentByApplicantAction implements Action {
 	
 	private List<Company> companyList;
 	
+	/** the addres */
+	private Address address;
+	
 	/** the zenturieDisplayMap hashMap */
 	private HashMap<Long, String> zenturieDisplayMap = new HashMap<Long, String>();
 
@@ -78,6 +82,8 @@ public class NewStudentByApplicantAction implements Action {
 	 * @return the result string.
 	 */
 	public String execute() {
+		student = new Student();
+		
 		zenturieList = zenturieService.loadAll();
 		manipelList = manipelService.loadAll();
 		companyList = companyService.loadAll();
@@ -85,36 +91,44 @@ public class NewStudentByApplicantAction implements Action {
 		
 		for(Zenturie zenturie : zenturieList){
 			zenturieDisplayMap.put(zenturie.getId(), zenturie.getName());
-			student.setZenturie(zenturie);
 		}
 		
 		for(Manipel manipel : manipelList) {
 			manipelDisplayMap.put(manipel.getId(), manipel.getCourseOfStudy() + 
 					manipel.getVintage().toString());
-			student.setManipel(manipel);
 		}
 
 		for(Company company : companyList){
 			companyDisplayMap.put(company.getId(), company.getName());
-			student.setCompany(company);
 		}
 		
 		for(Contact contact : contactList){
 			contactDisplayMap.put(contact.getId(), contact.getName());
-			student.setContact(contact);
 		}
 		
 		applicant = applicantService.load(applicantId);
 		
-		// immatrikulieren
-		student = new Student();
-		student.setAddress(applicant.getAddress());
+		// take over address without violating the id.
+		address = new Address();
+		address.setAddition(applicant.getAddress().getAddition());
+		address.setCity(applicant.getAddress().getCity());
+		address.setEmail(applicant.getAddress().getEmail());
+		address.setFax(applicant.getAddress().getFax());
+		address.setHouseNumber(applicant.getAddress().getHouseNumber());
+		address.setPostcode(applicant.getAddress().getPostcode());
+		address.setStreet(applicant.getAddress().getStreet());
+		address.setTelephoneNumber(applicant.getAddress().getTelephoneNumber());
+		
+		student.setAddress(address);
+		
+		//take over student-data without violating the id.
 		student.setName(applicant.getName());
 		student.setDayOfBirth(applicant.getDayOfBirth());
 		student.setFirstName(applicant.getFirstName());
 		student.setGender(applicant.getGender());
 		student.setPlaceOfBirth(applicant.getPlaceOfBirth());
 		student.setSalutation(applicant.getSalutation());
+		student.setMatriculationNumber(12345);
 		
 		// Student speichern, Bewerber löschen
 		studentService.save(student);

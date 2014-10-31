@@ -20,6 +20,7 @@
 	<%-- The buttons --%>
 	<s:submit key="btn.add" action="NewApplicant" />
 	<s:submit key="btn.edit" action="EditApplicant" />
+	<s:submit key="btn.EnrollApplicant" action="NewStudentByApplicant" />
 	<s:submit key="btn.delete" action="DeleteApplicant" />
 	<s:submit key="btn.back" action="ShowWelcomeView" />
 </s:form>
