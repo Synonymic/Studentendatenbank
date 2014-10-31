@@ -28,7 +28,8 @@ public class Student extends Applicant{
 	private Set<Exam> exams;
 	/** The associated zenturie of a student. */
 	private Zenturie zenturie;
-	
+	/** The associated contact of a student.*/
+	private Contact contact;
 	
 	
 	@Column(name="student_id")
@@ -99,6 +100,16 @@ public class Student extends Applicant{
 	public void setZenturie(Zenturie zenturie) {
 		this.zenturie = zenturie;
 	}	
+	
+	@ManyToOne
+	@JoinColumn(name = "CONTACT_ID")
+	public Contact getContact() {
+		return contact;
+	}
+
+	public void setContact(Contact contact) {
+		this.contact = contact;
+	}
 
 	/** {@inheritDoc} */
 	@Override

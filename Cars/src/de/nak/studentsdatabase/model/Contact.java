@@ -1,6 +1,9 @@
 package de.nak.studentsdatabase.model;
 
+import java.util.Set;
+
 import javax.persistence.*;
+
 import org.hibernate.annotations.NaturalId;
 
 /**
@@ -19,6 +22,8 @@ public class Contact {
 	private String firstName;
 	/** The associated company. */
 	private Company company;
+	/** The set of associated students */;
+	private Set<Student> students;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -58,6 +63,15 @@ public class Contact {
 
 	public void setCompany(Company company) {
 		this.company = company;
+	}
+	
+	@OneToMany(mappedBy = "contact")
+	public Set<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(Set<Student> students) {
+		this.students = students;
 	}
 	
 	
