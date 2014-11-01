@@ -45,6 +45,15 @@ public class SaveStudentAction extends ActionSupport implements Action {
 	/** the studentService */
 	private StudentService studentService;
 	
+	/** the inputManipelId */
+	private Long inputManipelId;
+	
+	/** the inputZenturieId */
+	private Long inputZenturieId;
+	
+	/** the inputCompanyId */
+	private Long inputCompanyId;
+	
 	private List<Manipel> manipelList;
 	
 	private List<Zenturie> zenturieList;
@@ -62,6 +71,28 @@ public class SaveStudentAction extends ActionSupport implements Action {
 		manipelList = manipelService.loadAll();
 		zenturieList = zenturieService.loadAll();
 		companyList = companyService.loadAll();
+		
+
+		for(Zenturie zenturie : zenturieList){
+			if(inputZenturieId.equals(zenturie.getId())){
+				student.setZenturie(zenturie);
+			}
+		}
+		
+		
+		// The zenturie needs to match the manipel, regardless of
+		// the selected id.
+		for(Manipel manipel : manipelList){
+			if(inputManipelId.equals(student.getZenturie().getManipel().getId())){
+				student.setManipel(manipel);
+			}
+		}
+		
+		for(Company company : companyList){
+			if(inputCompanyId.equals(company.getId())){
+				student.setCompany(company);
+			}
+		}
 		
 		studentService.save(student);
 		return SUCCESS;
@@ -141,6 +172,30 @@ public class SaveStudentAction extends ActionSupport implements Action {
 
 	public void setStudentList(List<Student> studentList) {
 		this.studentList = studentList;
+	}
+
+	public Long getInputManipelId() {
+		return inputManipelId;
+	}
+
+	public void setInputManipelId(Long inputManipelId) {
+		this.inputManipelId = inputManipelId;
+	}
+
+	public Long getInputZenturieId() {
+		return inputZenturieId;
+	}
+
+	public void setInputZenturieId(Long inputZenturieId) {
+		this.inputZenturieId = inputZenturieId;
+	}
+
+	public Long getInputCompanyId() {
+		return inputCompanyId;
+	}
+
+	public void setInputCompanyId(Long inputCompanyId) {
+		this.inputCompanyId = inputCompanyId;
 	}
 
 }

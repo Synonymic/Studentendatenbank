@@ -8,6 +8,8 @@ import de.nak.studentsdatabase.model.Company;
 import de.nak.studentsdatabase.model.Manipel;
 import de.nak.studentsdatabase.model.Zenturie;
 import de.nak.studentsdatabase.service.CompanyService;
+import de.nak.studentsdatabase.service.ContactService;
+import de.nak.studentsdatabase.service.ExamService;
 import de.nak.studentsdatabase.service.ManipelService;
 import de.nak.studentsdatabase.service.ZenturieService;
 
@@ -26,6 +28,10 @@ public class NewStudentAction implements Action {
 	private ManipelService manipelService; 
 	
 	private CompanyService companyService;
+	
+	private ExamService examService;
+	
+	private ContactService contactService;
 	
 	private Long inputZenturieId;
 	
