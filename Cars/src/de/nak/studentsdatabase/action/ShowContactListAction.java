@@ -6,10 +6,12 @@ import java.util.List;
 import com.opensymphony.xwork2.Action;
 
 
+
+
+import de.nak.studentsdatabase.model.Company;
 import de.nak.studentsdatabase.model.Contact;
-import de.nak.studentsdatabase.model.Student;
+import de.nak.studentsdatabase.service.CompanyService;
 import de.nak.studentsdatabase.service.ContactService;
-import de.nak.studentsdatabase.service.StudentService;
 
 /**
  * The action to show a list of all contacts.
@@ -18,24 +20,24 @@ import de.nak.studentsdatabase.service.StudentService;
  *
  */
 public class ShowContactListAction implements Action {
-	/** the student list. */
-	private List<Student> studentList;
-	/** The student service */
-	private StudentService studentService;
+	/** the company list. */
+	private List<Company> companyList;
+	/** The company service */
+	private CompanyService companyService;
 	/** the contactList */
 	private List<Contact> contactList;
 	/** the contact service */
 	private ContactService contactService;
 	/** the contactDisplayMap hashMap */
-	private HashMap<Long, String> studentDisplayMap = new HashMap<Long, String>();
+	private HashMap<Long, String> companyDisplayMap = new HashMap<Long, String>();
 
 	@Override
 	public String execute() throws Exception {
 		contactList = contactService.loadAll();
-		studentList = studentService.loadAll();
+		companyList = companyService.loadAll();
 		
-		for(Student student : studentList){
-			studentDisplayMap.put(student.getId(), student.getName()+" "+student.getFirstName());
+		for(Company company : companyList){
+			companyDisplayMap.put(company.getId(), company.getName());
 		}
 		return SUCCESS;
 	}
@@ -58,34 +60,36 @@ public class ShowContactListAction implements Action {
 	}
 
 
-	public List<Student> getStudentList() {
-		return studentList;
+	public List<Company> getCompanyList() {
+		return companyList;
 	}
 
 
-	public void setStudentList(List<Student> studentList) {
-		this.studentList = studentList;
+	public void setCompanyList(List<Company> companyList) {
+		this.companyList = companyList;
 	}
 
 
-	public StudentService getStudentService() {
-		return studentService;
+	public CompanyService getCompanyService() {
+		return companyService;
 	}
 
 
-	public void setStudentService(StudentService studentService) {
-		this.studentService = studentService;
+	public void setCompanyService(CompanyService companyService) {
+		this.companyService = companyService;
 	}
 
 
-	public HashMap<Long, String> getStudentDisplayMap() {
-		return studentDisplayMap;
+	public HashMap<Long, String> getCompanyDisplayMap() {
+		return companyDisplayMap;
 	}
 
 
-	public void setStudentDisplayMap(HashMap<Long, String> studentDisplayMap) {
-		this.studentDisplayMap = studentDisplayMap;
+	public void setCompanyDisplayMap(HashMap<Long, String> companyDisplayMap) {
+		this.companyDisplayMap = companyDisplayMap;
 	}
+
+
 
 
 	

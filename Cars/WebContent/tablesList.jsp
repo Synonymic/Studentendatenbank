@@ -3,7 +3,7 @@
 
 <s:form>
 	<s:actionerror />
-
+		<s:submit key="btn.back" action="ShowWelcomeView" />
 	<s:form>
 		<%-- The company table --%>
 		<h3>Company Management</h3>
@@ -42,5 +42,4 @@
 		<%-- The buttons --%>
 		<s:submit key="btn.manage" action="ShowZenturieList" />
 	</s:form>
-	<s:submit key="btn.cancel" action="ShowWelcomeView" />
 </s:form>

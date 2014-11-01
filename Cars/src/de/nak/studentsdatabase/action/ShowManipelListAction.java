@@ -45,6 +45,10 @@ public class ShowManipelListAction implements Action {
 		for(Zenturie zenturie : zenturieList){
 			zenturieDisplayMap.put(zenturie.getId(), zenturie.getName());
 		}
+		
+		for(Exam exam : examList){
+			examDisplayMap.put(exam.getId(), exam.getName());
+		}
 		return SUCCESS;
 	}
 

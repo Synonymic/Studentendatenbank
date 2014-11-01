@@ -28,11 +28,13 @@
 		<action name="ShowApplicantList"
 			class="de.nak.studentsdatabase.action.ShowApplicantListAction"
 			method="execute">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">applicantList</result>
 		</action>
 
 		<!-- Shows the empty applicantForm. -->
 		<action name="NewApplicant">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">applicantForm</result>
 		</action>
 
@@ -40,6 +42,7 @@
 			log. -->
 		<action name="SaveApplicant"
 			class="de.nak.studentsdatabase.action.SaveApplicantAction" method="execute">
+			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowApplicantList.action</result>
 			<result type="tiles" name="input">applicantForm</result>
 		</action>
@@ -48,6 +51,7 @@
 			log. -->
 		<action name="EditApplicant"
 			class="de.nak.studentsdatabase.action.EditApplicantAction" method="execute">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">applicantForm</result>
 			<result type="chain" name="input">ShowApplicantsList</result>
 		</action>
@@ -56,6 +60,7 @@
 			log. -->
 		<action name="DeleteApplicant"
 			class="de.nak.studentsdatabase.action.DeleteApplicantAction" method="execute">
+			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowApplicantList.action</result>
 			<result type="chain" name="input">ShowApplicantList</result>
 		</action>
@@ -64,30 +69,35 @@
 			log. -->
 		<action name="CancelApplicant"
 			class="de.nak.studentsdatabase.action.CancelApplicantAction" method="execute">
+			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowApplicantList.action</result>
 		</action>
 
 		<!-- Action that displays the list of applicants. -->
 		<action name="ShowStudentList"
 			class="de.nak.studentsdatabase.action.ShowStudentListAction" method="execute">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">studentList</result>
 		</action>
 
 		<!-- Shows the view for searching applicant for student. -->
 		<action name="NewStudent" class="de.nak.studentsdatabase.action.NewStudentAction"
 			method="execute">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">studentForm</result>
 		</action>
 
 		<action name="NewStudentByApplicant"
 			class="de.nak.studentsdatabase.action.NewStudentByApplicantAction"
 			method="execute">
+			<interceptor-ref name="loginStack" />
 			<result type="chain" name="input">newStudentByApplicantForm</result>
 			<result type="tiles">studentForm</result>
 		</action>
 
 		<action name="SaveStudent" class="de.nak.studentsdatabase.action.SaveStudentAction"
 			method="execute">
+			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowStudentList.action</result>
 			<result type="tiles" name="input">studentForm</result>
 		</action>
@@ -95,12 +105,14 @@
 		<action name="isNewStudentApplicant"
 			class="de.nak.studentsdatabase.action.IsNewStudentApplicantAction"
 			method="execute">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">newStudentByApplicantForm</result>
 		</action>
 
 		<!-- Action for the cancel button. Is required to avoid stack traces in 
 			log. -->
 		<action name="EditStudent" class="de.nak.studentsdatabase.action.EditStudentAction">
+			<interceptor-ref name="loginStack" />
 			<result type="chain" name="input">ShowStudentList</result>
 			<result type="tiles">studentForm</result>
 		</action>
@@ -109,12 +121,14 @@
 			log. -->
 		<action name="SearchStudent"
 			class="de.nak.studentsdatabase.action.SearchStudentAction" method="execute">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">studentList</result>
 		</action>
 
 		<!-- Action for the cancel button. Is required to avoid stack traces in 
 			log. -->
 		<action name="ShowSearchStudentView">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">searchStudentForm</result>
 		</action>
 
@@ -122,6 +136,7 @@
 		<action name="GenerateAttendanceList"
 			class="de.nak.studentsdatabase.action.GenerateAttendanceListAction"
 			method="execute">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">attendanceList</result>
 		</action>
 
@@ -129,6 +144,7 @@
 		<action name="GenerateResultsList"
 			class="de.nak.studentsdatabase.action.GenerateResultsListAction"
 			method="execute">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">resultsList</result>
 		</action>
 
@@ -142,17 +158,20 @@
 		<!-- Action for logging out an user. -->
 		<action name="Logout" class="de.nak.studentsdatabase.action.LogInAction"
 			method="logout">
+			<interceptor-ref name="defaultStack" />
 			<result name="login">login.jsp</result>
 		</action>
 
 		<!-- Shows the empty UserForm. -->
 		<action name="NewUser">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">userForm</result>
 		</action>
 
 		<!-- Action for save an user. -->
 		<action name="SaveUser" class="de.nak.studentsdatabase.action.SaveUserAction"
 			method="execute">
+			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowWelcomeView.action</result>
 			<result type="tiles" name="input">userForm</result>
 		</action>
@@ -161,6 +180,7 @@
 			log. -->
 		<action name="CancelUser" class="de.nak.studentsdatabase.action.CancelUserAction"
 			method="execute">
+			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowWelcomeView.action</result>
 		</action>
 
@@ -175,16 +195,19 @@
 		<!-- Loads an existing contact and shows it in the contact form. -->
 		<action name="EditContact" class="de.nak.studentsdatabase.action.ContactAction"
 			method="load">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">contactForm</result>
 			<result type="chain" name="input">ShowContactList</result>
 		</action>
 		<!-- Shows the empty form for a new contact. -->
 		<action name="AddContact">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">contactForm</result>
 		</action>
 		<!-- Deletes the selected contact and shows the tables list again. -->
 		<action name="DeleteContact" class="de.nak.studentsdatabase.action.ContactAction"
 			method="delete">
+			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowTablesList.action</result>
 			<result type="chain" name="input">Show>ContactList</result>
 		</action>
@@ -192,12 +215,14 @@
 			log. -->
 		<action name="CancelContact" class="de.nak.studentsdatabase.action.ContactAction"
 			method="cancel">
+			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowContactList.action</result>
 		</action>
 		<!-- Saves the new or updated contact into the database and shows the tables 
 			list again. -->
 		<action name="SaveContact" class="de.nak.studentsdatabase.action.ContactAction"
 			method="save">
+			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowContactList.action</result>
 			<result type="tiles" name="input">contactForm</result>
 		</action>
@@ -205,16 +230,19 @@
 		<!-- Loads an existing company and shows it in the company form. -->
 		<action name="EditCompany" class="de.nak.studentsdatabase.action.CompanyAction"
 			method="load">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">companyForm</result>
 			<result type="chain" name="input">ShowCompanyList</result>
 		</action>
 		<!-- Shows the empty form for a new company. -->
 		<action name="AddCompany">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">companyForm</result>
 		</action>
 		<!-- Deletes the selected company and shows the tables list again. -->
 		<action name="DeleteCompany" class="de.nak.studentsdatabase.action.CompanyAction"
 			method="delete">
+			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowCompanyList.action</result>
 			<result type="chain" name="input">ShowCompanyList</result>
 		</action>
@@ -222,12 +250,14 @@
 			log. -->
 		<action name="CancelCompany" class="de.nak.studentsdatabase.action.CompanyAction"
 			method="cancel">
+			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowCompanyList.action</result>
 		</action>
 		<!-- Saves the new or updated company into the database and shows the tables 
 			list again. -->
 		<action name="SaveCompany" class="de.nak.studentsdatabase.action.CompanyAction"
 			method="save">
+			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowCompanyList.action</result>
 			<result type="tiles" name="input">companyForm</result>
 		</action>
@@ -235,16 +265,19 @@
 		<!-- Loads an existing exam and shows it in the exam form. -->
 		<action name="EditExam" class="de.nak.studentsdatabase.action.ExamAction"
 			method="load">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">examForm</result>
 			<result type="chain" name="input">ShowExamList</result>
 		</action>
 		<!-- Shows the empty form for a new exam. -->
 		<action name="AddExam">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">examForm</result>
 		</action>
 		<!-- Deletes the selected exam and shows the tables list again. -->
 		<action name="DeleteExam" class="de.nak.studentsdatabase.action.ExamAction"
 			method="delete">
+			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowExamList.action</result>
 			<result type="chain" name="input">ShowExamList</result>
 		</action>
@@ -252,12 +285,14 @@
 			log. -->
 		<action name="CancelExam" class="de.nak.studentsdatabase.action.ExamAction"
 			method="cancel">
+			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowExamList.action</result>
 		</action>
 		<!-- Saves the new or updated exam into the database and shows the tables 
 			list again. -->
 		<action name="SaveExam" class="de.nak.studentsdatabase.action.ExamAction"
 			method="save">
+			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowExamList.action</result>
 			<result type="tiles" name="input">examForm</result>
 		</action>
@@ -265,16 +300,19 @@
 		<!-- Loads an existing manipel and shows it in the manipel form. -->
 		<action name="EditManipel" class="de.nak.studentsdatabase.action.ManipelAction"
 			method="load">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">manipelForm</result>
 			<result type="chain" name="input">ShowManipelList</result>
 		</action>
 		<!-- Shows the empty form for a new manipel. -->
 		<action name="AddManipel">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">ManipelForm</result>
 		</action>
 		<!-- Deletes the selected manipel and shows the tables list again. -->
 		<action name="DeleteManipel" class="de.nak.studentsdatabase.action.ManipelAction"
 			method="delete">
+			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowManipelList.action</result>
 			<result type="chain" name="input">ShowTablesList</result>
 		</action>
@@ -282,12 +320,14 @@
 			log. -->
 		<action name="CancelManipel" class="de.nak.studentsdatabase.action.ManipelAction"
 			method="cancel">
+			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowManipelList.action</result>
 		</action>
 		<!-- Saves the new or updated manipel into the database and shows the tables 
 			list again. -->
 		<action name="SaveManipel" class="de.nak.studentsdatabase.action.ManipelAction"
 			method="save">
+			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowManipelList.action</result>
 			<result type="tiles" name="input">manipelForm</result>
 		</action>
@@ -295,16 +335,19 @@
 		<!-- Loads a existing zenturie and shows it in the zenturie form. -->
 		<action name="EditZenturie" class="de.nak.studentsdatabase.action.ZenturieAction"
 			method="load">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">zenturieForm</result>
 			<result type="chain" name="input">ShowZenturieList</result>
 		</action>
 		<!-- Shows the empty form for a new zenturie. -->
 		<action name="AddZenturie">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">zenturieForm</result>
 		</action>
 		<!-- Deletes the selected zenturie and shows the tables list again. -->
 		<action name="DeleteZenturie" class="de.nak.studentsdatabase.action.ZenturieAction"
 			method="delete">
+			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowZenturieList.action</result>
 			<result type="chain" name="input">ShowZenturieList</result>
 		</action>
@@ -312,12 +355,14 @@
 			log. -->
 		<action name="CancelZenturie" class="de.nak.studentsdatabase.action.ZenturieAction"
 			method="cancel">
+			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowZenturieList.action</result>
 		</action>
 		<!-- Saves the new or updated zenturie into the database and shows the 
 			tables list again. -->
 		<action name="SaveZenturie" class="de.nak.studentsdatabase.action.ZenturieAction"
 			method="save">
+			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowZenturieList.action</result>
 			<result type="tiles" name="input">zenturieForm</result>
 		</action>
@@ -325,30 +370,35 @@
 		<!-- Action that displays the list of companies. -->
 		<action name="ShowCompanyList"
 			class="de.nak.studentsdatabase.action.ShowCompanyListAction" method="execute">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">companyList</result>
 		</action>
-		
-				<!-- Action that displays the list of contacts. -->
+
+		<!-- Action that displays the list of contacts. -->
 		<action name="ShowContactList"
 			class="de.nak.studentsdatabase.action.ShowContactListAction" method="execute">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">contactList</result>
 		</action>
-		
-				<!-- Action that displays the list of exams. -->
+
+		<!-- Action that displays the list of exams. -->
 		<action name="ShowExamList"
 			class="de.nak.studentsdatabase.action.ShowExamListAction" method="execute">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">examList</result>
 		</action>
-		
-				<!-- Action that displays the list of manipels. -->
+
+		<!-- Action that displays the list of manipels. -->
 		<action name="ShowManipelList"
 			class="de.nak.studentsdatabase.action.ShowManipelListAction" method="execute">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">manipelList</result>
 		</action>
-		
-				<!-- Action that displays the list of zenturies. -->
+
+		<!-- Action that displays the list of zenturies. -->
 		<action name="ShowZenturieList"
 			class="de.nak.studentsdatabase.action.ShowZenturieListAction" method="execute">
+			<interceptor-ref name="loginStack" />
 			<result type="tiles">zenturieList</result>
 		</action>
 

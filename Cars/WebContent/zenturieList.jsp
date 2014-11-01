@@ -25,9 +25,9 @@
 			</s:iterator>
 		</table>
 		<%-- The buttons --%>
-		<s:submit key="btn.add" action="AddExam" />
-		<s:submit key="btn.edit" action="EditExam" />
-		<s:submit key="btn.delete" action="DeleteExam" />
+		<s:submit key="btn.add" action="AddZenturie" />
+		<s:submit key="btn.edit" action="EditZenturie" />
+		<s:submit key="btn.delete" action="DeleteZenturie" />
 		<s:submit key="btn.cancel" action="ShowTablesList" />
 	</s:form>
 
