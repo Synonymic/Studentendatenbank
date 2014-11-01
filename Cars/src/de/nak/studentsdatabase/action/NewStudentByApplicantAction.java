@@ -9,12 +9,14 @@ import de.nak.studentsdatabase.model.Address;
 import de.nak.studentsdatabase.model.Applicant;
 import de.nak.studentsdatabase.model.Company;
 import de.nak.studentsdatabase.model.Contact;
+import de.nak.studentsdatabase.model.Exam;
 import de.nak.studentsdatabase.model.Manipel;
 import de.nak.studentsdatabase.model.Student;
 import de.nak.studentsdatabase.model.Zenturie;
 import de.nak.studentsdatabase.service.ApplicantService;
 import de.nak.studentsdatabase.service.CompanyService;
 import de.nak.studentsdatabase.service.ContactService;
+import de.nak.studentsdatabase.service.ExamService;
 import de.nak.studentsdatabase.service.ManipelService;
 import de.nak.studentsdatabase.service.StudentService;
 import de.nak.studentsdatabase.service.ZenturieService;
@@ -51,6 +53,8 @@ public class NewStudentByApplicantAction implements Action {
 	
 	private ContactService contactService;
 	
+	private ExamService examService;
+	
 
 	/** the manipelList */
 	private List<Manipel> manipelList;
@@ -61,6 +65,18 @@ public class NewStudentByApplicantAction implements Action {
 	private List<Contact> contactList;
 	
 	private List<Company> companyList;
+	
+	private List<Exam> examList;
+	
+	private Long inputManipelId;
+	
+	private Long inputExamId;
+	
+	private Long inputZenturieId;
+	
+	private Long inputCompanyId;
+	
+	private Long inputContactId;
 	
 	/** the addres */
 	private Address address;
@@ -75,6 +91,8 @@ public class NewStudentByApplicantAction implements Action {
 	
 	private HashMap<Long, String> companyDisplayMap = new HashMap<Long, String>();
 	
+	private HashMap<Long, String> examDisplayMap = new HashMap<Long, String>();
+	
 
 	/**
 	 * Displays the selected student in the student-edit form.
@@ -88,6 +106,7 @@ public class NewStudentByApplicantAction implements Action {
 		manipelList = manipelService.loadAll();
 		companyList = companyService.loadAll();
 		contactList = contactService.loadAll();
+		examList = examService.loadAll();
 		
 		for(Zenturie zenturie : zenturieList){
 			zenturieDisplayMap.put(zenturie.getId(), zenturie.getName());
@@ -104,6 +123,10 @@ public class NewStudentByApplicantAction implements Action {
 		
 		for(Contact contact : contactList){
 			contactDisplayMap.put(contact.getId(), contact.getName());
+		}
+		
+		for(Exam exam : examList){
+			examDisplayMap.put(exam.getId(), exam.getName());
 		}
 		
 		applicant = applicantService.load(applicantId);
@@ -210,5 +233,61 @@ public class NewStudentByApplicantAction implements Action {
 
 	public void setApplicantService(ApplicantService applicantService) {
 		this.applicantService = applicantService;
+	}
+
+	public Long getInputManipelId() {
+		return inputManipelId;
+	}
+
+	public void setInputManipelId(Long inputManipelId) {
+		this.inputManipelId = inputManipelId;
+	}
+
+	public Long getInputExamId() {
+		return inputExamId;
+	}
+
+	public void setInputExamId(Long inputExamId) {
+		this.inputExamId = inputExamId;
+	}
+
+	public Long getInputZenturieId() {
+		return inputZenturieId;
+	}
+
+	public void setInputZenturieId(Long inputZenturieId) {
+		this.inputZenturieId = inputZenturieId;
+	}
+
+	public Long getInputCompanyId() {
+		return inputCompanyId;
+	}
+
+	public void setInputCompanyId(Long inputCompanyId) {
+		this.inputCompanyId = inputCompanyId;
+	}
+
+	public Long getInputContactId() {
+		return inputContactId;
+	}
+
+	public void setInputContactId(Long inputContactId) {
+		this.inputContactId = inputContactId;
+	}
+
+	public ExamService getExamService() {
+		return examService;
+	}
+
+	public List<Exam> getExamList() {
+		return examList;
+	}
+
+	public HashMap<Long, String> getExamDisplayMap() {
+		return examDisplayMap;
+	}
+
+	public void setExamService(ExamService examService) {
+		this.examService = examService;
 	}
 }
