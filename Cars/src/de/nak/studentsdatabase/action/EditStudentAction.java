@@ -8,11 +8,13 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.studentsdatabase.model.Company;
 import de.nak.studentsdatabase.model.Contact;
+import de.nak.studentsdatabase.model.Exam;
 import de.nak.studentsdatabase.model.Manipel;
 import de.nak.studentsdatabase.model.Student;
 import de.nak.studentsdatabase.model.Zenturie;
 import de.nak.studentsdatabase.service.CompanyService;
 import de.nak.studentsdatabase.service.ContactService;
+import de.nak.studentsdatabase.service.ExamService;
 import de.nak.studentsdatabase.service.ManipelService;
 import de.nak.studentsdatabase.service.StudentService;
 import de.nak.studentsdatabase.service.ZenturieService;
@@ -48,6 +50,8 @@ public class EditStudentAction extends ActionSupport implements Action{
 	
 	private ContactService contactService;
 	
+	private ExamService examService;
+	
 
 	/** the manipelList */
 	private List<Manipel> manipelList;
@@ -59,6 +63,8 @@ public class EditStudentAction extends ActionSupport implements Action{
 	
 	private List<Company> companyList;
 	
+	private List<Exam> examList;
+	
 	/** the zenturieDisplayMap hashMap */
 	private HashMap<Long, String> zenturieDisplayMap = new HashMap<Long, String>();
 
@@ -69,11 +75,15 @@ public class EditStudentAction extends ActionSupport implements Action{
 	
 	private HashMap<Long, String> companyDisplayMap = new HashMap<Long, String>();
 	
-	private Long inputIdManipel;
+	private HashMap<Long, String> examDisplayMap = new HashMap<Long, String>();
 	
-	private Long inputIdZenturie;
+	private Long inputExamId;
 	
-	private Long inputIdCompany;
+	private Long inputZenturieId;
+	
+	private Long inputCompanyId;
+	
+	private Long inputContactId;
 	
 	/**
 	 * Displays the selected student in the student-edit form.
@@ -85,6 +95,7 @@ public class EditStudentAction extends ActionSupport implements Action{
 		manipelList = manipelService.loadAll();
 		companyList = companyService.loadAll();
 		contactList = contactService.loadAll();
+		examList = examService.loadAll();
 		
 		for(Zenturie zenturie : zenturieList){
 			zenturieDisplayMap.put(zenturie.getId(), zenturie.getName());
@@ -100,7 +111,11 @@ public class EditStudentAction extends ActionSupport implements Action{
 		}
 		
 		for(Contact contact : contactList){
-			contactDisplayMap.put(contact.getId(), contact.getName());
+			contactDisplayMap.put(contact.getId(), contact.getCompany().getName() + ": " + contact.getName());
+		}
+		
+		for(Exam exam : examList){
+			examDisplayMap.put(exam.getId(), exam.getName());
 		}
 		
 		student = studentService.load(studentId);
@@ -216,31 +231,47 @@ public class EditStudentAction extends ActionSupport implements Action{
 		this.contactService = contactService;
 	}
 
-	public Long getInputIdManipel() {
-		return inputIdManipel;
+	public Long getInputExamId() {
+		return inputExamId;
 	}
 
-	public void setInputIdManipel(Long inputIdManipel) {
-		this.inputIdManipel = inputIdManipel;
+	public void setInputExamId(Long inputExamId) {
+		this.inputExamId = inputExamId;
 	}
 
-	public Long getInputIdZenturie() {
-		return inputIdZenturie;
+	public Long getInputZenturieId() {
+		return inputZenturieId;
 	}
 
-	public void setInputIdZenturie(Long inputIdZenturie) {
-		this.inputIdZenturie = inputIdZenturie;
+	public void setInputZenturieId(Long inputZenturieId) {
+		this.inputZenturieId = inputZenturieId;
 	}
 
-	public Long getInputIdCompany() {
-		return inputIdCompany;
+	public Long getInputCompanyId() {
+		return inputCompanyId;
 	}
 
-	public void setInputIdCompany(Long inputIdCompany) {
-		this.inputIdCompany = inputIdCompany;
+	public void setInputCompanyId(Long inputCompanyId) {
+		this.inputCompanyId = inputCompanyId;
 	}
-	
-	
 
-	
+	public Long getInputContactId() {
+		return inputContactId;
+	}
+
+	public void setInputContactId(Long inputContactId) {
+		this.inputContactId = inputContactId;
+	}
+
+	public List<Exam> getExamList() {
+		return examList;
+	}
+
+	public HashMap<Long, String> getExamDisplayMap() {
+		return examDisplayMap;
+	}
+
+	public void setExamService(ExamService examService) {
+		this.examService = examService;
+	}	
 }

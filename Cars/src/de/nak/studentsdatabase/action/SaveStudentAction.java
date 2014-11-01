@@ -93,16 +93,16 @@ public class SaveStudentAction extends ActionSupport implements Action {
 
 		for(Zenturie zenturie : zenturieList){
 			if(inputZenturieId.equals(zenturie.getId())){
-				student.setZenturie(zenturie);
+//				student.setZenturie(zenturie);
 			}
 		}
 		
 		
 		// The zenturie needs to match the manipel, regardless of
-		// the selected id.
+		// the selected id. 
 		for(Manipel manipel : manipelList){
-			if(inputManipelId.equals(student.getZenturie().getManipel().getId())){
-				student.setManipel(manipel);
+			if(inputManipelId.equals(manipel.getId())){
+//				student.setManipel(manipel);
 			}
 		}
 		
@@ -121,6 +121,12 @@ public class SaveStudentAction extends ActionSupport implements Action {
 		for(Company company : companyList){
 			if(inputCompanyId.equals(company.getId())){
 				student.setCompany(company);
+			}
+		}
+		
+		for(Exam exam : examList){
+			if(inputExamId.equals(exam.getId())){
+				student.setExam(exam.getName());
 			}
 		}
 		
@@ -238,6 +244,26 @@ public class SaveStudentAction extends ActionSupport implements Action {
 
 	public void setInputExamId(Long inputExamId) {
 		this.inputExamId = inputExamId;
+	}
+
+	public void setExamService(ExamService examService) {
+		this.examService = examService;
+	}
+
+	public void setContactService(ContactService contactService) {
+		this.contactService = contactService;
+	}
+
+	public Long getInputContactId() {
+		return inputContactId;
+	}
+
+	public void setInputContactId(Long inputContactId) {
+		this.inputContactId = inputContactId;
+	}
+
+	public List<Contact> getContactList() {
+		return contactList;
 	}
 
 }
