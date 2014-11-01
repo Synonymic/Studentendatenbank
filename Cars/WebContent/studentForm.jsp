@@ -17,6 +17,8 @@
 	<s:select name="inputManipelId" key="lbl.manipel" list="manipelDisplayMap" />
 	<s:select name="inputZenturieId" key="lbl.zenturie" list="zenturieDisplayMap" /> 
 	<s:select name="inputCompanyId" key="lbl.company" list="companyDisplayMap" />
+	<s:select name="inputContactId" key="lbl.company" list="contactDisplayMap" />
+	<s:select name="inputExamId" key="lbl.company" list="ExamDisplayMap" />
 	
 	<s:textfield name="student.address.street" key="lbl.streetName" requiredLabel="true" size="40" maxsize="51"/>
 	<s:textfield name="student.address.houseNumber" key="lbl.houseNumber" requiredLabel="true" size="5" maxsize="5" />

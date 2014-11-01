@@ -6,10 +6,14 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.studentsdatabase.model.Company;
+import de.nak.studentsdatabase.model.Contact;
+import de.nak.studentsdatabase.model.Exam;
 import de.nak.studentsdatabase.model.Manipel;
 import de.nak.studentsdatabase.model.Student;
 import de.nak.studentsdatabase.model.Zenturie;
 import de.nak.studentsdatabase.service.CompanyService;
+import de.nak.studentsdatabase.service.ContactService;
+import de.nak.studentsdatabase.service.ExamService;
 import de.nak.studentsdatabase.service.ManipelService;
 import de.nak.studentsdatabase.service.StudentService;
 import de.nak.studentsdatabase.service.ZenturieService;
@@ -54,23 +58,37 @@ public class SaveStudentAction extends ActionSupport implements Action {
 	/** the inputCompanyId */
 	private Long inputCompanyId;
 	
+	private Long inputExamId;
+	
+	private Long inputContactId;
+	
 	private List<Manipel> manipelList;
 	
 	private List<Zenturie> zenturieList;
 	
 	private List<Company> companyList;
 	
+	private List<Exam> examList;
+	
+	private List<Contact> contactList;
+	
 	private ManipelService manipelService;
 	
 	private ZenturieService zenturieService;
 	
 	private CompanyService companyService;
+	
+	private ExamService examService;
+	
+	private ContactService contactService;
 
 	@Override
 	public String execute() throws Exception {
 		manipelList = manipelService.loadAll();
 		zenturieList = zenturieService.loadAll();
 		companyList = companyService.loadAll();
+		contactList = contactService.loadAll();
+		examList = examService.loadAll();
 		
 
 		for(Zenturie zenturie : zenturieList){
@@ -85,6 +103,18 @@ public class SaveStudentAction extends ActionSupport implements Action {
 		for(Manipel manipel : manipelList){
 			if(inputManipelId.equals(student.getZenturie().getManipel().getId())){
 				student.setManipel(manipel);
+			}
+		}
+		
+		for(Company company : companyList){
+			if(inputCompanyId.equals(company.getId())){
+				student.setCompany(company);
+			}
+		}
+		
+		for(Contact contact : contactList){
+			if(inputContactId.equals(contact.getId())){
+				student.setContact(contact);
 			}
 		}
 		
@@ -196,6 +226,18 @@ public class SaveStudentAction extends ActionSupport implements Action {
 
 	public void setInputCompanyId(Long inputCompanyId) {
 		this.inputCompanyId = inputCompanyId;
+	}
+
+	public List<Exam> getExamList() {
+		return examList;
+	}
+
+	public Long getInputExamId() {
+		return inputExamId;
+	}
+
+	public void setInputExamId(Long inputExamId) {
+		this.inputExamId = inputExamId;
 	}
 
 }
