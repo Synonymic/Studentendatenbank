@@ -117,10 +117,12 @@ public class NewStudentByApplicantAction implements Action {
 					manipel.getVintage().toString());
 		}
 
+		companyDisplayMap.put((long) -1, "Neue Firma");
 		for(Company company : companyList){
 			companyDisplayMap.put(company.getId(), company.getName());
 		}
 		
+		contactDisplayMap.put((long) -1, "Neuer Betreuer"); 
 		for(Contact contact : contactList){
 			contactDisplayMap.put(contact.getId(), contact.getName());
 		}

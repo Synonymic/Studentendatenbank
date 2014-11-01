@@ -1,10 +1,13 @@
 package de.nak.studentsdatabase.action;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
+import de.nak.studentsdatabase.model.Address;
 import de.nak.studentsdatabase.model.Company;
 import de.nak.studentsdatabase.model.Contact;
 import de.nak.studentsdatabase.model.Exam;
@@ -48,6 +51,14 @@ public class SaveStudentAction extends ActionSupport implements Action {
 
 	/** the studentService */
 	private StudentService studentService;
+	
+	private Company company;
+	
+	private Contact contact;
+	
+	private Set<Student> companyStudents;
+	
+	private Address companyAddress;
 	
 	/** the inputManipelId */
 	private Long inputManipelId;
@@ -128,6 +139,53 @@ public class SaveStudentAction extends ActionSupport implements Action {
 			if(inputExamId.equals(exam.getId())){
 				student.setExam(exam.getName());
 			}
+		}
+		
+		// Check first if new company - then of course new contact as well.
+		if(inputCompanyId.equals(-1)){
+			
+			companyStudents = new HashSet<Student>();
+			contact = new Contact();
+			company = new Company();
+			companyAddress = new Address();
+			
+			contact.setCompany(company);
+			contact.setFirstName("firstName");
+			contact.setName("name");
+			companyStudents.add(student);
+			contact.setStudents(companyStudents);
+			
+			companyAddress.setAddition("Zusatz");
+			companyAddress.setCity("aCity");
+			companyAddress.setEmail("aMail");
+			companyAddress.setHouseNumber("aHouseNumber");
+			companyAddress.setFax("aFax");
+			companyAddress.setPostcode("aPostCode");
+			companyAddress.setStreet("aStreet");
+			companyAddress.setTelephoneNumber("012345678");
+			
+			company.setAbbreviation("Abk");
+			company.setAddition("Zusatz");
+			company.setAddress(companyAddress);
+			company.setName("aName");
+			company.setStudents(companyStudents);
+			
+			studentService.save(student);
+			return "newCompany";
+		}
+		
+		if(inputContactId.equals(-1)){
+			contact = new Contact();
+			companyStudents = new HashSet<Student>();
+			
+			contact.setCompany(companyService.load(inputCompanyId));
+			contact.setFirstName("firstName");
+			contact.setName("name");
+			companyStudents.add(student);
+			contact.setStudents(companyStudents);
+			
+			studentService.save(student);
+			return "newContact";
 		}
 		
 		studentService.save(student);
@@ -264,6 +322,30 @@ public class SaveStudentAction extends ActionSupport implements Action {
 
 	public List<Contact> getContactList() {
 		return contactList;
+	}
+
+	public Company getCompany() {
+		return company;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+
+	public Contact getContact() {
+		return contact;
+	}
+
+	public void setContact(Contact contact) {
+		this.contact = contact;
+	}
+
+	public Set<Student> getCompanyStudents() {
+		return companyStudents;
+	}
+
+	public void setCompanyStudents(Set<Student> companyStudents) {
+		this.companyStudents = companyStudents;
 	}
 
 }

@@ -100,6 +100,8 @@
 			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowStudentList.action</result>
 			<result type="tiles" name="input">studentForm</result>
+			<result type="redirect" name="newCompany">EditCompany.action</result>
+			<result type="redirect" name="newContact">EditConact.action</result>
 		</action>
 
 		<action name="isNewStudentApplicant"
