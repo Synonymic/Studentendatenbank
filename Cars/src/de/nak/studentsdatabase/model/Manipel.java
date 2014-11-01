@@ -57,8 +57,8 @@ public class Manipel {
 		this.vintage = vintage;
 	}
 
-	@OneToMany//(mappedBy = "MANIPEL")
-	@JoinColumn(name = "ZENTURIE_ID")
+	@OneToMany(mappedBy = "manipel")
+	//@JoinColumn(name = "ZENTURIE_ID")
 	public Set<Zenturie> getZenturies() {
 		return zenturies;
 	}
