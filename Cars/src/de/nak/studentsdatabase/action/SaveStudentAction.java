@@ -104,7 +104,7 @@ public class SaveStudentAction extends ActionSupport implements Action {
 
 		for(Zenturie zenturie : zenturieList){
 			if(inputZenturieId.equals(zenturie.getId())){
-//				student.setZenturie(zenturie);
+				student.setZenturie(zenturie);
 			}
 		}
 		
@@ -113,7 +113,7 @@ public class SaveStudentAction extends ActionSupport implements Action {
 		// the selected id. 
 		for(Manipel manipel : manipelList){
 			if(inputManipelId.equals(manipel.getId())){
-//				student.setManipel(manipel);
+				student.setManipel(manipel);
 			}
 		}
 		

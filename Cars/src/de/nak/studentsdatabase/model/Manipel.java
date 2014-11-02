@@ -4,6 +4,7 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Immutable;
 import org.hibernate.annotations.NaturalId;
 
 
@@ -14,6 +15,7 @@ import org.hibernate.annotations.NaturalId;
  */
 
 @Entity
+@Immutable
 public class Manipel {
 	/** The identifier. */
 	private Long id;
@@ -27,7 +29,7 @@ public class Manipel {
 	private Set<Exam> exams;
 	
 	
-	@Id
+	@Id 
 	@GeneratedValue(strategy = GenerationType.AUTO)	
 	public Long getId() {
 		return id;

@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Immutable;
 import org.hibernate.annotations.NaturalId;
 
 
@@ -15,6 +16,7 @@ import org.hibernate.annotations.NaturalId;
  */
 
 @Entity
+@Immutable
 public class Zenturie {
 	/** The identifier. */
 	private Long id;
