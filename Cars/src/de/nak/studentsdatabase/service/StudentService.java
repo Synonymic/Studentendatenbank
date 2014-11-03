@@ -35,5 +35,9 @@ public interface StudentService {
 	List<Student> loadAll();
 	
 	void exmatriculate(Student student);
+	
+	void discontinue(Student student);
+	
+	void immatriculate(Student student);
 
 }

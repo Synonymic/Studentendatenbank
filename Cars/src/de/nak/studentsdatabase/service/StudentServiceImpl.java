@@ -44,6 +44,18 @@ public class StudentServiceImpl implements StudentService {
 		
 	}
 
+	@Override
+	public void discontinue(Student student) {
+		studentDAO.discontinue(student);
+		
+	}
+
+	@Override
+	public void immatriculate(Student student) {
+		studentDAO.immatriculate(student);
+		
+	}
+
 	
 	
 	
