@@ -158,6 +158,26 @@
 	<bean id="exmatriculatedStudentService" class="de.nak.studentsdatabase.service.ExmatriculatedStudentServiceImpl">
 		<property name="exmatriculatedStudentDAO" ref="exmatriculatedStudentDAO" />
 	</bean>
+	
+	<!-- DiscontinuedStudent DAO -->
+	<bean id="discontinuedStudentDAO" class="de.nak.studentsdatabase.dao.DiscontinuedStudentDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- DiscontinuedStudent Service -->
+	<bean id="discontinuedStudentService" class="de.nak.studentsdatabase.service.DiscontinuedStudentServiceImpl">
+		<property name="discontinuedStudentDAO" ref="discontinuedStudentDAO" />
+	</bean>
+	
+	<!-- immatriculatedStudent DAO -->
+	<bean id="immatriculatedStudentDAO" class="de.nak.studentsdatabase.dao.ImmatriculatedStudentDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- ImmatriculatedStudent Service -->
+	<bean id="immatriculatedStudentService" class="de.nak.studentsdatabase.service.ImmatriculatedStudentServiceImpl">
+		<property name="immatriculatedStudentDAO" ref="immatriculatedStudentDAO" />
+	</bean>
 
 
 </beans>

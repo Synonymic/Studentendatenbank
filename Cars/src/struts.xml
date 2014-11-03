@@ -408,7 +408,7 @@
 		<action name="ShowExmatriculatedStudentList"
 			class="de.nak.studentsdatabase.action.ShowExmatriculatedStudentListAction" method="execute">
 			<interceptor-ref name="loginStack" />
-			<result type="tiles">exmatrStudentList</result>
+			<result type="tiles">exmatriculatedStudentList</result>
 		</action>
 
 	</package>
