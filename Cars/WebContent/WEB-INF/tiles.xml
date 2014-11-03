@@ -125,4 +125,9 @@
 	<definition name="exmatriculatedStudentList" extends="mainLayout">
 		<put-attribute name="content" value="/exmatriculatedStudentList.jsp" />
 	</definition>
+	
+	<!-- The discontinuedStudentList screen. -->
+	<definition name="discontinuedStudentList" extends="mainLayout">
+		<put-attribute name="content" value="/discontinuedStudentList.jsp" />
+	</definition>
 </tiles-definitions>
