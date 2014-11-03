@@ -101,7 +101,7 @@
 			<result type="redirect">ShowStudentList.action</result>
 			<result type="tiles" name="input">studentForm</result>
 			<result type="redirect" name="newCompany">EditCompany.action</result>
-			<result type="redirect" name="newContact">EditConact.action</result>
+			<result type="redirect" name="newContact">EditContact.action</result>
 		</action>
 
 		<action name="isNewStudentApplicant"
@@ -408,7 +408,14 @@
 		<action name="ShowExmatriculatedStudentList"
 			class="de.nak.studentsdatabase.action.ShowExmatriculatedStudentListAction" method="execute">
 			<interceptor-ref name="loginStack" />
-			<result type="tiles">exmatrStudentList</result>
+			<result type="tiles">exmatriculatedStudentList</result>
+		</action>
+		
+		<!-- Action that displays the list of discontinued students. -->
+		<action name="ShowDiscontinuedStudentList"
+			class="de.nak.studentsdatabase.action.ShowDiscontinuedStudentListAction" method="execute">
+			<interceptor-ref name="loginStack" />
+			<result type="tiles">discontinuedStudentList</result>
 		</action>
 
 	</package>
