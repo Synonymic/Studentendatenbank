@@ -2,6 +2,7 @@ package de.nak.studentsdatabase.service;
 
 import java.util.List;
 
+import de.nak.studentsdatabase.model.ImmatriculatedStudent;
 import de.nak.studentsdatabase.model.Student;
 
 /**
@@ -13,10 +14,10 @@ import de.nak.studentsdatabase.model.Student;
 public interface ImmatriculatedStudentService {
 	
 	/** Saves the given Student */
-	void save(Student student);
+	void save(ImmatriculatedStudent immatriculatedStudent);
 	
 	/** loads a student by a given id */
-	Student load(Long id);
+	ImmatriculatedStudent load(Long id);
 	
 	/** returns list of students which is empty if no student was found */
 	List<Student> loadAll();

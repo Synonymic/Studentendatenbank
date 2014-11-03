@@ -2,6 +2,7 @@ package de.nak.studentsdatabase.service;
 
 import java.util.List;
 
+import de.nak.studentsdatabase.model.DiscontinuedStudent;
 import de.nak.studentsdatabase.model.Student;
 
 /**
@@ -13,10 +14,10 @@ import de.nak.studentsdatabase.model.Student;
 public interface DiscontinuedStudentService {
 	
 	/** saves a given student. */
-	void save(Student student);
+	void save(DiscontinuedStudent discontinuedStudent);
 	
 	/** loads a student by a given id. */
-	Student load(Long id);
+	DiscontinuedStudent load(Long id);
 	
 	/** returns a list of all students or an empty list if no student was found. */
 	List<Student> loadAll();

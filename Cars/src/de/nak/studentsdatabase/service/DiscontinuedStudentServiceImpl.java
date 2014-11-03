@@ -3,6 +3,7 @@ package de.nak.studentsdatabase.service;
 import java.util.List;
 
 import de.nak.studentsdatabase.dao.DiscontinuedStudentDAO;
+import de.nak.studentsdatabase.model.DiscontinuedStudent;
 import de.nak.studentsdatabase.model.Student;
 
 /**
@@ -18,13 +19,13 @@ public class DiscontinuedStudentServiceImpl implements
 	private DiscontinuedStudentDAO discontinuedStudentDAO;
 
 	@Override
-	public void save(Student student) {
-		discontinuedStudentDAO.save(student);
+	public void save(DiscontinuedStudent discontinuedStudent) {
+		discontinuedStudentDAO.save(discontinuedStudent);
 
 	}
 
 	@Override
-	public Student load(Long id) {
+	public DiscontinuedStudent load(Long id) {
 		return discontinuedStudentDAO.load(id);
 	}
 
