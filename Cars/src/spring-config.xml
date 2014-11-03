@@ -148,6 +148,16 @@
 	<bean id="contactService" class="de.nak.studentsdatabase.service.ContactServiceImpl">
 		<property name="contactDAO" ref="contactDAO" />
 	</bean>
+	
+	<!-- ExmatriculatedStudent -->
+	<bean id="exmatriculatedStudentDAO" class="de.nak.studentsdatabase.dao.ExmatriculatedStudentDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- ExmatriculatedStudent Service -->
+	<bean id="exmatriculatedStudentService" class="de.nak.studentsdatabase.service.ExmatriculatedStudentServiceImpl">
+		<property name="exmatriculatedStudentDAO" ref="exmatriculatedStudentDAO" />
+	</bean>
 
 
 </beans>

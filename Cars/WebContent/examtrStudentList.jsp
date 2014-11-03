@@ -8,22 +8,15 @@
 		<tr>
 			<th><s:text name="lbl.lastName" /> </th>
 			<th><s:text name="lbl.dayOfBirth" /></th>
-			<th><s:text name="lbl.enrolmentNumbr" /></th>
 		</tr>
-		<s:iterator value="studentList">
+		<s:iterator value="exmatrStudentList">
 			<tr>
 				<td><s:radio name="studentId" list="#{id:''}" theme="simple" /></td>
 				<td><s:property value="name"/></td>
 				<td><s:property value="dayOfBirth"/></td>
-				<td><s:property value="matriculationNumber" /> </td>
 			</tr>
 		</s:iterator>
 	</table>
 	<%-- The buttons --%>
-	<s:submit key="btn.add" action="isNewStudentApplicant" />
-	<s:submit key="btn.edit" action="EditStudent" />
-	<s:submit key="btn.search" action="ShowSearchStudentView" />
-	<s:submit key="btn.examtriculate" />
-	<s:submit key="btn.showExmatrStudents" action="ShowExmatriculatedStudentList" />
-	<s:submit key="btn.back" action="ShowWelcomeView" />
+	<s:submit key="btn.manageStudents" action="ShowStudentList"/>
 </s:form>

@@ -33,5 +33,7 @@ public interface StudentService {
 	 * @return a list which is empty if no student was found.
 	 */
 	List<Student> loadAll();
+	
+	void exmatriculate(Student student);
 
 }

@@ -38,6 +38,12 @@ public class StudentServiceImpl implements StudentService {
 		this.studentDAO = studentDAO;
 	}
 
+	@Override
+	public void exmatriculate(Student student) {
+		studentDAO.exmatriculate(student);
+		
+	}
+
 	
 	
 	

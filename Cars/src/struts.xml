@@ -403,6 +403,13 @@
 			<interceptor-ref name="loginStack" />
 			<result type="tiles">zenturieList</result>
 		</action>
+		
+		<!-- Action that displays the list of exmatriculated students. -->
+		<action name="ShowExmatriculatedStudentList"
+			class="de.nak.studentsdatabase.action.ShowExmatriculatedStudentListAction" method="execute">
+			<interceptor-ref name="loginStack" />
+			<result type="tiles">exmatrStudentList</result>
+		</action>
 
 	</package>
 </struts>
