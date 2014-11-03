@@ -417,6 +417,22 @@
 			<interceptor-ref name="loginStack" />
 			<result type="tiles">discontinuedStudentList</result>
 		</action>
+		
+		<!-- Action to exmatriculate a student -->
+		<action name="ExmatriculateStudent"
+			class="de.nak.studentsdatabase.action.ExmatriculateStudentAction" method="execute">
+			<interceptor-ref name="loginStack" />
+			<result type="redirect">ShowStudentList.action</result>
+			<result type="chain" name="input">ShowStudentList</result>
+		</action>
+		
+		<!-- Action to discontinue a student -->
+		<action name="DiscontinueStudent"
+			class="de.nak.studentsdatabase.action.DiscontinueStudentAction" method="execute">
+			<interceptor-ref name="loginStack" />
+			<result type="redirect">ShowStudentList.action</result>
+			<result type="chain" name="input">ShowStudentList</result>
+		</action>
 
 	</package>
 </struts>

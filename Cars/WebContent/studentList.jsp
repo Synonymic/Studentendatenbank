@@ -23,9 +23,11 @@
 	<s:submit key="btn.add" action="isNewStudentApplicant" />
 	<s:submit key="btn.edit" action="EditStudent" />
 	<s:submit key="btn.search" action="ShowSearchStudentView" />
-	<s:submit key="btn.examtriculate" />
+	<!--
+	<s:submit key="btn.examtriculate" action="ExmatriculateStudent"/>
 	<s:submit key="btn.showExmatrStudents" action="ShowExmatriculatedStudentList" />
-	<s:submit key="btn.discontinue" />
+	<s:submit key="btn.discontinue" action="DiscontinueStudent"/>
 	<s:submit key="btn.showDiscontinuedStudents" action="ShowDiscontinuedStudentList" />
+	  -->
 	<s:submit key="btn.back" action="ShowWelcomeView" />
 </s:form>
