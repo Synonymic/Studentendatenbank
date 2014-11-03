@@ -13,8 +13,6 @@
 				<th><s:text name="Addition" /></th>
 				<th><s:text name="Abbreviation" /></th>
 				<th><s:text name="Contacts" /></th>
-				<th><s:text name="Address" /></th>
-				<th><s:text name="Students" /></th>
 			</tr>
 			<s:iterator value="companyList">
 				<tr>
@@ -23,8 +21,6 @@
 					<td><s:property value="addition" /></td>
 					<td><s:property value="abbreviation" /></td>
 					<td><s:select name="inputId" list="contactDisplayMap" /></td>
-					<td><s:property value="address" /></td>
-					<td></td>
 				</tr>
 			</s:iterator>
 		</table>

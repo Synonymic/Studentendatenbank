@@ -6,8 +6,10 @@ import java.util.List;
 import com.opensymphony.xwork2.Action;
 
 import de.nak.studentsdatabase.model.Exam;
+import de.nak.studentsdatabase.model.Student;
 import de.nak.studentsdatabase.model.Zenturie;
 import de.nak.studentsdatabase.service.ExamService;
+import de.nak.studentsdatabase.service.StudentService;
 import de.nak.studentsdatabase.service.ZenturieService;
 
 /**
@@ -27,15 +29,27 @@ public class ShowZenturieListAction implements Action {
 	private ExamService examService;
 	/** the contactDisplayMap hashMap */
 	private HashMap<Long, String> examDisplayMap = new HashMap<Long, String>();
+	/** the studentList */
+	private List<Student> studentList;
+	/** the student service */
+	private StudentService studentService;
+	/** the studentDisplayMap hashMap */
+	private HashMap<Long, String> studentDisplayMap = new HashMap<Long, String>();
+
 
 	@Override
 	public String execute() throws Exception {
 		zenturieList = zenturieService.loadAll();
 		examList = examService.loadAll();
+		studentList = studentService.loadAll();
 		
-		for(Exam exam : examList){
+		for (Exam exam : examList) {
 			examDisplayMap.put(exam.getId(), exam.getName());
 		}
+		for (Student student : studentList) {
+			studentDisplayMap.put(student.getId(), student.getName()+ " "+student.getFirstName());
+		}
+		
 		return SUCCESS;
 	}
 
@@ -78,5 +92,30 @@ public class ShowZenturieListAction implements Action {
 	public void setExamDisplayMap(HashMap<Long, String> examDisplayMap) {
 		this.examDisplayMap = examDisplayMap;
 	}
+
+	public List<Student> getStudentList() {
+		return studentList;
+	}
+
+	public void setStudentList(List<Student> studentList) {
+		this.studentList = studentList;
+	}
+
+	public StudentService getStudentService() {
+		return studentService;
+	}
+
+	public void setStudentService(StudentService studentService) {
+		this.studentService = studentService;
+	}
+
+	public HashMap<Long, String> getStudentDisplayMap() {
+		return studentDisplayMap;
+	}
+
+	public void setStudentDisplayMap(HashMap<Long, String> studentDisplayMap) {
+		this.studentDisplayMap = studentDisplayMap;
+	}
 	
+
 }

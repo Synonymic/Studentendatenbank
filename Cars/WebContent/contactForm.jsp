@@ -6,7 +6,7 @@
 	<s:hidden name="contact.id" />
 	<s:textfield name="contact.name" key="lbl.lastName" size="40" maxlength="100" requiredLabel="true" />
 	<s:textfield name="contact.firstName" key="lbl.firstName" size="40" maxlength="100" requiredLabel="true" />
-<%--    <s:select name="inputCompanyId" key="lbl.company" list="companyDisplayMap" /> --%>
+	<s:select name="inputCompanyId" key="lbl.company" list="companyDisplayMap" />
 	<%-- The buttons --%>
 	<s:submit key="btn.save" action="SaveContact" />
 	<s:submit key="btn.cancel" action="ShowContactList" />
