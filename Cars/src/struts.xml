@@ -342,7 +342,7 @@
 			<result type="chain" name="input">ShowZenturieList</result>
 		</action>
 		<!-- Shows the empty form for a new zenturie. -->
-		<action name="AddZenturie">
+		<action name="AddZenturie" >
 			<interceptor-ref name="loginStack" />
 			<result type="tiles">zenturieForm</result>
 		</action>
@@ -403,17 +403,19 @@
 			<interceptor-ref name="loginStack" />
 			<result type="tiles">zenturieList</result>
 		</action>
-		
+
 		<!-- Action that displays the list of exmatriculated students. -->
 		<action name="ShowExmatriculatedStudentList"
-			class="de.nak.studentsdatabase.action.ShowExmatriculatedStudentListAction" method="execute">
+			class="de.nak.studentsdatabase.action.ShowExmatriculatedStudentListAction"
+			method="execute">
 			<interceptor-ref name="loginStack" />
 			<result type="tiles">exmatriculatedStudentList</result>
 		</action>
-		
+
 		<!-- Action that displays the list of discontinued students. -->
 		<action name="ShowDiscontinuedStudentList"
-			class="de.nak.studentsdatabase.action.ShowDiscontinuedStudentListAction" method="execute">
+			class="de.nak.studentsdatabase.action.ShowDiscontinuedStudentListAction"
+			method="execute">
 			<interceptor-ref name="loginStack" />
 			<result type="tiles">discontinuedStudentList</result>
 		</action>
