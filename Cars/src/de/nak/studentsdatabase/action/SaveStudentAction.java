@@ -11,6 +11,8 @@ import de.nak.studentsdatabase.model.Address;
 import de.nak.studentsdatabase.model.Company;
 import de.nak.studentsdatabase.model.Contact;
 import de.nak.studentsdatabase.model.Exam;
+import de.nak.studentsdatabase.model.ExmatriculatedStudent;
+import de.nak.studentsdatabase.model.ImmatriculatedStudent;
 import de.nak.studentsdatabase.model.Manipel;
 import de.nak.studentsdatabase.model.Student;
 import de.nak.studentsdatabase.model.Zenturie;
@@ -171,6 +173,10 @@ public class SaveStudentAction extends ActionSupport implements Action {
 			company.setStudents(companyStudents);
 			
 			studentService.save(student);
+			if(false == (student instanceof Student) && false == (student instanceof ImmatriculatedStudent) 
+					&& false == (student instanceof ExmatriculatedStudent)){
+			studentService.immatriculate(student);
+			}
 			return "newCompany";
 		}
 		
@@ -185,10 +191,18 @@ public class SaveStudentAction extends ActionSupport implements Action {
 			contact.setStudents(companyStudents);
 			
 			studentService.save(student);
+			if(false == (student instanceof Student) && false == (student instanceof ImmatriculatedStudent) 
+					&& false == (student instanceof ExmatriculatedStudent)){
+			studentService.immatriculate(student);
+			}
 			return "newContact";
 		}
 		
 		studentService.save(student);
+		if(false == (student instanceof Student) && false == (student instanceof ImmatriculatedStudent) 
+				&& false == (student instanceof ExmatriculatedStudent)){
+		studentService.immatriculate(student);
+		}
 		return SUCCESS;
 	}
  

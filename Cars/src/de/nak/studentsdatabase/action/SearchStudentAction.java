@@ -6,7 +6,7 @@ import java.util.List;
 import com.opensymphony.xwork2.Action;
 
 import de.nak.studentsdatabase.model.Student;
-import de.nak.studentsdatabase.service.StudentService;
+import de.nak.studentsdatabase.service.ImmatriculatedStudentService;
 
 /**
  * Action for searching students through
@@ -17,8 +17,8 @@ import de.nak.studentsdatabase.service.StudentService;
  */
 public class SearchStudentAction implements Action {
 	
-	/** the studentService */
-	private StudentService studentService;
+	/** the immatriculatedStudentService. */
+	private ImmatriculatedStudentService immatriculatedStudentService;
 	
 	/** the studentList to be returned */
 	private List<Student> studentList;
@@ -49,7 +49,7 @@ public class SearchStudentAction implements Action {
 			gender = "none";
 		}
 		
-		allStudentsList = studentService.loadAll();
+		allStudentsList = immatriculatedStudentService.loadAll();
 		for(Student student : allStudentsList){
 			
 			if(student.getMatriculationNumber().equals(matriculationNumberInteger)){
@@ -67,10 +67,6 @@ public class SearchStudentAction implements Action {
 
 	public List<Student> getAllStudentsList() {
 		return allStudentsList;
-	}
-
-	public void setStudentService(StudentService studentService) {
-		this.studentService = studentService;
 	}
 
 	public String getGender() {
@@ -95,6 +91,11 @@ public class SearchStudentAction implements Action {
 
 	public void setMatriculationNumberInteger(Integer matriculationNumberInteger) {
 		this.matriculationNumberInteger = matriculationNumberInteger;
+	}
+
+	public void setImmatriculatedStudentService(
+			ImmatriculatedStudentService immatriculatedStudentService) {
+		this.immatriculatedStudentService = immatriculatedStudentService;
 	}
 
 }

@@ -5,7 +5,7 @@ import java.util.List;
 import com.opensymphony.xwork2.Action;
 
 import de.nak.studentsdatabase.model.Student;
-import de.nak.studentsdatabase.service.StudentService;
+import de.nak.studentsdatabase.service.ImmatriculatedStudentService;
 
 /**
  * The action to show a list of all students.
@@ -19,11 +19,11 @@ public class ShowStudentListAction implements Action {
 	private List<Student> studentList;
 
 	/** The student service */
-	private StudentService studentService;
+	private ImmatriculatedStudentService immatriculatedStudentService;
 
 	@Override
 	public String execute() throws Exception {
-		studentList = studentService.loadAll();
+		studentList = immatriculatedStudentService.loadAll();
 		return SUCCESS;
 	}
 
@@ -31,7 +31,8 @@ public class ShowStudentListAction implements Action {
 		return studentList;
 	}
 
-	public void setStudentService(StudentService studentService) {
-		this.studentService = studentService;
+	public void setImmatriculatedStudentService(
+			ImmatriculatedStudentService immatriculatedStudentService) {
+		this.immatriculatedStudentService = immatriculatedStudentService;
 	}
 }
