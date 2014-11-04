@@ -18,5 +18,7 @@
 		</s:iterator>
 	</table>
 	<%-- The buttons --%>
+	<s:submit key="btn.edit" action="EditStudent" />
+	<s:submit key="btn.enroll" action="EnrollStudent" />
 	<s:submit key="btn.manageStudents" action="ShowStudentList"/>
 </s:form>

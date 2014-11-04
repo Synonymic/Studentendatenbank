@@ -435,6 +435,13 @@
 			<result type="redirect">ShowStudentList.action</result>
 			<result type="chain" name="input">ShowStudentList</result>
 		</action>
+		
+		<!-- Action for enrolling students. -->
+		<action name="EnrollStudent" class="de.nak.studentsdatabase.action.EnrollStudentAction" method="execute">
+			<interceptor-ref name="loginStack" />
+			<result type="chain" name="input">ShowStudentList</result>
+			<result type="redirect">ShowStudentList.action</result>
+		</action>
 
 	</package>
 </struts>
