@@ -155,9 +155,8 @@ public class NewStudentByApplicantAction implements Action {
 		student.setSalutation(applicant.getSalutation());
 		student.setMatriculationNumber(12345);
 		
-		// Student speichern, Bewerber löschen
 		studentService.save(student);
-		applicantService.delete(applicant);
+		
 		return SUCCESS;
 	}
 	
