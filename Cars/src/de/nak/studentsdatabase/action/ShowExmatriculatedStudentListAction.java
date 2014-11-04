@@ -27,7 +27,7 @@ public class ShowExmatriculatedStudentListAction implements Action {
 		return SUCCESS;
 	}
 
-	public List<Student> getExmatriculatedStudentList() {
+	public List<Student> getExmatrStudentList() {
 		return exmatrStudentList;
 	}
 
