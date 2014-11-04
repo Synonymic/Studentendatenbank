@@ -11,16 +11,12 @@
 				<th><s:text name="" /></th>
 				<th><s:text name="course of study" /></th>
 				<th><s:text name="Vintage" /></th>
-				<th><s:text name="Zenturies" /></th>
-				<th><s:text name="Exams" /></th>
 			</tr>
 			<s:iterator value="manipelList">
 				<tr>
 					<td><s:radio name="manipelId" list="#{id:''}" theme="simple" /></td>
 					<td><s:property value="courseOfStudy" /></td>
 					<td><s:property value="vintage" /></td>
-					<td><s:select name="inputId" list="zenturieDisplayMap" /></td>
-					<td><s:select name="inputId" list="examDisplayMap" /></td>
 				</tr>
 			</s:iterator>
 		</table>

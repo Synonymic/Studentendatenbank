@@ -18,7 +18,9 @@ public class ApplicantDAO {
 	/**
 	 * Persists or merges the applicant into the database.
 	 *
-	 * @param applicant The applicant to persist. The given entity can be transient or detached.
+	 * @param applicant
+	 *            The applicant to persist. The given entity can be transient or
+	 *            detached.
 	 */
 	public void save(Applicant applicant) {
 		sessionFactory.getCurrentSession().saveOrUpdate(applicant);
@@ -27,17 +29,21 @@ public class ApplicantDAO {
 	/**
 	 * Loads a single applicant entity from the database.
 	 *
-	 * @param id The identifier.
-	 * @return an applicant or null if no applicant was found with the given identifier.
+	 * @param id
+	 *            The identifier.
+	 * @return an applicant or null if no applicant was found with the given
+	 *         identifier.
 	 */
 	public Applicant load(Long id) {
-		return (Applicant) sessionFactory.getCurrentSession().get(Applicant.class, id);
+		return (Applicant) sessionFactory.getCurrentSession().get(
+				Applicant.class, id);
 	}
 
 	/**
 	 * Deletes the applicant from the database.
 	 *
-	 * @param applicant The applicant to be deleted.
+	 * @param applicant
+	 *            The applicant to be deleted.
 	 */
 	public void delete(Applicant applicant) {
 		sessionFactory.getCurrentSession().delete(applicant);
@@ -50,7 +56,10 @@ public class ApplicantDAO {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Applicant> loadAll() {
-		return sessionFactory.getCurrentSession().createQuery("from Applicant").list();
+
+		return sessionFactory.getCurrentSession()
+				.createQuery("from Applicant").list();
+
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {

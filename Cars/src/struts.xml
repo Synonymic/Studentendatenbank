@@ -161,7 +161,7 @@
 		<action name="Logout" class="de.nak.studentsdatabase.action.LogInAction"
 			method="logout">
 			<interceptor-ref name="defaultStack" />
-			<result name="login">login.jsp</result>
+			<result name="success">login.jsp</result>
 		</action>
 
 		<!-- Shows the empty UserForm. -->
@@ -309,7 +309,7 @@
 		<!-- Shows the empty form for a new manipel. -->
 		<action name="AddManipel">
 			<interceptor-ref name="loginStack" />
-			<result type="tiles">ManipelForm</result>
+			<result type="tiles">manipelForm</result>
 		</action>
 		<!-- Deletes the selected manipel and shows the tables list again. -->
 		<action name="DeleteManipel" class="de.nak.studentsdatabase.action.ManipelAction"

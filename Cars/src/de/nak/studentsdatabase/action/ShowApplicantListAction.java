@@ -16,11 +16,11 @@ import de.nak.studentsdatabase.service.ApplicantService;
 public class ShowApplicantListAction implements Action {
 
 	/** The applicant list */
-	private List<Applicant>	applicantList;
-	
+	private List<Applicant> applicantList;
+
 	/** The applicant service */
 	private ApplicantService applicantService;
-	
+
 	@Override
 	public String execute() throws Exception {
 		applicantList = applicantService.loadAll();
@@ -34,5 +34,5 @@ public class ShowApplicantListAction implements Action {
 	public void setApplicantService(ApplicantService applicantService) {
 		this.applicantService = applicantService;
 	}
-	
+
 }

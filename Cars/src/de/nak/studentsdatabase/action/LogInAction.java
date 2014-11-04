@@ -80,7 +80,7 @@ public class LogInAction extends ActionSupport implements SessionAware, Action {
 	public String logout() {
 		session.remove("loginId");
 		addActionMessage("You have been Successfully Logged Out");
-		return LOGIN;
+		return SUCCESS;
 	}
 
 	public String getUserName() {

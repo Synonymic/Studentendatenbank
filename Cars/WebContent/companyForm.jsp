@@ -15,8 +15,6 @@
 	<s:textfield name="company.address.telephoneNumber" key="lbl.telephoneNumber" requiredLabel="true" size="15" maxsize="15"/>
 	<s:textfield name="company.address.fax" key="lbl.fax" requiredLabel="true" size="15" maxsize="15"/>
 	<s:textfield name="company.address.email" key="lbl.email" requiredLabel="true" size="40" maxsize="100"/>
-	<s:select name="inputContactId" key="lbl.contact" list="contactDisplayMap" />
-	<s:select name="inputStudentId" key="lbl.student" list="studentDisplayMap" />
 	<%-- The buttons --%>
 	<s:submit key="btn.save" action="SaveCompany" />
 	<s:submit key="btn.cancel" action="ShowCompanyList" />

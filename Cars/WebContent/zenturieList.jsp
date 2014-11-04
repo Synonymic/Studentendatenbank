@@ -10,17 +10,15 @@
 			<tr>
 				<th><s:text name="" /></th>
 				<th><s:text name="name" /></th>
-				<th><s:text name="Manipel" /></th>
-				<th><s:text name="Students" /></th>
-				<th><s:text name="Exams" /></th>
+				<th><s:text name="courseOfStudy" /></th>
+				<th><s:text name="vintage" /></th>
 			</tr>
 			<s:iterator value="zenturieList">
 				<tr>
 					<td><s:radio name="zenturieId" list="#{id:''}" theme="simple" /></td>
 					<td><s:property value="name" /></td>
-					<td><s:property value="manipel.name" /></td>
-					<td><s:select name="inputId" list="studentDisplayMap" /></td>
-					<td><s:select name="inputId" list="examDisplayMap" /></td>
+					<td><s:property value="manipel.courseOfStudy" /></td>
+					<td><s:property value="manipel.vintage" /></td>
 				</tr>
 			</s:iterator>
 		</table>
