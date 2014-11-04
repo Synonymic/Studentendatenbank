@@ -23,7 +23,7 @@ public class ShowApplicantListAction implements Action {
 
 	@Override
 	public String execute() throws Exception {
-		applicantList = applicantService.loadAll();
+		applicantList = applicantService.loadAllApplicants();
 		return SUCCESS;
 	}
 

@@ -4,16 +4,14 @@ import java.util.Set;
 
 import javax.persistence.*;
 
-
-
 /**
  * Entity of a student.
  *
  * @author Andreas Krey
  */
 @Entity
-@PrimaryKeyJoinColumn(name="APPLICANT_ID")
-public class Student extends Applicant{
+@PrimaryKeyJoinColumn(name = "APPLICANT_ID", referencedColumnName = "ID")
+public class Student extends Applicant {
 	/** The identifier */
 	private Long id;
 	/** The matriculation number of a student. */
@@ -28,11 +26,10 @@ public class Student extends Applicant{
 	private Set<Exam> exams;
 	/** The associated zenturie of a student. */
 	private Zenturie zenturie;
-	/** The associated contact of a student.*/
+	/** The associated contact of a student. */
 	private Contact contact;
-	
-	
-	@Column(name="student_id")
+
+	@Column(name = "student_id")
 	public Long getId() {
 		return id;
 	}
@@ -41,11 +38,11 @@ public class Student extends Applicant{
 		this.id = id;
 	}
 
-	@Column(name ="matriculation_number", length = 10, nullable = false)
+	@Column(name = "matriculation_number", length = 10, nullable = false)
 	public Integer getMatriculationNumber() {
 		return matriculationNumber;
 	}
-	
+
 	public void setMatriculationNumber(Integer matriculationNumber) {
 		this.matriculationNumber = matriculationNumber;
 	}
@@ -55,21 +52,21 @@ public class Student extends Applicant{
 	public Company getCompany() {
 		return company;
 	}
-	
+
 	public void setCompany(Company company) {
 		this.company = company;
 	}
-	
+
 	@ManyToOne
 	@JoinColumn(name = "MANIPEL_ID")
 	public Manipel getManipel() {
 		return manipel;
 	}
-	
+
 	public void setManipel(Manipel manipel) {
 		this.manipel = manipel;
 	}
-	
+
 	@Column(length = 100, nullable = true)
 	public String getExam() {
 		return exam;
@@ -78,11 +75,9 @@ public class Student extends Applicant{
 	public void setExam(String exam) {
 		this.exam = exam;
 	}
-	
-	
+
 	@ManyToMany
-	@JoinTable(name="STUDENT_EXAM", joinColumns={ @JoinColumn(name="STUDENT_ID")},
-				inverseJoinColumns={@JoinColumn(name="EXAM_ID") })
+	@JoinTable(name = "STUDENT_EXAM", joinColumns = { @JoinColumn(name = "STUDENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "EXAM_ID") })
 	public Set<Exam> getExams() {
 		return exams;
 	}
@@ -90,8 +85,8 @@ public class Student extends Applicant{
 	public void setExams(Set<Exam> exams) {
 		this.exams = exams;
 	}
-	
-	@OneToOne(cascade=CascadeType.ALL)
+
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ZENTURIE_ID")
 	public Zenturie getZenturie() {
 		return zenturie;
@@ -99,8 +94,8 @@ public class Student extends Applicant{
 
 	public void setZenturie(Zenturie zenturie) {
 		this.zenturie = zenturie;
-	}	
-	
+	}
+
 	@ManyToOne
 	@JoinColumn(name = "CONTACT_ID")
 	public Contact getContact() {
@@ -134,5 +129,6 @@ public class Student extends Applicant{
 			return false;
 		return true;
 	}
+
 
 }

@@ -35,10 +35,18 @@ public interface ApplicantService {
 	void delete(Applicant applicant);
 	
 	/**
-	 * Loads all applicants.
+	 * Loads all applicants with students.
 	 * 
 	 * @return List<Applicant> which can be empty if there is no Applicant
 	 */
 	List<Applicant> loadAll();
+	
+	/**
+	 * Loads all applicants without students.
+	 * 
+	 * @return List<Applicant> which can be empty if there is no Applicant
+	 */
+	List<Applicant> loadAllApplicants();
+	
 
 }
