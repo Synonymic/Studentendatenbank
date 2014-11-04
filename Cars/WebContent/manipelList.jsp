@@ -27,7 +27,6 @@
 		<%-- The buttons --%>
 		<s:submit key="btn.add" action="AddManipel" />
 		<s:submit key="btn.edit" action="EditManipel" />
-		<s:submit key="btn.delete" action="DeleteManipel" />
 		<s:submit key="btn.cancel" action="ShowTablesList" />
 	</s:form>
 

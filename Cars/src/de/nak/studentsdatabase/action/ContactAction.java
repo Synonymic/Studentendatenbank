@@ -1,8 +1,14 @@
 package de.nak.studentsdatabase.action;
 
 
+import java.util.HashMap;
+import java.util.List;
+
 import com.opensymphony.xwork2.ActionSupport;
+
+import de.nak.studentsdatabase.model.Company;
 import de.nak.studentsdatabase.model.Contact;
+import de.nak.studentsdatabase.service.CompanyService;
 import de.nak.studentsdatabase.service.ContactService;
 
 /**
@@ -19,8 +25,26 @@ public class ContactAction extends ActionSupport {
 	private Long contactId;
 	/** The contact service. */
 	private ContactService contactService; 
+	/** The company list. */
+	private List<Company> companyList;
+	/** The company service. */
+	private CompanyService companyService;
+	/** the companyDisplayMap hashMap */
+	private HashMap<Long, String> companyDisplayMap = new HashMap<Long, String>();
+	/**The input companyId. */
+	private Long InputCompanyId;
 	
 	
+	
+	public String execute() {
+		companyList = companyService.loadAll();
+		for(Company company : companyList){
+			companyDisplayMap.put(company.getId(), company.getName());
+		}
+		
+		return SUCCESS;
+	}
+
 	/**
 	 * Saves the contact to the database.
 	 *
@@ -51,6 +75,10 @@ public class ContactAction extends ActionSupport {
 	 */
 	public String load() {
 		contact = contactService.load(contactId);
+		companyList = companyService.loadAll();
+		for(Company company : companyList){
+			companyDisplayMap.put(company.getId(), company.getName());
+		}
 		return SUCCESS;
 	}
 
@@ -94,6 +122,42 @@ public class ContactAction extends ActionSupport {
 
 	public ContactService getContactService() {
 		return contactService;
+	}
+
+	public List<Company> getCompanyList() {
+		return companyList;
+	}
+
+	public void setCompanyList(List<Company> companyList) {
+		this.companyList = companyList;
+	}
+
+	public CompanyService getCompanyService() {
+		return companyService;
+	}
+
+	public void setCompanyService(CompanyService companyService) {
+		this.companyService = companyService;
+	}
+
+	public HashMap<Long, String> getCompanyDisplayMap() {
+		return companyDisplayMap;
+	}
+
+	public void setCompanyDisplayMap(HashMap<Long, String> companyDisplayMap) {
+		this.companyDisplayMap = companyDisplayMap;
+	}
+
+	public Long getInputCompanyId() {
+		return InputCompanyId;
+	}
+
+	public void setInputCompanyId(Long inputCompanyId) {
+		this.InputCompanyId = inputCompanyId;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	
 }

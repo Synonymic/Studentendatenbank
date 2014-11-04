@@ -18,8 +18,8 @@
 				<tr>
 					<td><s:radio name="zenturieId" list="#{id:''}" theme="simple" /></td>
 					<td><s:property value="name" /></td>
-					<td><s:property value="manipel" /></td>
-					<td><s:property value="students" /></td>
+					<td><s:property value="manipel.name" /></td>
+					<td><s:select name="inputId" list="studentDisplayMap" /></td>
 					<td><s:select name="inputId" list="examDisplayMap" /></td>
 				</tr>
 			</s:iterator>

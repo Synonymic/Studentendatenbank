@@ -5,6 +5,7 @@ import de.nak.studentsdatabase.model.ExmatriculatedStudent;
 import de.nak.studentsdatabase.model.ImmatriculatedStudent;
 import de.nak.studentsdatabase.model.Student;
 
+//import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 
 import java.util.List;
@@ -43,6 +44,10 @@ public class StudentDAO {
 	 * @param student The student to be exmatriculated.
 	 */
 	public void exmatriculate(Student student) {
+//		 String hql = "delete from Student where id = :id";
+//	        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+//	        query.setLong("id",student.getId());
+//	        query.executeUpdate();
 		sessionFactory.getCurrentSession().saveOrUpdate((ExmatriculatedStudent) student);
 	}
 	

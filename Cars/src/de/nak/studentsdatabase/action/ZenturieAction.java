@@ -1,8 +1,13 @@
 package de.nak.studentsdatabase.action;
 
+import java.util.HashMap;
+import java.util.List;
+
 import com.opensymphony.xwork2.ActionSupport;
 
+import de.nak.studentsdatabase.model.Student;
 import de.nak.studentsdatabase.model.Zenturie;
+import de.nak.studentsdatabase.service.StudentService;
 import de.nak.studentsdatabase.service.ZenturieService;
 
 /**
@@ -19,6 +24,14 @@ public class ZenturieAction extends ActionSupport {
 	private Long zenturieId;
 	/** The zenturie service. */
 	private ZenturieService zenturieService;
+	/** the student service */
+	private StudentService studentService;
+	/** the studentDisplayMap hashMap */
+	private HashMap<Long, String> studentDisplayMap = new HashMap<Long, String>();
+	/** the studentList */
+	private List<Student> studentList;
+	/** The input studentId. */
+	private Long InputStudentId;
 
 	/**
 	 * Saves the zenturie to the database.
@@ -50,6 +63,11 @@ public class ZenturieAction extends ActionSupport {
 	 */
 	public String load() {
 		zenturie = zenturieService.load(zenturieId);
+		studentList = studentService.loadAll();
+
+		for (Student student : studentList) {
+			studentDisplayMap.put(student.getId(), student.getName()+" "+student.getFirstName());
+		}
 		return SUCCESS;
 	}
 
@@ -90,4 +108,45 @@ public class ZenturieAction extends ActionSupport {
 	public void setZenturieService(ZenturieService zenturieService) {
 		this.zenturieService = zenturieService;
 	}
+
+	public StudentService getStudentService() {
+		return studentService;
+	}
+
+	public void setStudentService(StudentService studentService) {
+		this.studentService = studentService;
+	}
+
+	public HashMap<Long, String> getStudentDisplayMap() {
+		return studentDisplayMap;
+	}
+
+	public void setStudentDisplayMap(HashMap<Long, String> studentDisplayMap) {
+		this.studentDisplayMap = studentDisplayMap;
+	}
+
+	public List<Student> getStudentList() {
+		return studentList;
+	}
+
+	public void setStudentList(List<Student> studentList) {
+		this.studentList = studentList;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public ZenturieService getZenturieService() {
+		return zenturieService;
+	}
+
+	public Long getInputStudentId() {
+		return InputStudentId;
+	}
+
+	public void setInputStudentId(Long inputStudentId) {
+		InputStudentId = inputStudentId;
+	}
+	
 }

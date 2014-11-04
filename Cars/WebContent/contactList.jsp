@@ -18,7 +18,7 @@
 					<td><s:radio name="contactId" list="#{id:''}" theme="simple" /></td>
 					<td><s:property value="name" /></td>
 					<td><s:property value="firstName" /></td>
-					<td><td><s:select name="inputId" list="companyDisplayMap" /></td>
+					<td><s:select name="inputId" list="companyDisplayMap" /></td>
 				</tr>
 			</s:iterator>
 		</table>
