@@ -63,7 +63,7 @@ public class StudentDAO {
 	 *
 	 * @param student The student to be immatriculated.
 	 */
-	public void immatriculate(ImmatriculatedStudent student) {
+	public void immatriculate(Student student) {
 		sessionFactory.getCurrentSession().saveOrUpdate( student);
 	}
 
