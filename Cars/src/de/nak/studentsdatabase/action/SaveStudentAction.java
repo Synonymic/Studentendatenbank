@@ -12,6 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import de.nak.studentsdatabase.model.Address;
 import de.nak.studentsdatabase.model.Company;
 import de.nak.studentsdatabase.model.Contact;
+import de.nak.studentsdatabase.model.DiscontinuedStudent;
 import de.nak.studentsdatabase.model.Exam;
 import de.nak.studentsdatabase.model.ExmatriculatedStudent;
 import de.nak.studentsdatabase.model.ImmatriculatedStudent;
@@ -202,6 +203,7 @@ public class SaveStudentAction extends ActionSupport implements Action {
 				try{
 					studentService.immatriculate(student);
 				}catch(DataIntegrityViolationException e){
+
 					System.out.println(e);
 				}
 			}
@@ -209,8 +211,9 @@ public class SaveStudentAction extends ActionSupport implements Action {
 		}
 		
 		studentService.save(student);
-		if(false == (student instanceof Student) && false == (student instanceof ImmatriculatedStudent) 
-				&& false == (student instanceof ExmatriculatedStudent)){
+		if(false == (student instanceof ImmatriculatedStudent) 
+				&& false == (student instanceof ExmatriculatedStudent) && 
+				false == (student instanceof DiscontinuedStudent)){
 			try{
 				studentService.immatriculate(student);
 			}catch(DataIntegrityViolationException e){

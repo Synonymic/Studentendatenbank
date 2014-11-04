@@ -156,6 +156,11 @@ public class NewStudentByApplicantAction implements Action {
 		student.setMatriculationNumber(12345);
 		
 		studentService.save(student);
+		try{
+		studentService.immatriculate(student);
+		}catch(Exception e){
+			System.out.println(e);
+		}
 		
 		return SUCCESS;
 	}
