@@ -3,8 +3,6 @@ package de.nak.studentsdatabase.service;
 import java.util.List;
 
 import de.nak.studentsdatabase.dao.StudentDAO;
-import de.nak.studentsdatabase.model.DiscontinuedStudent;
-import de.nak.studentsdatabase.model.ExmatriculatedStudent;
 import de.nak.studentsdatabase.model.ImmatriculatedStudent;
 import de.nak.studentsdatabase.model.Student;
 
@@ -43,13 +41,13 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public void exmatriculate(Student student) {
-		studentDAO.exmatriculate((ExmatriculatedStudent) student);
+		studentDAO.exmatriculate((ImmatriculatedStudent) student);
 		
 	}
 
 	@Override
 	public void discontinue(Student student) {
-		studentDAO.discontinue((DiscontinuedStudent) student);
+		studentDAO.discontinue((ImmatriculatedStudent) student);
 		
 	}
 

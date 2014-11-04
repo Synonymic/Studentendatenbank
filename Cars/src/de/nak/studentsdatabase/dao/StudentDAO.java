@@ -1,7 +1,5 @@
 package de.nak.studentsdatabase.dao;
 
-import de.nak.studentsdatabase.model.DiscontinuedStudent;
-import de.nak.studentsdatabase.model.ExmatriculatedStudent;
 import de.nak.studentsdatabase.model.ImmatriculatedStudent;
 import de.nak.studentsdatabase.model.Student;
 
@@ -43,7 +41,7 @@ public class StudentDAO {
 	 *
 	 * @param student The student to be exmatriculated.
 	 */
-	public void exmatriculate(ExmatriculatedStudent student) {
+	public void exmatriculate(ImmatriculatedStudent student) {
 //		 String hql = "delete from Student where id = :id";
 //	        Query query = sessionFactory.getCurrentSession().createQuery(hql);
 //	        query.setLong("id",student.getId());
@@ -56,7 +54,7 @@ public class StudentDAO {
 	 *
 	 * @param student The student to be discontinued.
 	 */
-	public void discontinue(DiscontinuedStudent student) {
+	public void discontinue(ImmatriculatedStudent student) {
 		sessionFactory.getCurrentSession().saveOrUpdate( student);
 	}
 	
