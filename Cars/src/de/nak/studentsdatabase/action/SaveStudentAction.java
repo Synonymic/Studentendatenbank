@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.dao.DataIntegrityViolationException;
+
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -175,7 +177,11 @@ public class SaveStudentAction extends ActionSupport implements Action {
 			studentService.save(student);
 			if(false == (student instanceof Student) && false == (student instanceof ImmatriculatedStudent) 
 					&& false == (student instanceof ExmatriculatedStudent)){
-			studentService.immatriculate(student);
+				try{
+					studentService.immatriculate(student);
+				}catch(DataIntegrityViolationException e){
+					System.out.println(e);
+				}
 			}
 			return "newCompany";
 		}
@@ -193,7 +199,11 @@ public class SaveStudentAction extends ActionSupport implements Action {
 			studentService.save(student);
 			if(false == (student instanceof Student) && false == (student instanceof ImmatriculatedStudent) 
 					&& false == (student instanceof ExmatriculatedStudent)){
-			studentService.immatriculate(student);
+				try{
+					studentService.immatriculate(student);
+				}catch(DataIntegrityViolationException e){
+					System.out.println(e);
+				}
 			}
 			return "newContact";
 		}
@@ -201,7 +211,11 @@ public class SaveStudentAction extends ActionSupport implements Action {
 		studentService.save(student);
 		if(false == (student instanceof Student) && false == (student instanceof ImmatriculatedStudent) 
 				&& false == (student instanceof ExmatriculatedStudent)){
-		studentService.immatriculate(student);
+			try{
+				studentService.immatriculate(student);
+			}catch(DataIntegrityViolationException e){
+				System.out.println(e);
+			}
 		}
 		return SUCCESS;
 	}
