@@ -43,12 +43,12 @@ public class StudentDAO {
 	 *
 	 * @param student The student to be exmatriculated.
 	 */
-	public void exmatriculate(Student student) {
+	public void exmatriculate(ExmatriculatedStudent student) {
 //		 String hql = "delete from Student where id = :id";
 //	        Query query = sessionFactory.getCurrentSession().createQuery(hql);
 //	        query.setLong("id",student.getId());
 //	        query.executeUpdate();
-		sessionFactory.getCurrentSession().saveOrUpdate((ExmatriculatedStudent) student);
+		sessionFactory.getCurrentSession().saveOrUpdate( student);
 	}
 	
 	/**
@@ -56,8 +56,8 @@ public class StudentDAO {
 	 *
 	 * @param student The student to be discontinued.
 	 */
-	public void discontinue(Student student) {
-		sessionFactory.getCurrentSession().saveOrUpdate((DiscontinuedStudent) student);
+	public void discontinue(DiscontinuedStudent student) {
+		sessionFactory.getCurrentSession().saveOrUpdate( student);
 	}
 	
 	/**
@@ -65,8 +65,8 @@ public class StudentDAO {
 	 *
 	 * @param student The student to be immatriculated.
 	 */
-	public void immatriculate(Student student) {
-		sessionFactory.getCurrentSession().saveOrUpdate((ImmatriculatedStudent) student);
+	public void immatriculate(ImmatriculatedStudent student) {
+		sessionFactory.getCurrentSession().saveOrUpdate( student);
 	}
 
 	/**

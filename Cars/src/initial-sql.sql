@@ -12,6 +12,7 @@ delete from STUDENT;
 delete from ZENTURIE;
 delete from STUDENT_EXAM;
 insert into USER (ID, NAME, PASSWORD) values (1, 'ADMIN', 'Password');
+insert into USER (ID, NAME, PASSWORD) values (2, 'Verwalter', 'Start123');
 insert into ADDRESS (ID, ADDITION, CITY, EMAIL, FAX, HOUSE_NUMBER, POSTCODE, STREET, TELEPHONE_NUMBER) values (1,'','Musterstadt','muster@mail.com',0123456789,'1',12345,'Musterstraﬂe',0123456789);
 insert into ADDRESS (ID, ADDITION, CITY, EMAIL, FAX, HOUSE_NUMBER, POSTCODE, STREET, TELEPHONE_NUMBER) values (2,'','Musterstadt','muster2@mail.com',0123456788,'2',12345,'Musterstraﬂe',0123456788);
 insert into ADDRESS (ID, ADDITION, CITY, EMAIL, FAX, HOUSE_NUMBER, POSTCODE, STREET, TELEPHONE_NUMBER) values (3,'','Musterstadt','muster3@mail.com',0123456787,'3',12345,'Musterstraﬂe',0123456787);
