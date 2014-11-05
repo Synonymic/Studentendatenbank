@@ -8,7 +8,6 @@
 	<s:textfield name="student.firstName" key="lbl.firstName" size="40" maxlength="100" requiredLabel="true" />
 	<s:select name="student.salutation" key="lbl.salutation"
 		list="{'Herr','Frau'}" />
-	<s:label  key="lbl.dateOfBirth" />
 	<s:textfield name="student.dayOfBirth" key="lbl.dayOfBirth" requiredLabel="true" size="10" maxsize="10"/>
 	<s:radio key="lbl.gender" name="student.gender" list="{'male','female'}" />
 	<s:textfield name="student.placeOfBirth" key="lbl.placeOfBirth" requiredLabel="true" />

@@ -2,19 +2,19 @@ package de.nak.studentsdatabase.dao;
 
 
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 
 import de.nak.studentsdatabase.model.ImmatriculatedStudent;
 import de.nak.studentsdatabase.model.Student;
-
-import java.util.List;
 
 /**
  * Student data access object.
  *
  * @author Andreas Krey
  */
-public class ImmatriculatedStudentDAO extends StudentDAO{
+public class ImmatriculatedStudentDAO extends StudentDAO {
 	/** The Hibernate Session factory. */
 	private SessionFactory sessionFactory;
 

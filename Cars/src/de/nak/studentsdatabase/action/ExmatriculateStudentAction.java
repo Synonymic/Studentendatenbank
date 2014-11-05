@@ -31,9 +31,10 @@ public class ExmatriculateStudentAction implements Action {
 
 	@Override
 	public String execute() throws Exception {
-		student = studentService.load(studentId);
+		student = immatriculatedStudentService.load(studentId);
 		if(student != null && false == (student instanceof DiscontinuedStudent)
-				&& false == (student instanceof ExmatriculatedStudent)){
+				&& false == (student instanceof ExmatriculatedStudent))
+			{
 			studentService.exmatriculate(student);
 		}
 		studentList = immatriculatedStudentService.loadAll();

@@ -31,9 +31,11 @@ public class DiscontinueStudentAction implements Action {
 
 	@Override
 	public String execute() throws Exception {
-		student = studentService.load(studentId);
-		if(student != null && false == (student instanceof DiscontinuedStudent)
-				&& false == (student instanceof ExmatriculatedStudent)){
+		student = immatriculatedStudentService.load(studentId);
+		if(student != null
+			&& false == (student instanceof DiscontinuedStudent)
+				&& false == (student instanceof ExmatriculatedStudent))
+		{
 		studentService.discontinue(student);
 		}
 		studentList = immatriculatedStudentService.loadAll();

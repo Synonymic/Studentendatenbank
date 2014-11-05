@@ -1,12 +1,11 @@
 package de.nak.studentsdatabase.dao;
 
-import de.nak.studentsdatabase.model.ImmatriculatedStudent;
-import de.nak.studentsdatabase.model.Student;
+import java.util.List;
 
 //import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 
-import java.util.List;
+import de.nak.studentsdatabase.model.Student;
 
 /**
  * Student data access object.
@@ -41,11 +40,7 @@ public class StudentDAO {
 	 *
 	 * @param student The student to be exmatriculated.
 	 */
-	public void exmatriculate(ImmatriculatedStudent student) {
-//		 String hql = "delete from Student where id = :id";
-//	        Query query = sessionFactory.getCurrentSession().createQuery(hql);
-//	        query.setLong("id",student.getId());
-//	        query.executeUpdate();
+	public void exmatriculate(Student student) {
 		sessionFactory.getCurrentSession().saveOrUpdate( student);
 	}
 	
@@ -54,7 +49,7 @@ public class StudentDAO {
 	 *
 	 * @param student The student to be discontinued.
 	 */
-	public void discontinue(ImmatriculatedStudent student) {
+	public void discontinue(Student student) {
 		sessionFactory.getCurrentSession().saveOrUpdate( student);
 	}
 	

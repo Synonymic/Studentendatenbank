@@ -13,8 +13,8 @@ import de.nak.studentsdatabase.model.Student;
  */
 public class ImmatriculatedStudentServiceImpl implements
 		ImmatriculatedStudentService {
-	
-	/**  The immatriculatedStudentDAO */
+
+	/** The immatriculatedStudentDAO */
 	private ImmatriculatedStudentDAO immatriculatedStudentDAO;
 
 	@Override
