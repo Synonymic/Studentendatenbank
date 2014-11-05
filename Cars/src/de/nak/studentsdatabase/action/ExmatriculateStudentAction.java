@@ -3,6 +3,7 @@ package de.nak.studentsdatabase.action;
 import java.util.List;
 
 import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.studentsdatabase.model.DiscontinuedStudent;
 import de.nak.studentsdatabase.model.ExmatriculatedStudent;
@@ -17,8 +18,13 @@ import de.nak.studentsdatabase.service.StudentService;
  * @author Dirk Johannssen
  *
  */
-public class ExmatriculateStudentAction implements Action {
+public class ExmatriculateStudentAction extends ActionSupport implements Action {
 	
+	/**
+	 * The serialVersionUID.
+	 */
+	private static final long serialVersionUID = 4032727511476341840L;
+
 	private StudentService studentService;
 	
 	private Student student;
@@ -39,6 +45,14 @@ public class ExmatriculateStudentAction implements Action {
 		}
 		studentList = immatriculatedStudentService.loadAll();
 		return SUCCESS;
+	}
+	
+	@Override
+	public void validate() {
+		// If the applicant is not set, the applicant ID has to be set.
+		if (student == null && studentId == null) {
+			addActionError(getText("msg.selectApplicant"));
+		}
 	}
 
 	public Student getStudent() {

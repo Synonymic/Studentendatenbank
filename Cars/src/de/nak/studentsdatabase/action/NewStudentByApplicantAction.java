@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.studentsdatabase.model.Address;
 import de.nak.studentsdatabase.model.Applicant;
@@ -27,7 +28,12 @@ import de.nak.studentsdatabase.service.ZenturieService;
  * @author Dirk Johannﬂen
  *
  */
-public class NewStudentByApplicantAction implements Action {
+public class NewStudentByApplicantAction extends ActionSupport implements Action {
+	/**
+	 * The serialVersionUID.
+	 */
+	private static final long serialVersionUID = 4375901221887650130L;
+
 	/**The applicant service. */
 	private ApplicantService applicantService;
 	
@@ -161,6 +167,15 @@ public class NewStudentByApplicantAction implements Action {
 		
 		return SUCCESS;
 	}
+	
+	@Override
+	public void validate() {
+		// If the applicant is not set, the applicant ID has to be set.
+		if (applicant == null && applicantId == null) {
+			addActionError(getText("msg.selectApplicant"));
+		}
+	}
+
 	
 	public Applicant getApplicant() {
 		return applicant;

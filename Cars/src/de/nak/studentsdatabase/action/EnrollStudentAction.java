@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.dao.DataIntegrityViolationException;
 
 import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionSupport;
+
 import de.nak.studentsdatabase.model.ImmatriculatedStudent;
 import de.nak.studentsdatabase.model.Student;
 import de.nak.studentsdatabase.service.ImmatriculatedStudentService;
@@ -17,8 +19,13 @@ import de.nak.studentsdatabase.service.StudentService;
  * @author Dirk Johannssen
  *
  */
-public class EnrollStudentAction implements Action {
+public class EnrollStudentAction extends ActionSupport implements Action {
 	
+	/**
+	 * The serialVersionUID
+	 */
+	private static final long serialVersionUID = 9045228299904002647L;
+
 	/** The studentId. */
 	private Long studentId;
 	
@@ -49,6 +56,14 @@ public class EnrollStudentAction implements Action {
 		
 		studentList = immatriculatedStudentService.loadAll();
 		return SUCCESS;
+	}
+	
+	@Override
+	public void validate() {
+		// If the applicant is not set, the applicant ID has to be set.
+		if (student == null && studentId == null) {
+			addActionError(getText("msg.selectApplicant"));
+		}
 	}
 
 	public Long getStudentId() {
