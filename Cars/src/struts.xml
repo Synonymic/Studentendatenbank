@@ -91,7 +91,7 @@
 			class="de.nak.studentsdatabase.action.NewStudentByApplicantAction"
 			method="execute">
 			<interceptor-ref name="loginStack" />
-			<result type="chain" name="input">newStudentByApplicantForm</result>
+			<result type="chain" name="input">ShowApplicantList</result>
 			<result type="tiles">studentForm</result>
 		</action>
 

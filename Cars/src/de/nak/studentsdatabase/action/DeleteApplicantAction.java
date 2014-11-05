@@ -42,6 +42,15 @@ public class DeleteApplicantAction extends ActionSupport implements Action {
 		return SUCCESS;
 	}
 	
+	@Override
+	public void validate() {
+		// If the applicant is not set, the applicant ID has to be set.
+		if (applicant == null && applicantId == null) {
+			addActionError(getText("msg.selectApplicant"));
+		}
+	}
+
+	
 
 	public Applicant getApplicant() {
 		return applicant;
