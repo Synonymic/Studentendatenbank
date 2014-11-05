@@ -8,4 +8,5 @@
 	<s:textfield name="matriculationNumber" key="lbl.enrolmentNumber" />
 	
 	<s:submit key="btn.search" action="SearchStudent" />
+	<s:submit key="btn.manageStudents" action="ShowStudentList"/>
 </s:form>

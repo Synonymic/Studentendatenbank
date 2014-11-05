@@ -6,7 +6,7 @@ import java.util.List;
 import com.opensymphony.xwork2.Action;
 
 import de.nak.studentsdatabase.model.Student;
-import de.nak.studentsdatabase.service.StudentService;
+import de.nak.studentsdatabase.service.ImmatriculatedStudentService;
 
 /**
  * Action for searching students through
@@ -17,14 +17,14 @@ import de.nak.studentsdatabase.service.StudentService;
  */
 public class SearchStudentAction implements Action {
 	
-	/** the immatriculatedStudentService. */
-	private StudentService studentService;
-	
 	/** the studentList to be returned */
 	private List<Student> studentList;
 	
 	/** the list that contains all students */
 	private List<Student> allStudentsList;
+	
+	/** The immatriculatedStudentService */
+	private ImmatriculatedStudentService immatriculatedStudentService;
 	
 	/** the gender */
 	private String gender;
@@ -40,16 +40,21 @@ public class SearchStudentAction implements Action {
 		studentList = new ArrayList<Student>();
 		
 		if(matriculationNumber != null || matriculationNumber != ""){
-		matriculationNumberInteger = Integer.parseInt(matriculationNumber);
+			try{
+			matriculationNumberInteger = Integer.parseInt(matriculationNumber);
+			}catch(NumberFormatException e){
+				matriculationNumberInteger = 0;
+			}
 		}else{
-			matriculationNumberInteger = -1;
+			matriculationNumberInteger = 0;
 		}
 		
 		if(gender == "" || gender == null){
 			gender = "none";
 		}
 		
-		allStudentsList = studentService.loadAll();
+		allStudentsList = immatriculatedStudentService.loadAll();
+//		allStudentsList = studentService.loadAll();
 		for(Student student : allStudentsList){
 			
 			if(student.getMatriculationNumber().equals(matriculationNumberInteger)){
@@ -91,6 +96,11 @@ public class SearchStudentAction implements Action {
 
 	public void setMatriculationNumberInteger(Integer matriculationNumberInteger) {
 		this.matriculationNumberInteger = matriculationNumberInteger;
+	}
+
+	public void setImmatriculatedStudentService(
+			ImmatriculatedStudentService immatriculatedStudentService) {
+		this.immatriculatedStudentService = immatriculatedStudentService;
 	}
 
 
