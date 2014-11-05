@@ -53,7 +53,7 @@
 			class="de.nak.studentsdatabase.action.EditApplicantAction" method="execute">
 			<interceptor-ref name="loginStack" />
 			<result type="tiles">applicantForm</result>
-			<result type="chain" name="input">ShowApplicantsList</result>
+			<result type="chain" name="input">ShowApplicantList</result>
 		</action>
 
 		<!-- Action for the cancel button. Is required to avoid stack traces in 
