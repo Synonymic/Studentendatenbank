@@ -39,7 +39,7 @@ public class DiscontinueStudentAction implements Action {
 		studentService.discontinue(student);
 		}
 		studentList = immatriculatedStudentService.loadAll();
-		return null;
+		return SUCCESS;
 	}
 
 	public Student getStudent() {

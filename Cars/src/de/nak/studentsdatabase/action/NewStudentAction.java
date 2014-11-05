@@ -101,7 +101,8 @@ public class NewStudentAction implements Action {
 		
 		contactDisplayMap.put((long) -1, "Neuer Betreuer"); 
 		for(Contact contact : contactList){
-			contactDisplayMap.put(contact.getId(), contact.getCompany().getName() + ": " + contact.getFirstName());
+			contactDisplayMap.put(contact.getId(), contact.getCompany().getName() +
+					": " + contact.getFirstName());
 		}
 		
 		

@@ -124,7 +124,8 @@ public class NewStudentByApplicantAction implements Action {
 		
 		contactDisplayMap.put((long) -1, "Neuer Betreuer"); 
 		for(Contact contact : contactList){
-			contactDisplayMap.put(contact.getId(), contact.getName());
+			contactDisplayMap.put(contact.getId(), contact.getCompany().getName() +
+					": " + contact.getFirstName());
 		}
 		
 		for(Exam exam : examList){
@@ -155,12 +156,8 @@ public class NewStudentByApplicantAction implements Action {
 		student.setSalutation(applicant.getSalutation());
 		student.setMatriculationNumber(12345);
 		
+		// saves and enrolls student, as well as deletes applicant.
 		studentService.save(student);
-		try{
-		studentService.immatriculate(student);
-		}catch(Exception e){
-			System.out.println(e);
-		}
 		
 		return SUCCESS;
 	}
