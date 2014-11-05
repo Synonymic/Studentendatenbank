@@ -9,9 +9,9 @@
 	<s:select name="student.salutation" key="lbl.salutation"
 		list="{'Herr','Frau'}" />
 	<s:textfield name="student.dayOfBirth" key="lbl.dayOfBirth" requiredLabel="true" size="10" maxsize="10"/>
-	<s:radio key="lbl.gender" name="student.gender" list="{'male','female'}" />
+	<s:radio key="lbl.gender" name="student.gender" requiredLabel="true" list="{'male','female'}" />
 	<s:textfield name="student.placeOfBirth" key="lbl.placeOfBirth" requiredLabel="true" />
-	<s:textfield name="student.matriculationNumber" key="lbl.enrolmentNumber" />
+	<s:textfield name="student.matriculationNumber" requiredLabel="true" key="lbl.enrolmentNumber" />
 
 	<s:select name="inputManipelId" key="lbl.manipel" list="manipelDisplayMap" />
 	<s:select name="inputZenturieId" key="lbl.zenturie" list="zenturieDisplayMap" /> 
@@ -23,10 +23,10 @@
 	<s:textfield name="student.address.houseNumber" key="lbl.houseNumber" requiredLabel="true" size="5" maxsize="5" />
 	<s:textfield name="student.address.postcode" key="lbl.cityCode" requiredLabel="true" size="5" maxsize="5"/>
 	<s:textfield name="student.address.city" key="lbl.cityName" requiredLabel="true" size="40" maxsize="85"/>
-	<s:textfield name="student.address.addition" key="lbl.addressAddition" requiredLabel="true" size="40" maxsize="80"/>
+	<s:textfield name="student.address.addition" key="lbl.addressAddition" size="40" maxsize="80"/>
 	<s:textfield name="student.address.telephoneNumber" key="lbl.telephoneNumber" requiredLabel="true" 
 	size="15" maxsize="15"/>
-	<s:textfield name="student.address.fax" key="lbl.fax" requiredLabel="true" size="15" maxsize="15"/>
+	<s:textfield name="student.address.fax" key="lbl.fax" size="15" maxsize="15"/>
 	<s:textfield name="student.address.email" key="lbl.email" requiredLabel="true" size="40" maxsize="100"/>
 	
 	<%-- The buttons --%>

@@ -4,7 +4,7 @@
 		"http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
 
 <validators>
-	<field name="applicant.name">
+	<field name="student.name">
 		<field-validator type="requiredstring">
 			<message key="msg.validator.required" />
 		</field-validator>
@@ -14,7 +14,7 @@
 			<message key="msg.validator.stringLength" />
 		</field-validator>
 	</field>
-	<field name="applicant.firstName">
+	<field name="student.firstName">
 		<field-validator type="requiredstring">
 			<message key="msg.validator.required" />
 		</field-validator>
@@ -24,22 +24,44 @@
 			<message key="msg.validator.stringLength" />
 		</field-validator>
 	</field>
-	<field name="applicant.salutation">
+	<field name="student.salutation">
 		<field-validator type="requiredstring">
 			<message key="msg.validator.required" />
 		</field-validator>
 	</field>
-	<field name="applicant.dayOfBirth">
+	<field name="student.dayOfBirth">
 		<field-validator type="requiredstring">
 			<message key="msg.validator.required" />
 		</field-validator>
 	</field>
-	<field name="applicant.gender">
+	<field name="student.gender">
 		<field-validator type="requiredstring">
 			<message key="msg.validator.required" />
 		</field-validator>
 	</field>
-	<field name="applicant.address.street">
+	<field name="student.placeOfBirth">
+		<field-validator type="requiredstring">
+			<message key="msg.validator.required" />
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">51</param>
+			<param name="minLength">2</param>
+			<message key="msg.validator.stringLength" />
+		</field-validator>
+	</field>
+
+	<field name="student.matriculationNumber">
+		<field-validator type="required">
+			<message key="msg.validator.required" />
+		</field-validator>
+		<field-validator type="int">
+			<param name="min">0</param>
+			<param name="max">99999</param>
+			<message key="msg.validator.intRange" />
+		</field-validator>
+	</field>
+
+	<field name="student.address.street">
 		<field-validator type="requiredstring">
 			<message key="msg.validator.required" />
 		</field-validator>
@@ -49,7 +71,7 @@
 			<message key="msg.validator.stringLength" />
 		</field-validator>
 	</field>	
-	<field name="applicant.address.houseNumber">
+	<field name="student.address.houseNumber">
 		<field-validator type="requiredstring">
 			<message key="msg.validator.required" />
 		</field-validator>
@@ -59,7 +81,7 @@
 			<message key="msg.validator.stringLength" />
 		</field-validator>
 	</field>
-	<field name="applicant.address.postcode">
+	<field name="student.address.postcode">
 		<field-validator type="required">
 			<message key="msg.validator.required" />
 		</field-validator>
@@ -69,7 +91,7 @@
 			<message key="smg.validator.stringLength" />
 		</field-validator>
 	</field>
-	<field name="applicant.address.city">
+	<field name="student.address.city">
 		<field-validator type="requiredstring">
 			<message key="msg.validator.required" />
 		</field-validator>
@@ -79,7 +101,7 @@
 			<message key="msg.validator.stringLength" />
 		</field-validator>
 	</field>
-	<field name="applicant.address.telephoneNumber">
+	<field name="student.address.telephoneNumber">
 		<field-validator type="required">
 			<message key="msg.validator.required" />
 		</field-validator>
@@ -93,7 +115,7 @@
 	        <message key="msg.validator.telephoneNumber" />
    		</field-validator>
 	</field>
-	<field name="applicant.address.email">
+	<field name="student.address.email">
 		<field-validator type="email">
 			<message key="msg.validator.email" />
 		</field-validator>

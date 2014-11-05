@@ -115,7 +115,7 @@
 			log. -->
 		<action name="EditStudent" class="de.nak.studentsdatabase.action.EditStudentAction">
 			<interceptor-ref name="loginStack" />
-			<result type="chain" name="input">ShowStudentList</result>
+			<result type="chain" name="input">studentForm</result>
 			<result type="tiles">studentForm</result>
 		</action>
 
