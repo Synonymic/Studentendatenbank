@@ -39,7 +39,7 @@ public class EnrollStudentAction implements Action {
 		student = studentService.load(studentId);
 		studentService.save(student);
 		
-		if(false == (student instanceof Student) && false == (student instanceof ImmatriculatedStudent) ){
+		if(false == (student instanceof ImmatriculatedStudent) ){
 			try{
 				studentService.immatriculate(student);
 			}catch(DataIntegrityViolationException e){
