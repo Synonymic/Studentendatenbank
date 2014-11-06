@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN"
+		"http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+	<field name="student.name">
+		<field-validator type="requiredstring">
+			<message key="msg.validator.required" />
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">50</param>
+			<param name="minLength">2</param>
+			<message key="msg.validator.stringLength" />
+		</field-validator>
+	</field>
+	<field name="student.firstName">
+		<field-validator type="requiredstring">
+			<message key="msg.validator.required" />
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">50</param>
+			<param name="minLength">2</param>
+			<message key="msg.validator.stringLength" />
+		</field-validator>
+	</field>
+	<field name="student.salutation">
+		<field-validator type="requiredstring">
+			<message key="msg.validator.required" />
+		</field-validator>
+	</field>
+	<field name="student.dayOfBirth">
+		<field-validator type="requiredstring">
+			<message key="msg.validator.required" />
+		</field-validator>
+	</field>
+	<field name="student.gender">
+		<field-validator type="requiredstring">
+			<message key="msg.validator.required" />
+		</field-validator>
+	</field>
+	<field name="student.placeOfBirth">
+		<field-validator type="requiredstring">
+			<message key="msg.validator.required" />
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">51</param>
+			<param name="minLength">2</param>
+			<message key="msg.validator.stringLength" />
+		</field-validator>
+	</field>
+
+	<field name="student.matriculationNumber">
+		<field-validator type="required">
+			<message key="msg.validator.required" />
+		</field-validator>
+		<field-validator type="int">
+			<param name="min">0</param>
+			<param name="max">99999</param>
+			<message key="msg.validator.intRange" />
+		</field-validator>
+	</field>
+
+	<field name="student.address.street">
+		<field-validator type="requiredstring">
+			<message key="msg.validator.required" />
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">51</param>
+			<param name="minLength">2</param>
+			<message key="msg.validator.stringLength" />
+		</field-validator>
+	</field>	
+	<field name="student.address.houseNumber">
+		<field-validator type="requiredstring">
+			<message key="msg.validator.required" />
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">8</param>
+			<param name="minLength">1</param>
+			<message key="msg.validator.stringLength" />
+		</field-validator>
+	</field>
+	<field name="student.address.postcode">
+		<field-validator type="required">
+			<message key="msg.validator.required" />
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">5</param>
+			<param name="maxLength">5</param>
+			<message key="smg.validator.stringLength" />
+		</field-validator>
+	</field>
+	<field name="student.address.city">
+		<field-validator type="requiredstring">
+			<message key="msg.validator.required" />
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">85</param>
+			<param name="minLength">2</param>
+			<message key="msg.validator.stringLength" />
+		</field-validator>
+	</field>
+	<field name="student.address.telephoneNumber">
+		<field-validator type="required">
+			<message key="msg.validator.required" />
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">9</param>
+			<param name="maxLength">15</param>
+			<message key="msg.validator.stringLength" />
+		</field-validator>
+		<field-validator type="regex">
+	        <param name="regex"><![CDATA[^\+?[0-9\-]+\*?$]]></param>
+	        <message key="msg.validator.telephoneNumber" />
+   		</field-validator>
+	</field>
+	<field name="student.address.email">
+		<field-validator type="email">
+			<message key="msg.validator.email" />
+		</field-validator>
+		<field-validator type="required">
+			<message key="msg.validator.required" />
+		</field-validator>
+	</field>
+</validators>

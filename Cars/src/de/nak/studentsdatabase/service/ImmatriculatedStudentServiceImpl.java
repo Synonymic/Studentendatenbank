@@ -18,7 +18,7 @@ public class ImmatriculatedStudentServiceImpl implements
 	private ImmatriculatedStudentDAO immatriculatedStudentDAO;
 
 	@Override
-	public void save(ImmatriculatedStudent immatriculatedStudent) {
+	public void save(Student immatriculatedStudent) {
 		immatriculatedStudentDAO.save(immatriculatedStudent);
 
 	}

@@ -18,7 +18,7 @@ public interface ExmatriculatedStudentService {
 	List<Student> loadAll();
 	
 	/** saves a given exmatriculateStudent */
-	void save(ExmatriculatedStudent exmatriculatedStudent);
+	void save(Student exmatriculatedStudent);
 	
 	/** loads an exmatriculatedStudent by a given id */
 	ExmatriculatedStudent load(Long id);

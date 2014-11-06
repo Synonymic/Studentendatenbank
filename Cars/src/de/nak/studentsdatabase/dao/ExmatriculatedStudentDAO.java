@@ -21,7 +21,7 @@ public class ExmatriculatedStudentDAO extends StudentDAO{
 	 *
 	 * @param exmatriculatedStudent The student to persist. The given entity can be transient or detached.
 	 */
-	public void save(ExmatriculatedStudent exmatriculatedStudent) {
+	public void save(Student exmatriculatedStudent) {
 		sessionFactory.getCurrentSession().saveOrUpdate(exmatriculatedStudent);
 	}
 

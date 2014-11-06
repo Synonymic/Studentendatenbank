@@ -27,7 +27,7 @@ public class ExmatriculatedStudentServiceImpl implements
 	}
 
 	@Override
-	public void save(ExmatriculatedStudent exmatriculatedStudent) {
+	public void save(Student exmatriculatedStudent) {
 		exmatriculatedStudentDAO.save(exmatriculatedStudent);
 		
 	}

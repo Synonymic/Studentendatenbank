@@ -14,7 +14,7 @@ import de.nak.studentsdatabase.model.Student;
 public interface DiscontinuedStudentService {
 	
 	/** saves a given student. */
-	void save(DiscontinuedStudent discontinuedStudent);
+	void save(Student discontinuedStudent);
 	
 	/** loads a student by a given id. */
 	DiscontinuedStudent load(Long id);

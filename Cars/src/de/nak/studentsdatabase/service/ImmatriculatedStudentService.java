@@ -14,7 +14,7 @@ import de.nak.studentsdatabase.model.Student;
 public interface ImmatriculatedStudentService {
 	
 	/** Saves the given Student */
-	void save(ImmatriculatedStudent immatriculatedStudent);
+	void save(Student immatriculatedStudent);
 	
 	/** loads a student by a given id */
 	ImmatriculatedStudent load(Long id);

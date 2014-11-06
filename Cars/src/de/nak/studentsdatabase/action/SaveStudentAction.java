@@ -4,8 +4,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.springframework.dao.DataIntegrityViolationException;
-
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -21,7 +19,10 @@ import de.nak.studentsdatabase.model.Student;
 import de.nak.studentsdatabase.model.Zenturie;
 import de.nak.studentsdatabase.service.CompanyService;
 import de.nak.studentsdatabase.service.ContactService;
+import de.nak.studentsdatabase.service.DiscontinuedStudentService;
 import de.nak.studentsdatabase.service.ExamService;
+import de.nak.studentsdatabase.service.ExmatriculatedStudentService;
+import de.nak.studentsdatabase.service.ImmatriculatedStudentService;
 import de.nak.studentsdatabase.service.ManipelService;
 import de.nak.studentsdatabase.service.StudentService;
 import de.nak.studentsdatabase.service.ZenturieService;
@@ -50,12 +51,19 @@ public class SaveStudentAction extends ActionSupport implements Action {
 
 	/** the studentId */
 	private Long studentId;
+	
+	/** the immatriculatedStudentService */
+	private ImmatriculatedStudentService immatriculatedStudentService;
 
 	/** the studentList */
 	private List<Student> studentList;
 
 	/** the studentService */
 	private StudentService studentService;
+	
+	private ExmatriculatedStudentService exmatriculatedStudentService;
+	
+	private DiscontinuedStudentService discontinuedStudentService;
 	
 	private Company company;
 	
@@ -176,14 +184,6 @@ public class SaveStudentAction extends ActionSupport implements Action {
 			company.setStudents(companyStudents);
 			
 			studentService.save(student);
-			if(false == (student instanceof Student) && false == (student instanceof ImmatriculatedStudent) 
-					&& false == (student instanceof ExmatriculatedStudent)){
-				try{
-					studentService.immatriculate(student);
-				}catch(DataIntegrityViolationException e){
-					System.out.println(e);
-				}
-			}
 			return "newCompany";
 		}
 		
@@ -198,28 +198,28 @@ public class SaveStudentAction extends ActionSupport implements Action {
 			contact.setStudents(companyStudents);
 			
 			studentService.save(student);
-			if(false == (student instanceof Student) && false == (student instanceof ImmatriculatedStudent) 
-					&& false == (student instanceof ExmatriculatedStudent)){
-				try{
-					studentService.immatriculate(student);
-				}catch(DataIntegrityViolationException e){
-
-					System.out.println(e);
-				}
-			}
 			return "newContact";
 		}
 		
-		studentService.save(student);
-		if(false == (student instanceof ImmatriculatedStudent) 
-				&& false == (student instanceof ExmatriculatedStudent) && 
-				false == (student instanceof DiscontinuedStudent)){
-			try{
-				studentService.immatriculate(student);
-			}catch(DataIntegrityViolationException e){
-				System.out.println(e);
-			}
+		// if student is already enrolled, the other service needs
+		// to be used to save the student
+		// try catch, since a student can be new.
+		try{
+		if(studentService.load(student.getId()) instanceof ImmatriculatedStudent){
+			immatriculatedStudentService.save(student);
+		}else if(studentService.load(student.getId()) instanceof DiscontinuedStudent){
+			discontinuedStudentService.save(student);
+		}else if(studentService.load(student.getId()) instanceof ExmatriculatedStudent){
+			exmatriculatedStudentService.save(student);
+		}else{
+			studentService.save(student);
 		}
+		}catch(IllegalArgumentException e){
+			// Student has no id yet and is new
+			studentService.save(student);
+			studentService.immatriculate(student);
+		}
+
 		return SUCCESS;
 	}
  
@@ -377,6 +377,21 @@ public class SaveStudentAction extends ActionSupport implements Action {
 
 	public void setCompanyStudents(Set<Student> companyStudents) {
 		this.companyStudents = companyStudents;
+	}
+
+	public void setImmatriculatedStudentService(
+			ImmatriculatedStudentService immatriculatedStudentService) {
+		this.immatriculatedStudentService = immatriculatedStudentService;
+	}
+
+	public void setExmatriculatedStudentService(
+			ExmatriculatedStudentService exmatriculatedStudentService) {
+		this.exmatriculatedStudentService = exmatriculatedStudentService;
+	}
+
+	public void setDiscontinuedStudentService(
+			DiscontinuedStudentService discontinuedStudentService) {
+		this.discontinuedStudentService = discontinuedStudentService;
 	}
 
 }

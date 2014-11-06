@@ -85,6 +85,7 @@
 			method="execute">
 			<interceptor-ref name="loginStack" />
 			<result type="tiles">studentForm</result>
+			<result type="chain" name="input">studentForm.action</result>
 		</action>
 
 		<action name="NewStudentByApplicant"
@@ -115,7 +116,7 @@
 			log. -->
 		<action name="EditStudent" class="de.nak.studentsdatabase.action.EditStudentAction">
 			<interceptor-ref name="loginStack" />
-			<result type="chain" name="input">studentForm</result>
+			<result type="chain" name="input">studentForm.action</result>
 			<result type="tiles">studentForm</result>
 		</action>
 

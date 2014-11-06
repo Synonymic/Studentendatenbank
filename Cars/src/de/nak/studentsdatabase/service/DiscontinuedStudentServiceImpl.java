@@ -19,7 +19,7 @@ public class DiscontinuedStudentServiceImpl implements
 	private DiscontinuedStudentDAO discontinuedStudentDAO;
 
 	@Override
-	public void save(DiscontinuedStudent discontinuedStudent) {
+	public void save(Student discontinuedStudent) {
 		discontinuedStudentDAO.save(discontinuedStudent);
 
 	}

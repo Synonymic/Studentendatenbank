@@ -164,6 +164,7 @@ public class NewStudentByApplicantAction extends ActionSupport implements Action
 		
 		// saves and enrolls student, as well as deletes applicant.
 		studentService.save(student);
+		studentService.immatriculate(student);
 		
 		return SUCCESS;
 	}
