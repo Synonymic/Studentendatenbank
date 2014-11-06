@@ -7,6 +7,7 @@ import java.util.Set;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.Preparable;
 
 import de.nak.studentsdatabase.model.Address;
 import de.nak.studentsdatabase.model.Company;
@@ -36,7 +37,7 @@ import de.nak.studentsdatabase.service.ZenturieService;
  * @author Dirk Johannﬂen
  *
  */
-public class SaveStudentAction extends ActionSupport implements Action {
+public class SaveStudentAction extends ActionSupport implements Action, Preparable{
 	
 	public List<Student> getStudentList() {
 		return studentList;
@@ -260,6 +261,7 @@ public class SaveStudentAction extends ActionSupport implements Action {
 
 		return SUCCESS;
 	}
+
 	 
 	public Student getStudent() {
 		return student;
@@ -470,6 +472,40 @@ public class SaveStudentAction extends ActionSupport implements Action {
 
 	public void setExamDisplayMap(HashMap<Long, String> examDisplayMap) {
 		this.examDisplayMap = examDisplayMap;
+	}
+
+
+	@Override
+	public void prepare() throws Exception {
+		manipelList = manipelService.loadAll();
+		zenturieList = zenturieService.loadAll();
+		companyList = companyService.loadAll();
+		contactList = contactService.loadAll();
+		examList = examService.loadAll();
+		
+		for(Zenturie zenturie : zenturieList){
+			zenturieDisplayMap.put(zenturie.getId(), zenturie.getName());
+		}
+		
+		for(Manipel manipel : manipelList) {
+			manipelDisplayMap.put(manipel.getId(), manipel.getCourseOfStudy() + 
+					manipel.getVintage().toString());
+		}
+		
+		companyDisplayMap.put((long) -1, "Neue Firma");
+		for(Company company : companyList) {
+			companyDisplayMap.put(company.getId(), company.getName());
+		}
+		
+		for(Exam exam : examList){
+			examDisplayMap.put(exam.getId(), exam.getName());
+		}
+		
+		contactDisplayMap.put((long) -1, "Neuer Betreuer"); 
+		for(Contact contact : contactList){
+			contactDisplayMap.put(contact.getId(), contact.getCompany().getName() +
+					": " + contact.getFirstName());
+		}
 	}
 
 }
