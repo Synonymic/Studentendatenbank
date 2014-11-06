@@ -1,5 +1,6 @@
 package de.nak.studentsdatabase.action;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -36,7 +37,7 @@ import de.nak.studentsdatabase.service.ZenturieService;
  *
  */
 public class SaveStudentAction extends ActionSupport implements Action {
-
+	
 	public List<Student> getStudentList() {
 		return studentList;
 	}
@@ -105,6 +106,19 @@ public class SaveStudentAction extends ActionSupport implements Action {
 	private ExamService examService;
 	
 	private ContactService contactService;
+	
+	/** the zenturieDisplayMap hashMap */
+	private HashMap<Long, String> zenturieDisplayMap = new HashMap<Long, String>();
+	
+	/** the manipelDisplayMap hashMap */
+	private HashMap<Long, String> manipelDisplayMap = new HashMap<Long, String>();
+
+	/** the companyDisplayMap */
+	private HashMap<Long, String> companyDisplayMap = new HashMap<Long, String>();
+	
+	private HashMap<Long, String> contactDisplayMap = new HashMap<Long, String>();
+	
+	private HashMap<Long, String> examDisplayMap = new HashMap<Long, String>();
 
 	@Override
 	public String execute() throws Exception {
@@ -152,6 +166,30 @@ public class SaveStudentAction extends ActionSupport implements Action {
 			if(inputExamId.equals(exam.getId())){
 				student.setExam(exam.getName());
 			}
+		}
+		
+		for(Zenturie zenturie : zenturieList){
+			zenturieDisplayMap.put(zenturie.getId(), zenturie.getName());
+		}
+		
+		for(Manipel manipel : manipelList) {
+			manipelDisplayMap.put(manipel.getId(), manipel.getCourseOfStudy() + 
+					manipel.getVintage().toString());
+		}
+		
+		companyDisplayMap.put((long) -1, "Neue Firma");
+		for(Company company : companyList) {
+			companyDisplayMap.put(company.getId(), company.getName());
+		}
+		
+		for(Exam exam : examList){
+			examDisplayMap.put(exam.getId(), exam.getName());
+		}
+		
+		contactDisplayMap.put((long) -1, "Neuer Betreuer"); 
+		for(Contact contact : contactList){
+			contactDisplayMap.put(contact.getId(), contact.getCompany().getName() +
+					": " + contact.getFirstName());
 		}
 		
 		// Check first if new company - then of course new contact as well.
@@ -222,7 +260,7 @@ public class SaveStudentAction extends ActionSupport implements Action {
 
 		return SUCCESS;
 	}
- 
+	 
 	public Student getStudent() {
 		return student;
 	}
@@ -392,6 +430,46 @@ public class SaveStudentAction extends ActionSupport implements Action {
 	public void setDiscontinuedStudentService(
 			DiscontinuedStudentService discontinuedStudentService) {
 		this.discontinuedStudentService = discontinuedStudentService;
+	}
+
+	public HashMap<Long, String> getZenturieDisplayMap() {
+		return zenturieDisplayMap;
+	}
+
+	public void setZenturieDisplayMap(HashMap<Long, String> zenturieDisplayMap) {
+		this.zenturieDisplayMap = zenturieDisplayMap;
+	}
+
+	public HashMap<Long, String> getManipelDisplayMap() {
+		return manipelDisplayMap;
+	}
+
+	public void setManipelDisplayMap(HashMap<Long, String> manipelDisplayMap) {
+		this.manipelDisplayMap = manipelDisplayMap;
+	}
+
+	public HashMap<Long, String> getCompanyDisplayMap() {
+		return companyDisplayMap;
+	}
+
+	public void setCompanyDisplayMap(HashMap<Long, String> companyDisplayMap) {
+		this.companyDisplayMap = companyDisplayMap;
+	}
+
+	public HashMap<Long, String> getContactDisplayMap() {
+		return contactDisplayMap;
+	}
+
+	public void setContactDisplayMap(HashMap<Long, String> contactDisplayMap) {
+		this.contactDisplayMap = contactDisplayMap;
+	}
+
+	public HashMap<Long, String> getExamDisplayMap() {
+		return examDisplayMap;
+	}
+
+	public void setExamDisplayMap(HashMap<Long, String> examDisplayMap) {
+		this.examDisplayMap = examDisplayMap;
 	}
 
 }

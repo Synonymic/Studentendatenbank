@@ -12,7 +12,7 @@
 	<s:radio key="lbl.gender" name="student.gender" requiredLabel="true" list="{'male','female'}" />
 	<s:textfield name="student.placeOfBirth" key="lbl.placeOfBirth" requiredLabel="true" />
 	<s:textfield name="student.matriculationNumber" requiredLabel="true" key="lbl.enrolmentNumber" />
-
+	
 	<s:select name="inputManipelId" key="lbl.manipel" list="manipelDisplayMap" />
 	<s:select name="inputZenturieId" key="lbl.zenturie" list="zenturieDisplayMap" /> 
 	<s:select name="inputCompanyId" key="lbl.company" list="companyDisplayMap" />
