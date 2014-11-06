@@ -86,7 +86,7 @@ public class Student extends Applicant {
 		this.exams = exams;
 	}
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.DETACH)
 	@JoinColumn(name = "ZENTURIE_ID")
 	public Zenturie getZenturie() {
 		return zenturie;

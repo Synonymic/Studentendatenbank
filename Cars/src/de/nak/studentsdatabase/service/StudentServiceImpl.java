@@ -57,6 +57,7 @@ public class StudentServiceImpl implements StudentService {
 		exStudent.setSalutation(student.getSalutation());
 		exStudent.setZenturie(student.getZenturie());
 		studentDAO.exmatriculate( exStudent);
+		studentDAO.delete(student);
 
 	}
 
@@ -75,7 +76,8 @@ public class StudentServiceImpl implements StudentService {
 		disStudent.setPlaceOfBirth(student.getPlaceOfBirth());
 		disStudent.setSalutation(student.getSalutation());
 		disStudent.setZenturie(student.getZenturie());
-		studentDAO.exmatriculate( disStudent);
+		studentDAO.discontinue(disStudent);
+		studentDAO.delete(student);
 
 	}
 

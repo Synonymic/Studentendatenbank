@@ -89,7 +89,7 @@ public class Applicant {
 		this.placeOfBirth = placeOfBirth;
 	}
 	
-	@OneToOne (cascade=CascadeType.ALL)
+	@OneToOne (cascade=CascadeType.DETACH)
 	@JoinColumn(name = "ADDRESS_ID")
 	public Address getAddress() {
 		return address;
