@@ -20,7 +20,7 @@ public class StudentServiceImpl implements StudentService {
 	 * The studentDAO.
 	 */
 	private StudentDAO studentDAO;
-
+	
 	@Override
 	public void save(Student student) {
 		studentDAO.save(student);
@@ -43,6 +43,7 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public void exmatriculate(Student student) {
+		
 		ExmatriculatedStudent exStudent = new ExmatriculatedStudent();
 		exStudent.setAddress(student.getAddress());
 		exStudent.setCompany(student.getCompany());
@@ -57,7 +58,6 @@ public class StudentServiceImpl implements StudentService {
 		exStudent.setSalutation(student.getSalutation());
 		exStudent.setZenturie(student.getZenturie());
 		studentDAO.exmatriculate( exStudent);
-//		studentDAO.delete(student);
 
 	}
 
@@ -77,7 +77,6 @@ public class StudentServiceImpl implements StudentService {
 		disStudent.setSalutation(student.getSalutation());
 		disStudent.setZenturie(student.getZenturie());
 		studentDAO.discontinue(disStudent);
-//		studentDAO.delete(student);
 
 	}
 
@@ -99,8 +98,6 @@ public class StudentServiceImpl implements StudentService {
 		newStudent.setZenturie(student.getZenturie());
 		newStudent.setUserIdentification(student.getMatriculationNumber());
 		studentDAO.immatriculate(newStudent);
-//		studentDAO.delete(student);
-
 	}
 
 }

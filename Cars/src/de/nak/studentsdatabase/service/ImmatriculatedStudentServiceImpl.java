@@ -17,6 +17,7 @@ public class ImmatriculatedStudentServiceImpl implements
 	/** The immatriculatedStudentDAO */
 	private ImmatriculatedStudentDAO immatriculatedStudentDAO;
 
+
 	@Override
 	public void save(Student immatriculatedStudent) {
 		immatriculatedStudentDAO.save(immatriculatedStudent);
@@ -33,6 +34,8 @@ public class ImmatriculatedStudentServiceImpl implements
 		return immatriculatedStudentDAO.loadAll();
 	}
 
+
+
 	public ImmatriculatedStudentDAO getImmatriculatedStudentDAO() {
 		return immatriculatedStudentDAO;
 	}
@@ -41,5 +44,6 @@ public class ImmatriculatedStudentServiceImpl implements
 			ImmatriculatedStudentDAO immatriculatedStudentDAO) {
 		this.immatriculatedStudentDAO = immatriculatedStudentDAO;
 	}
+
 
 }

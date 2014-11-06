@@ -1,6 +1,15 @@
 package de.nak.studentsdatabase.model;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 /**
  * Entity of an applicant.
@@ -89,7 +98,7 @@ public class Applicant {
 		this.placeOfBirth = placeOfBirth;
 	}
 	
-	@OneToOne (cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "ADDRESS_ID")
 	public Address getAddress() {
 		return address;

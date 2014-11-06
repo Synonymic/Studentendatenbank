@@ -181,6 +181,7 @@
 	<bean id="immatriculatedStudentService"
 		class="de.nak.studentsdatabase.service.ImmatriculatedStudentServiceImpl">
 		<property name="immatriculatedStudentDAO" ref="immatriculatedStudentDAO" />
+	
 	</bean>
 
 

@@ -22,5 +22,6 @@ public interface ImmatriculatedStudentService {
 	/** returns list of students which is empty if no student was found */
 	List<Student> loadAll();
 
+
 	
 }

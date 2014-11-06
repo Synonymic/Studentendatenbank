@@ -76,8 +76,4 @@ public class StudentDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
-	public  void delete(Student student) {
-		sessionFactory.getCurrentSession().delete(student);
-		
-	}
 }
