@@ -203,9 +203,11 @@
 			<result type="chain" name="input">ShowContactList</result>
 		</action>
 		<!-- Shows the empty form for a new contact. -->
-		<action name="AddContact">
+		<action name="AddContact" class="de.nak.studentsdatabase.action.NewContactAction"
+			method="execute">
 			<interceptor-ref name="loginStack" />
-			<result type="tiles">contactForm</result>
+			<result type="tiles">contactForm</result> 
+			<result type="chain" name="input">contactForm.action</result>
 		</action>
 		<!-- Deletes the selected contact and shows the tables list again. -->
 		<action name="DeleteContact" class="de.nak.studentsdatabase.action.ContactAction"
@@ -238,9 +240,11 @@
 			<result type="chain" name="input">ShowCompanyList</result>
 		</action>
 		<!-- Shows the empty form for a new company. -->
-		<action name="AddCompany">
+		<action name="AddCompany" class="de.nak.studentsdatabase.action.NewCompanyAction"
+			method="execute">
 			<interceptor-ref name="loginStack" />
-			<result type="tiles">companyForm</result>
+			<result type="tiles">companyForm</result> 
+			<result type="chain" name="input">companyForm.action</result>
 		</action>
 		<!-- Deletes the selected company and shows the tables list again. -->
 		<action name="DeleteCompany" class="de.nak.studentsdatabase.action.CompanyAction"
@@ -308,9 +312,11 @@
 			<result type="chain" name="input">ShowManipelList</result>
 		</action>
 		<!-- Shows the empty form for a new manipel. -->
-		<action name="AddManipel">
+		<action name="AddManipel" class="de.nak.studentsdatabase.action.NewManipelAction"
+			method="execute">
 			<interceptor-ref name="loginStack" />
-			<result type="tiles">manipelForm</result>
+			<result type="tiles">manipelForm</result> 
+			<result type="chain" name="input">manipelForm.action</result>
 		</action>
 		<!-- Deletes the selected manipel and shows the tables list again. -->
 		<action name="DeleteManipel" class="de.nak.studentsdatabase.action.ManipelAction"
@@ -343,9 +349,11 @@
 			<result type="chain" name="input">ShowZenturieList</result>
 		</action>
 		<!-- Shows the empty form for a new zenturie. -->
-		<action name="AddZenturie" >
+		<action name="AddZenturie" class="de.nak.studentsdatabase.action.NewZenturieAction"
+			method="execute">
 			<interceptor-ref name="loginStack" />
-			<result type="tiles">zenturieForm</result>
+			<result type="tiles">zenturieForm</result> 
+			<result type="chain" name="input">zenturieForm.action</result>
 		</action>
 		<!-- Deletes the selected zenturie and shows the tables list again. -->
 		<action name="DeleteZenturie" class="de.nak.studentsdatabase.action.ZenturieAction"

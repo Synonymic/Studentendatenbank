@@ -1,6 +1,5 @@
 package de.nak.studentsdatabase.action;
 
-
 import java.util.HashMap;
 import java.util.List;
 
@@ -8,8 +7,10 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.studentsdatabase.model.Company;
 import de.nak.studentsdatabase.model.Contact;
+import de.nak.studentsdatabase.model.Student;
 import de.nak.studentsdatabase.service.CompanyService;
 import de.nak.studentsdatabase.service.ContactService;
+import de.nak.studentsdatabase.service.StudentService;
 
 /**
  * Action for a single contact.
@@ -24,26 +25,23 @@ public class ContactAction extends ActionSupport {
 	/** The contact's identifier selected by the user. */
 	private Long contactId;
 	/** The contact service. */
-	private ContactService contactService; 
+	private ContactService contactService;
 	/** The company list. */
 	private List<Company> companyList;
 	/** The company service. */
 	private CompanyService companyService;
 	/** the companyDisplayMap hashMap */
 	private HashMap<Long, String> companyDisplayMap = new HashMap<Long, String>();
-	/**The input companyId. */
+	/** The input companyId. */
 	private Long InputCompanyId;
-	
-	
-	
-	public String execute() {
-		companyList = companyService.loadAll();
-		for(Company company : companyList){
-			companyDisplayMap.put(company.getId(), company.getName());
-		}
-		
-		return SUCCESS;
-	}
+	/** The student list. */
+	private List<Student> studentList;
+	/** The student service. */
+	private StudentService studentService;
+	/** the studentDisplayMap hashMap */
+	private HashMap<Long, String> studentDisplayMap = new HashMap<Long, String>();
+	/** The input studentId. */
+	private Long InputStudentId;
 
 	/**
 	 * Saves the contact to the database.
@@ -76,8 +74,13 @@ public class ContactAction extends ActionSupport {
 	public String load() {
 		contact = contactService.load(contactId);
 		companyList = companyService.loadAll();
-		for(Company company : companyList){
+		studentList = studentService.loadAll();
+		for (Company company : companyList) {
 			companyDisplayMap.put(company.getId(), company.getName());
+		}
+		for (Student student : studentList) {
+			studentDisplayMap.put(student.getId(), student.getName() + " "
+					+ student.getFirstName());
 		}
 		return SUCCESS;
 	}
@@ -159,5 +162,39 @@ public class ContactAction extends ActionSupport {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	public List<Student> getStudentList() {
+		return studentList;
+	}
+
+	public void setStudentList(List<Student> studentList) {
+		this.studentList = studentList;
+	}
+
+	public StudentService getStudentService() {
+		return studentService;
+	}
+
+	public void setStudentService(StudentService studentService) {
+		this.studentService = studentService;
+	}
+
+	public HashMap<Long, String> getStudentDisplayMap() {
+		return studentDisplayMap;
+	}
+
+	public void setStudentDisplayMap(HashMap<Long, String> studentDisplayMap) {
+		this.studentDisplayMap = studentDisplayMap;
+	}
+
+	public Long getInputStudentId() {
+		return InputStudentId;
+	}
+
+	public void setInputStudentId(Long inputStudentId) {
+		InputStudentId = inputStudentId;
+	}
 	
+	
+
 }
