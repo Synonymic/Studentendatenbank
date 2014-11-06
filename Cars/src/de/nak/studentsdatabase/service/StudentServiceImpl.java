@@ -99,6 +99,7 @@ public class StudentServiceImpl implements StudentService {
 		newStudent.setZenturie(student.getZenturie());
 		newStudent.setUserIdentification(student.getMatriculationNumber());
 		studentDAO.immatriculate(newStudent);
+		studentDAO.delete(student);
 
 	}
 
