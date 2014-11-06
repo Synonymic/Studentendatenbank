@@ -4,7 +4,12 @@
 		"http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
 
 <validators>
-	<field name="matriculationNumber">
+	<field name="userIdentification">
+		<field-validator type="required">
+			<message key="msg.validator.required"/>
+		</field-validator>
+	</field>
+		<field name="zenturie">
 		<field-validator type="required">
 			<message key="msg.validator.required"/>
 		</field-validator>
