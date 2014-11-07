@@ -39,6 +39,7 @@ public class EditStudentAction extends ActionSupport implements Action{
 	/** the studentService */
 	private StudentService studentService;
 	
+	private Zenturie zenturie;
 	
 	/** the zenturieService */
 	private ZenturieService zenturieService;
@@ -96,6 +97,12 @@ public class EditStudentAction extends ActionSupport implements Action{
 		companyList = companyService.loadAll();
 		contactList = contactService.loadAll();
 		examList = examService.loadAll();
+		
+		try{
+		zenturie = student.getZenturie();
+		}catch(NullPointerException e){
+			
+		}
 		
 		for(Zenturie zenturie : zenturieList){
 			zenturieDisplayMap.put(zenturie.getId(), zenturie.getName());
@@ -278,5 +285,13 @@ public class EditStudentAction extends ActionSupport implements Action{
 
 	public void setExamService(ExamService examService) {
 		this.examService = examService;
+	}
+
+	public Zenturie getZenturie() {
+		return zenturie;
+	}
+
+	public void setZenturie(Zenturie zenturie) {
+		this.zenturie = zenturie;
 	}	
 }
