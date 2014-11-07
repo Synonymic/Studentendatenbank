@@ -19,7 +19,6 @@ insert into ADDRESS (ID, ADDITION, CITY, EMAIL, FAX, HOUSE_NUMBER, POSTCODE, STR
 insert into APPLICANT (ID, DAY_OF_BIRTH, FIRST_NAME, GENDER, NAME, PLACE_OF_BIRTH,SALUTATION,ADDRESS_ID) values (1,'01.01.1990','Bettina','female','Bäcker','Homburg','Frau',1);
 insert into APPLICANT (ID, DAY_OF_BIRTH, FIRST_NAME, GENDER, NAME, PLACE_OF_BIRTH,SALUTATION,ADDRESS_ID) values (2,'25.02.1992','Max','male','Müller','Köln','Herr',2);
 insert into APPLICANT (ID, DAY_OF_BIRTH, FIRST_NAME, GENDER, NAME, PLACE_OF_BIRTH,SALUTATION,ADDRESS_ID) values (3,'11.03.1995','Nico','male','Niedermayer','Stade','Herr',3);
-insert into APPLICANT (ID, DAY_OF_BIRTH, FIRST_NAME, GENDER, NAME, PLACE_OF_BIRTH,SALUTATION,ADDRESS_ID) values (4,'01.11.1989','Hans','male','Heiser','Elmshorn','Herr',3);
 insert into COMPANY (ID, ABBREVIATION, ADDITION, NAME, ADDRESS_ID) VALUES (1,'GWS','GmbH','Klempner Mayer',1);
 insert into COMPANY (ID, ABBREVIATION, ADDITION, NAME, ADDRESS_ID) VALUES (2,'ITC','GmbH','IT Consulting',2);
 insert into EXAM (ID, GRADE, NAME) VALUES (1,100,'Controlling');
