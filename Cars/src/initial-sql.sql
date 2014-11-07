@@ -28,7 +28,9 @@ insert into COMPANY (ID, ABBREVIATION, ADDITION, NAME, ADDRESS_ID) VALUES (2,'IT
 insert into EXAM (ID, GRADE, NAME) VALUES (1,100,'Controlling');
 insert into EXAM (ID, GRADE, NAME) VALUES (2,83,'Internet Anwendungsarchitektur');
 insert into CONTACT (FIRST_NAME, NAME, COMPANY_ID) VALUES ('Stephan','Schlosser',1);
-insert into CONTACT (FIRST_NAME, NAME, COMPANY_ID) VALUES ('Barbara','Blümchen',2);
+insert into CONTACT (FIRST_NAME, NAME, COMPANY_ID) VALUES ('Barbara','Blümchen',1);
+insert into CONTACT (FIRST_NAME, NAME, COMPANY_ID) VALUES ('Ursula','Untermann',2);
+insert into CONTACT (FIRST_NAME, NAME, COMPANY_ID) VALUES ('Gerhard','Gooternicht',2);
 insert into MANIPEL (ID, COURSE_OF_STUDY, VINTAGE) VALUES (1,'Wirtschaftingenieurwesen','2011');
 insert into MANIPEL (ID, COURSE_OF_STUDY, VINTAGE) VALUES (2,'Wirtschaftsinformatik','2011');
 insert into ZENTURIE (ID, NAME, MANIPEL_ID) VALUES (1,'W',1);
@@ -46,4 +48,3 @@ insert into ZENTURIE_EXAM (ZENTURIE_ID, EXAM_ID) VALUES (1,2);
 insert into ZENTURIE_EXAM (ZENTURIE_ID, EXAM_ID) VALUES (2,1);
 insert into DISCONTINUEDSTUDENT (STUDENT_ID) VALUES (1);
 insert into EXMATRICULATEDSTUDENT (STUDENT_ID) VALUES (2);
-insert into IMMATRICULATEDSTUDENT (USER_IDENTIFICATION, STUDENT_ID, ZENTURIE_ID) VALUES (12345,3,1);

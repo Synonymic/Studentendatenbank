@@ -39,5 +39,7 @@ public interface StudentService {
 	void discontinue(Student student);
 	
 	void immatriculate(Student student);
+	
+	void delete(Student student);
 
 }

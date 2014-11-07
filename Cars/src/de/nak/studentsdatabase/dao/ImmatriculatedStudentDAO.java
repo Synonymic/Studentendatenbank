@@ -52,4 +52,10 @@ public class ImmatriculatedStudentDAO extends StudentDAO {
 		this.sessionFactory = sessionFactory;
 	}
 	
+	public void delete(ImmatriculatedStudent student) {
+		sessionFactory.getCurrentSession().delete(student);
+		
+	}
+
+	
 }

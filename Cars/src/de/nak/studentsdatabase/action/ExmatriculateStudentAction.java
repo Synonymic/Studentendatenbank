@@ -42,6 +42,7 @@ public class ExmatriculateStudentAction extends ActionSupport implements Action 
 				&& false == (student instanceof ExmatriculatedStudent))
 			{
 			studentService.exmatriculate(student);
+			studentService.delete(student);
 		}
 		studentList = immatriculatedStudentService.loadAll();
 		return SUCCESS;

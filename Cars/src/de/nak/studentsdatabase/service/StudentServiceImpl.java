@@ -2,6 +2,7 @@ package de.nak.studentsdatabase.service;
 
 import java.util.List;
 
+import de.nak.studentsdatabase.dao.ImmatriculatedStudentDAO;
 import de.nak.studentsdatabase.dao.StudentDAO;
 import de.nak.studentsdatabase.model.DiscontinuedStudent;
 import de.nak.studentsdatabase.model.ExmatriculatedStudent;
@@ -20,7 +21,8 @@ public class StudentServiceImpl implements StudentService {
 	 * The studentDAO.
 	 */
 	private StudentDAO studentDAO;
-	
+	private ImmatriculatedStudentDAO immatriculatedStudentDAO;
+
 	@Override
 	public void save(Student student) {
 		studentDAO.save(student);
@@ -41,9 +43,16 @@ public class StudentServiceImpl implements StudentService {
 		this.studentDAO = studentDAO;
 	}
 
-	@Override
+	public ImmatriculatedStudentDAO getImmatriculatedStudentDAO() {
+		return immatriculatedStudentDAO;
+	}
+
+	public void setImmatriculatedStudentDAO(ImmatriculatedStudentDAO immatriculatedStudentDAO) {
+		this.immatriculatedStudentDAO = immatriculatedStudentDAO;
+	}
+
 	public void exmatriculate(Student student) {
-		
+
 		ExmatriculatedStudent exStudent = new ExmatriculatedStudent();
 		exStudent.setAddress(student.getAddress());
 		exStudent.setCompany(student.getCompany());
@@ -57,7 +66,8 @@ public class StudentServiceImpl implements StudentService {
 		exStudent.setPlaceOfBirth(student.getPlaceOfBirth());
 		exStudent.setSalutation(student.getSalutation());
 		exStudent.setZenturie(student.getZenturie());
-		studentDAO.exmatriculate( exStudent);
+
+		studentDAO.exmatriculate(exStudent);
 
 	}
 
@@ -100,4 +110,24 @@ public class StudentServiceImpl implements StudentService {
 		studentDAO.immatriculate(newStudent);
 	}
 
+	public void delete(Student student) {
+
+		ImmatriculatedStudent newStudent = new ImmatriculatedStudent();
+		newStudent.setAddress(null);
+		newStudent.setCompany(student.getCompany());
+		newStudent.setContact(student.getContact());
+		newStudent.setDayOfBirth(student.getDayOfBirth());
+		newStudent.setFirstName(student.getFirstName());
+		newStudent.setName(student.getName());
+		newStudent.setGender(student.getGender());
+		newStudent.setManipel(student.getManipel());
+		newStudent.setMatriculationNumber(student.getMatriculationNumber());
+		newStudent.setPlaceOfBirth(student.getPlaceOfBirth());
+		newStudent.setSalutation(student.getSalutation());
+		newStudent.setZenturie(null);
+		newStudent.setUserIdentification(student.getMatriculationNumber());
+		newStudent.setId(student.getId());
+		immatriculatedStudentDAO.delete(newStudent);
+
+	}
 }

@@ -115,8 +115,10 @@
 	</bean>
 
 	<!-- Student Service -->
+		<!-- Student Service -->
 	<bean id="studentService" class="de.nak.studentsdatabase.service.StudentServiceImpl">
 		<property name="studentDAO" ref="studentDAO" />
+		<property name="immatriculatedStudentDAO" ref="immatriculatedStudentDAO" />
 	</bean>
 
 	<!-- User DAO -->
