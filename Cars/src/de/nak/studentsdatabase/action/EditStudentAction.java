@@ -106,15 +106,18 @@ public class EditStudentAction extends ActionSupport implements Action{
 					manipel.getVintage().toString());
 		}
 
-		companyDisplayMap.put((long) -1, "Neue Firma");
+		
 		for(Company company : companyList){
 			companyDisplayMap.put(company.getId(), company.getName());
 		}
+		companyDisplayMap.put((long) -1, "Neue Firma");
 		
-		contactDisplayMap.put((long) -1, "Neuer Betreuer"); 
+		
 		for(Contact contact : contactList){
-			contactDisplayMap.put(contact.getId(), contact.getCompany().getName() + ": " + contact.getName());
+			contactDisplayMap.put(contact.getId(), contact.getCompany().getName() +
+					": " + contact.getFirstName());
 		}
+		contactDisplayMap.put((long) -1, "Neuer Betreuer"); 
 		
 		for(Exam exam : examList){
 			examDisplayMap.put(exam.getId(), exam.getName());

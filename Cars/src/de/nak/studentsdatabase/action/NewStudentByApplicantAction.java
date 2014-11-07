@@ -128,11 +128,12 @@ public class NewStudentByApplicantAction extends ActionSupport implements Action
 			companyDisplayMap.put(company.getId(), company.getName());
 		}
 		
-		contactDisplayMap.put((long) -1, "Neuer Betreuer"); 
+		
 		for(Contact contact : contactList){
 			contactDisplayMap.put(contact.getId(), contact.getCompany().getName() +
 					": " + contact.getFirstName());
 		}
+		contactDisplayMap.put((long) -1, "Neuer Betreuer"); 
 		
 		for(Exam exam : examList){
 			examDisplayMap.put(exam.getId(), exam.getName());

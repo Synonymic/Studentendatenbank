@@ -145,23 +145,23 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 			}
 		}
 		
-		for(Company company : companyList){
-			if(inputCompanyId.equals(company.getId())){
-				student.setCompany(company);
-			}
-		}
+//		for(Company company : companyList){
+//			if(inputCompanyId.equals(company.getId())){
+//				student.setCompany(company);
+//			}
+//		}
 		
-		for(Contact contact : contactList){
-			if(inputContactId.equals(contact.getId())){
-				student.setContact(contact);
-			}
-		}
+//		for(Contact contact : contactList){
+//			if(inputContactId.equals(contact.getId())){
+//				student.setContact(contact);
+//			}
+//		}
 		
-		for(Company company : companyList){
-			if(inputCompanyId.equals(company.getId())){
-				student.setCompany(company);
-			}
-		}
+//		for(Company company : companyList){
+//			if(inputCompanyId.equals(company.getId())){
+//				student.setCompany(company);
+//			}
+//		}
 		
 		for(Exam exam : examList){
 			if(inputExamId.equals(exam.getId())){
@@ -178,10 +178,11 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 					manipel.getVintage().toString());
 		}
 		
-		companyDisplayMap.put((long) -1, "Neue Firma");
+		
 		for(Company company : companyList) {
 			companyDisplayMap.put(company.getId(), company.getName());
 		}
+		companyDisplayMap.put((long) -1, "Neue Firma");
 		
 		for(Exam exam : examList){
 			examDisplayMap.put(exam.getId(), exam.getName());
@@ -194,25 +195,29 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 		}
 		
 		// Check first if new company - then of course new contact as well.
-		if(inputCompanyId.equals(-1)){
+		if(student.getCompany().getId().equals((long) -1)){
 			
 			companyStudents = new HashSet<Student>();
 			contact = new Contact();
 			company = new Company();
 			companyAddress = new Address();
+			Set<Contact> contacts = new HashSet<Contact>();
 			
-			contact.setCompany(company);
+			contact.setCompany(null);
 			contact.setFirstName("firstName");
 			contact.setName("name");
 			companyStudents.add(student);
 			contact.setStudents(companyStudents);
+			contactService.save(contact);
+			contacts.add(contact);
+			
 			
 			companyAddress.setAddition("Zusatz");
 			companyAddress.setCity("aCity");
 			companyAddress.setEmail("aMail");
 			companyAddress.setHouseNumber("aHouseNumber");
 			companyAddress.setFax("aFax");
-			companyAddress.setPostcode("aPostCode");
+			companyAddress.setPostcode("12345");
 			companyAddress.setStreet("aStreet");
 			companyAddress.setTelephoneNumber("012345678");
 			
@@ -222,11 +227,20 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 			company.setName("aName");
 			company.setStudents(companyStudents);
 			
+			company.setContacts(contacts);
+			companyService.save(company);
+			
+			contact.setCompany(company);
+			contactService.save(contact);
+			
+			student.setCompany(company);
+			student.setContact(contact);
+			
 			studentService.save(student);
 			return "newCompany";
 		}
 		
-		if(inputContactId.equals(-1)){
+		if(student.getContact().getId().equals((long) -1)){
 			contact = new Contact();
 			companyStudents = new HashSet<Student>();
 			
@@ -235,7 +249,8 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 			contact.setName("name");
 			companyStudents.add(student);
 			contact.setStudents(companyStudents);
-			
+			contactService.save(contact);
+			student.setContact(contact);
 			studentService.save(student);
 			return "newContact";
 		}
@@ -501,11 +516,12 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 			examDisplayMap.put(exam.getId(), exam.getName());
 		}
 		
-		contactDisplayMap.put((long) -1, "Neuer Betreuer"); 
+		
 		for(Contact contact : contactList){
 			contactDisplayMap.put(contact.getId(), contact.getCompany().getName() +
 					": " + contact.getFirstName());
 		}
+		contactDisplayMap.put((long) -1, "Neuer Betreuer"); 
 	}
 
 }
