@@ -50,6 +50,12 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 
 	/** the Student */
 	private Student student;
+	
+	private Exam exam;
+	
+	private Zenturie zenturie;
+	
+	private Manipel manipel;
 
 	/** the studentId */
 	private Long studentId;
@@ -129,21 +135,21 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 		contactList = contactService.loadAll();
 		examList = examService.loadAll();
 		
-
-		for(Zenturie zenturie : zenturieList){
-			if(inputZenturieId.equals(zenturie.getId())){
-				student.setZenturie(zenturie);
-			}
-		}
+//
+//		for(Zenturie zenturie : zenturieList){
+//			if(inputZenturieId.equals(zenturie.getId())){
+//				student.setZenturie(zenturie);
+//			}
+//		}
 		
 		
 		// The zenturie needs to match the manipel, regardless of
 		// the selected id. 
-		for(Manipel manipel : manipelList){
-			if(inputManipelId.equals(manipel.getId())){
-				student.setManipel(manipel);
-			}
-		}
+//		for(Manipel manipel : manipelList){
+//			if(inputManipelId.equals(manipel.getId())){
+//				student.setManipel(manipel);
+//			}
+//		}
 		
 //		for(Company company : companyList){
 //			if(inputCompanyId.equals(company.getId())){
@@ -163,11 +169,11 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 //			}
 //		}
 		
-		for(Exam exam : examList){
-			if(inputExamId.equals(exam.getId())){
-				student.setExam(exam.getName());
-			}
-		}
+//		for(Exam exam : examList){
+//			if(inputExamId.equals(exam.getId())){
+//				student.setExam(exam.getName());
+//			}
+//		}
 		
 		for(Zenturie zenturie : zenturieList){
 			zenturieDisplayMap.put(zenturie.getId(), zenturie.getName());
@@ -177,7 +183,6 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 			manipelDisplayMap.put(manipel.getId(), manipel.getCourseOfStudy() + 
 					manipel.getVintage().toString());
 		}
-		
 		
 		for(Company company : companyList) {
 			companyDisplayMap.put(company.getId(), company.getName());
@@ -507,10 +512,11 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 					manipel.getVintage().toString());
 		}
 		
-		companyDisplayMap.put((long) -1, "Neue Firma");
+		
 		for(Company company : companyList) {
 			companyDisplayMap.put(company.getId(), company.getName());
 		}
+		companyDisplayMap.put((long) -1, "Neue Firma");
 		
 		for(Exam exam : examList){
 			examDisplayMap.put(exam.getId(), exam.getName());
@@ -522,6 +528,36 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 					": " + contact.getFirstName());
 		}
 		contactDisplayMap.put((long) -1, "Neuer Betreuer"); 
+	}
+
+
+	public Exam getExam() {
+		return exam;
+	}
+
+
+	public void setExam(Exam exam) {
+		this.exam = exam;
+	}
+
+
+	public Zenturie getZenturie() {
+		return zenturie;
+	}
+
+
+	public void setZenturie(Zenturie zenturie) {
+		this.zenturie = zenturie;
+	}
+
+
+	public Manipel getManipel() {
+		return manipel;
+	}
+
+
+	public void setManipel(Manipel manipel) {
+		this.manipel = manipel;
 	}
 
 }

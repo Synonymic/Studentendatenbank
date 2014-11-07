@@ -13,11 +13,11 @@
 	<s:textfield name="student.placeOfBirth" key="lbl.placeOfBirth" requiredLabel="true" />
 	<s:textfield name="student.matriculationNumber" requiredLabel="true" key="lbl.enrolmentNumber" />
 	
-	<s:select name="inputManipelId" key="lbl.manipel" list="manipelDisplayMap" />
-	<s:select name="inputZenturieId" key="lbl.zenturie" list="zenturieDisplayMap" /> 
+	<s:select name="zenturie.manipel.id" key="lbl.manipel" list="manipelDisplayMap" />
+	<s:select name="student.zenturie.id" key="lbl.zenturie" list="zenturieDisplayMap" /> 
 	<s:select name="student.company.id" key="lbl.company" list="companyDisplayMap" />
 	<s:select name="student.contact.id" key="lbl.contact" list="contactDisplayMap" />
-	<s:select name="inputExamId" key="lbl.exam" list="examDisplayMap" />
+	<s:select name="student.exam.id" key="lbl.exam" list="examDisplayMap" />
 	
 	<s:textfield name="student.address.street" key="lbl.streetName" requiredLabel="true" size="40" maxsize="51"/>
 	<s:textfield name="student.address.houseNumber" key="lbl.houseNumber" requiredLabel="true" size="5" maxsize="5" />
