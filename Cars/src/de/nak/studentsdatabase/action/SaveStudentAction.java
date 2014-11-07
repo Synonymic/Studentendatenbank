@@ -262,10 +262,10 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 		
 		// if student is already enrolled, the other service needs
 		// to be used to save the student
-		// try catch, since a student can be new.
-		zenturie = zenturieService.load(zenturie.getId());
-		student.setZenturie(zenturie);
-		zenturie.setStudents(student);
+		//try catch, since a student can be new.
+//		zenturie = zenturieService.load(zenturie.getId());
+//		student.setZenturie(zenturie);
+//		zenturie.setStudents(student);
 		
 		try{
 		if(studentService.load(student.getId()) instanceof ImmatriculatedStudent){

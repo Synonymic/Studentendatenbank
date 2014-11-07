@@ -14,7 +14,7 @@
 	<s:textfield name="student.matriculationNumber" requiredLabel="true" key="lbl.enrolmentNumber" />
 	
 	<s:select name="student.manipel.id" key="lbl.manipel" list="manipelDisplayMap" />
-	<s:select name="zenturie.id" key="lbl.zenturie" list="zenturieDisplayMap" /> 
+	<s:select name="student.zenturie.id" key="lbl.zenturie" list="zenturieDisplayMap" /> 
 	<s:select name="student.company.id" key="lbl.company" list="companyDisplayMap" />
 	<s:select name="student.contact.id" key="lbl.contact" list="contactDisplayMap" />
 	
