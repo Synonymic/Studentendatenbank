@@ -10,7 +10,7 @@
 		maxlength="100" requiredLabel="true" />
 	<s:select name="inputStudentId" key="lbl.student"
 		list="studentDisplayMap" />
-	<s:select name="inputCompanyId" key="lbl.exam" list="companyDisplayMap" />
+	<s:select name="inputCompanyId" key="lbl.company" list="companyDisplayMap" />
 
 	<%-- The buttons --%>
 	<s:submit key="btn.save" action="SaveContact" />
