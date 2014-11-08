@@ -5,14 +5,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>LogIn-Page</title>
+<title >LogIn-Page</title>
 <s:head />  
 </head>
 <body>
-<h1>Welcome to LogIn-Page of Studentsdatabase</h1>
+<h1><s:label key="txt.welcome" /></h1>
 <s:form action="Login">  
-    <s:textfield name="userName" label="User Name" />  
-    <s:password name="password" label="Password" />  
+    <s:textfield name="userName" key="lbl.userName" />  
+    <s:password name="password" key="lbl.password" />  
     <s:submit value="Login" />  
 </s:form>
 </body>
