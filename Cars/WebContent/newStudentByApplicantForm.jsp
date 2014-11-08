@@ -21,6 +21,7 @@
 		</s:iterator>
 	</table>
 	<%-- The buttons --%>
+	<s:label><s:text name="txt.attentionEnrollment" /></s:label>
 	<s:submit key="btn.yes" action="NewStudentByApplicant" />
 
 </s:form>
