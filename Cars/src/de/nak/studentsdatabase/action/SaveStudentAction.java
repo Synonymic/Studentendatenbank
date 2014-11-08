@@ -270,6 +270,29 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 		if(student.getZenturie().getId().equals((long) -1)){
 			addActionError(getText("msg.selectZenturie"));
 		}
+		
+		try{
+		zenturie = zenturieService.load(student.getZenturie().getId());
+		student.setZenturie(zenturie);
+		if(false == (student.getZenturie().getManipel().getId().equals(student.getManipel().getId()))){
+			addActionError(getText("msg.manipelDoesntMatchZenturie"));
+		}}catch(NullPointerException e){
+			
+		}
+		
+		try{
+		Contact contact = contactService.load(student.getContact().getId());
+		student.setContact(contact);
+		
+		if(student.getCompany().getId() != (long) -2){
+			if(student.getContact().getId() != (long) -2){
+				if(false == (student.getContact().getCompany().getId().equals(student.getCompany().getId()))){
+					addActionError(getText("msg.contactDoesntMatchCompany"));
+				}
+			}
+		}}catch(NullPointerException e){
+			
+		}
 	}
 
 	 
