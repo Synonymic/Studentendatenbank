@@ -48,7 +48,7 @@ public class CompanyAction extends ActionSupport {
 	 *
 	 * @return the result string.
 	 */
-	public String save() {
+	public String execute() {
 		companyService.save(company);
 		return SUCCESS;
 	}

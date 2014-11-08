@@ -58,7 +58,7 @@ public class ZenturieAction extends ActionSupport{
 	 *
 	 * @return the result string.
 	 */
-	public String save() {
+	public String execute() {
 		zenturieService.save(zenturie);
 		return SUCCESS;
 	}

@@ -25,7 +25,7 @@ public class ExamAction extends ActionSupport {
 	 *
 	 * @return the result string.
 	 */
-	public String save() {
+	public String execute() {
 		examService.save(exam);
 		return SUCCESS;
 	}

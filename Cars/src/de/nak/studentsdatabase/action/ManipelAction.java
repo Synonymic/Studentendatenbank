@@ -48,7 +48,7 @@ public class ManipelAction extends ActionSupport {
 	 *
 	 * @return the result string.
 	 */
-	public String save() {
+	public String execute() {
 		manipelService.save(manipel);
 		return SUCCESS;
 	}

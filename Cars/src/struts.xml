@@ -226,7 +226,7 @@
 		<!-- Saves the new or updated contact into the database and shows the tables 
 			list again. -->
 		<action name="SaveContact" class="de.nak.studentsdatabase.action.ContactAction"
-			method="save">
+			method="execute">
 			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowContactList.action</result>
 			<result type="tiles" name="input">contactForm</result>
@@ -263,7 +263,7 @@
 		<!-- Saves the new or updated company into the database and shows the tables 
 			list again. -->
 		<action name="SaveCompany" class="de.nak.studentsdatabase.action.CompanyAction"
-			method="save">
+			method="execute">
 			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowCompanyList.action</result>
 			<result type="tiles" name="input">companyForm</result>
@@ -298,7 +298,7 @@
 		<!-- Saves the new or updated exam into the database and shows the tables 
 			list again. -->
 		<action name="SaveExam" class="de.nak.studentsdatabase.action.ExamAction"
-			method="save">
+			method="execute">
 			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowExamList.action</result>
 			<result type="tiles" name="input">examForm</result>
@@ -335,7 +335,7 @@
 		<!-- Saves the new or updated manipel into the database and shows the tables 
 			list again. -->
 		<action name="SaveManipel" class="de.nak.studentsdatabase.action.ManipelAction"
-			method="save">
+			method="execute">
 			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowManipelList.action</result>
 			<result type="tiles" name="input">manipelForm</result>
@@ -372,7 +372,7 @@
 		<!-- Saves the new or updated zenturie into the database and shows the 
 			tables list again. -->
 		<action name="SaveZenturie" class="de.nak.studentsdatabase.action.ZenturieAction"
-			method="save">
+			method="execute">
 			<interceptor-ref name="loginStack" />
 			<result type="redirect">ShowZenturieList.action</result>
 			<result type="tiles" name="input">zenturieForm</result>

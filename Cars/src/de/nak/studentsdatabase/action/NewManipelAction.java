@@ -46,6 +46,7 @@ public class NewManipelAction implements Action {
 		for (Zenturie zenturie : zenturieList) {
 			zenturieDisplayMap.put(zenturie.getId(), zenturie.getName());
 		}
+		zenturieDisplayMap.put((long) -1, "Neue Zenturie");
 		return SUCCESS;
 
 	}

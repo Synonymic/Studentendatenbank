@@ -48,7 +48,7 @@ public class ContactAction extends ActionSupport {
 	 *
 	 * @return the result string.
 	 */
-	public String save() {
+	public String execute() {
 		contactService.save(contact);
 		return SUCCESS;
 	}
