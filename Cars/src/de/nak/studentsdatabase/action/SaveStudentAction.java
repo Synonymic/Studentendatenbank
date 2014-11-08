@@ -135,72 +135,37 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 		contactList = contactService.loadAll();
 		examList = examService.loadAll();
 		
-//
-//		for(Zenturie zenturie : zenturieList){
-//			if(inputZenturieId.equals(zenturie.getId())){
-//				student.setZenturie(zenturie);
-//			}
-//		}
-		
-		
-		// The zenturie needs to match the manipel, regardless of
-		// the selected id. 
-//		for(Manipel manipel : manipelList){
-//			if(inputManipelId.equals(manipel.getId())){
-//				student.setManipel(manipel);
-//			}
-//		}
-		
-//		for(Company company : companyList){
-//			if(inputCompanyId.equals(company.getId())){
-//				student.setCompany(company);
-//			}
-//		}
-		
-//		for(Contact contact : contactList){
-//			if(inputContactId.equals(contact.getId())){
-//				student.setContact(contact);
-//			}
-//		}
-		
-//		for(Company company : companyList){
-//			if(inputCompanyId.equals(company.getId())){
-//				student.setCompany(company);
-//			}
-//		}
-		
-//		for(Exam exam : examList){
-//			if(inputExamId.equals(exam.getId())){
-//				student.setExam(exam.getName());
-//			}
-//		}
-		
 		for(Zenturie zenturie : zenturieList){
 			zenturieDisplayMap.put(zenturie.getId(), zenturie.getName());
 		}
+		zenturieDisplayMap.put((long) -1, "Bitte wählen...");
 		
 		for(Manipel manipel : manipelList) {
 			manipelDisplayMap.put(manipel.getId(), manipel.getCourseOfStudy() + 
 					manipel.getVintage().toString());
 		}
+		manipelDisplayMap.put((long) -1, "Bitte wählen...");
 		
 		for(Company company : companyList) {
 			companyDisplayMap.put(company.getId(), company.getName());
 		}
-		companyDisplayMap.put((long) -1, "Neue Firma");
+		companyDisplayMap.put((long) -1, "Bitte wählen...");
+		companyDisplayMap.put((long) -2, "Neue Firma");
 		
 		for(Exam exam : examList){
 			examDisplayMap.put(exam.getId(), exam.getName());
 		}
 		
-		contactDisplayMap.put((long) -1, "Neuer Betreuer"); 
+		
 		for(Contact contact : contactList){
 			contactDisplayMap.put(contact.getId(), contact.getCompany().getName() +
 					": " + contact.getFirstName());
 		}
+		companyDisplayMap.put((long) -1, "Bitte wählen...");
+		companyDisplayMap.put((long) -2, "Neue Firma");
 		
 		// Check first if new company - then of course new contact as well.
-		if(student.getCompany().getId().equals((long) -1)){
+		if(student.getCompany().getId().equals((long) -2)){
 			
 			companyStudents = new HashSet<Student>();
 			contact = new Contact();
@@ -245,7 +210,7 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 			return "newCompany";
 		}
 		
-		if(student.getContact().getId().equals((long) -1)){
+		if(student.getContact().getId().equals((long) -2)){
 			contact = new Contact();
 			companyStudents = new HashSet<Student>();
 			
@@ -260,13 +225,14 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 			return "newContact";
 		}
 		
+
+		zenturie = zenturieService.load(student.getZenturie().getId());
+		student.setZenturie(zenturie);
+		
+		
 		// if student is already enrolled, the other service needs
 		// to be used to save the student
 		//try catch, since a student can be new.
-//		zenturie = zenturieService.load(zenturie.getId());
-//		student.setZenturie(zenturie);
-//		zenturie.setStudents(student);
-		
 		try{
 		if(studentService.load(student.getId()) instanceof ImmatriculatedStudent){
 			immatriculatedStudentService.save(student);
@@ -284,6 +250,26 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 		}
 
 		return SUCCESS;
+	}
+	
+	@Override
+	public void validate() {
+		// If the student is not set, the student ID has to be set.
+		if (student.getCompany().getId().equals((long) -1)) {
+			addActionError(getText("msg.selectCompany"));
+		}
+		
+		if(student.getContact().getId().equals((long) -1)){
+			addActionError(getText("msg.selectContact"));
+		}
+		
+		if(student.getManipel().getId().equals((long) -1)){
+			addActionError(getText("msg.selectManipel"));
+		}
+		
+		if(student.getZenturie().getId().equals((long) -1)){
+			addActionError(getText("msg.selectZenturie"));
+		}
 	}
 
 	 
@@ -510,17 +496,20 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 		for(Zenturie zenturie : zenturieList){
 			zenturieDisplayMap.put(zenturie.getId(), zenturie.getName());
 		}
+		zenturieDisplayMap.put((long) -1, "Bitte wählen...");
 		
 		for(Manipel manipel : manipelList) {
 			manipelDisplayMap.put(manipel.getId(), manipel.getCourseOfStudy() + 
 					manipel.getVintage().toString());
 		}
+		manipelDisplayMap.put((long) -1, "Bitte wählen...");
 		
 		
 		for(Company company : companyList) {
 			companyDisplayMap.put(company.getId(), company.getName());
 		}
-		companyDisplayMap.put((long) -1, "Neue Firma");
+		companyDisplayMap.put((long) -1, "Bitte wählen...");
+		companyDisplayMap.put((long) -2, "Neue Firma");
 		
 		for(Exam exam : examList){
 			examDisplayMap.put(exam.getId(), exam.getName());
@@ -531,7 +520,8 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 			contactDisplayMap.put(contact.getId(), contact.getCompany().getName() +
 					": " + contact.getFirstName());
 		}
-		contactDisplayMap.put((long) -1, "Neuer Betreuer"); 
+		contactDisplayMap.put((long) -1, "Bitte wählen...");
+		contactDisplayMap.put((long) -2, "Neuer Betreuer"); 
 	}
 
 

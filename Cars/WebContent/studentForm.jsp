@@ -3,6 +3,7 @@
 
 <s:form>
 	<%-- Form fields for the applicant's attributes --%>
+	<s:actionerror/>
 	<s:hidden name="student.id" />
 	<s:textfield name="student.name" key="lbl.lastName" size="40" maxlength="100" requiredLabel="true" />
 	<s:textfield name="student.firstName" key="lbl.firstName" size="40" maxlength="100" requiredLabel="true" />

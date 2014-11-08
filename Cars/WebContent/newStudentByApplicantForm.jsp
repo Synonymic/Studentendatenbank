@@ -9,7 +9,7 @@
 			<th></th>
 			<th><s:text name="lbl.lastName" /> </th>
 			<th><s:text name="lbl.firstName" /></th>
-			<th><s:text name="lbl.dayOfBirth" /></th>
+			<th><s:text name="lbl.born" /></th>
 		</tr>
 		<s:iterator value="applicantList">
 			<tr>

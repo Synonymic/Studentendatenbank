@@ -39,6 +39,17 @@
 			<message key="msg.validator.required" />
 		</field-validator>
 	</field>
+	<field name="applicant.placeOfBirth">
+		<field-validator type="requiredstring">
+			<message key="msg.validator.required" />
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">51</param>
+			<param name="minLength">2</param>
+			<message key="msg.validator.stringLength" />
+		</field-validator>
+	</field>
+	
 	<field name="applicant.address.street">
 		<field-validator type="requiredstring">
 			<message key="msg.validator.required" />
@@ -60,13 +71,13 @@
 		</field-validator>
 	</field>
 	<field name="applicant.address.postcode">
-		<field-validator type="required">
+		<field-validator type="requiredstring">
 			<message key="msg.validator.required" />
 		</field-validator>
 		<field-validator type="stringlength">
 			<param name="minLength">5</param>
 			<param name="maxLength">5</param>
-			<message key="smg.validator.stringLength" />
+			<message key="msg.validator.stringLength" />
 		</field-validator>
 	</field>
 	<field name="applicant.address.city">
@@ -80,12 +91,12 @@
 		</field-validator>
 	</field>
 	<field name="applicant.address.telephoneNumber">
-		<field-validator type="required">
+		<field-validator type="requiredstring">
 			<message key="msg.validator.required" />
 		</field-validator>
 		<field-validator type="stringlength">
-			<param name="minLength">9</param>
-			<param name="maxLength">15</param>
+			<param name="minLength">6</param>
+			<param name="maxLength">18</param>
 			<message key="msg.validator.stringLength" />
 		</field-validator>
 		<field-validator type="regex">
@@ -94,11 +105,16 @@
    		</field-validator>
 	</field>
 	<field name="applicant.address.email">
+		<field-validator type="requiredstring">
+			<message key="msg.validator.required" />
+		</field-validator>
 		<field-validator type="email">
 			<message key="msg.validator.email" />
 		</field-validator>
-		<field-validator type="required">
-			<message key="msg.validator.required" />
+		<field-validator type="stringlength">
+			<param name="maxLength">85</param>
+			<param name="minLength">5</param>
+			<message key="msg.validator.stringLength" />
 		</field-validator>
 	</field>
 </validators>

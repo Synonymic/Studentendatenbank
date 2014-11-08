@@ -84,17 +84,20 @@ public class NewStudentAction implements Action {
 		for(Zenturie zenturie : zenturieList){
 			zenturieDisplayMap.put(zenturie.getId(), zenturie.getName());
 		}
+		zenturieDisplayMap.put((long) -1, "Bitte wählen...");
 		
 		for(Manipel manipel : manipelList) {
 			manipelDisplayMap.put(manipel.getId(), manipel.getCourseOfStudy() + 
 					manipel.getVintage().toString());
 		}
+		manipelDisplayMap.put((long) -1, "Bitte wählen...");
 		
 		
 		for(Company company : companyList) {
 			companyDisplayMap.put(company.getId(), company.getName());
 		}
-		companyDisplayMap.put((long) -1, "Neue Firma");
+		companyDisplayMap.put((long) -2, "Neue Firma");
+		companyDisplayMap.put((long) -1, "Bitte wählen...");
 		
 		for(Exam exam : examList){
 			examDisplayMap.put(exam.getId(), exam.getName());
@@ -105,7 +108,8 @@ public class NewStudentAction implements Action {
 			contactDisplayMap.put(contact.getId(), contact.getCompany().getName() +
 					": " + contact.getFirstName());
 		}
-		contactDisplayMap.put((long) -1, "Neuer Betreuer");
+		contactDisplayMap.put((long) -1, "Bitte wählen...");
+		contactDisplayMap.put((long) -2, "Neuer Betreuer");
 		
 		
 		return SUCCESS;
