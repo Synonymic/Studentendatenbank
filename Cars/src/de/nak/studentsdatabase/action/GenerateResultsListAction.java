@@ -30,10 +30,15 @@ public class GenerateResultsListAction implements Action {
 	/** the examSet */
 	private Set<Exam> examSet;
 	
+	/** the manipelName */
+	private String manipelName;
+	
 
 	@Override
 	public String execute() throws Exception {
 		manipelList = manipelService.loadAll();
+		manipelName = manipelService.load(inputId).getCourseOfStudy() + " " 
+		+ manipelService.load(inputId).getVintage().toString();
 		
 		for(Manipel manipel : manipelList){
 			if(inputId.equals(manipel.getId())){
@@ -66,6 +71,16 @@ public class GenerateResultsListAction implements Action {
 
 	public void setExamSet(Set<Exam> examSet) {
 		this.examSet = examSet;
+	}
+
+
+	public String getManipelName() {
+		return manipelName;
+	}
+
+
+	public void setManipelName(String manipelName) {
+		this.manipelName = manipelName;
 	}
 
 }
