@@ -3,14 +3,35 @@
 
 <s:form>
 	<s:actionerror/>
+	Zenturie: <s:property value="zenturieName"/>
 	<%-- The student table --%>
-	<table>
+	<table style="border-collapse: collapse; border: #CCC;" border="1">
 		<tr>
-			<th><s:text name="lbl.lastName" /> </th>
+			<th>Name\Tag</th>
+			<th style="padding: 50px;"></th>
+			<th style="padding: 50px;"></th>
+			<th style="padding: 50px;"></th>
+			<th style="padding: 50px;"></th>
+			<th style="padding: 50px;"></th>
+			<th style="padding: 50px;"></th>
+			<th style="padding: 50px;"></th>
+			<th style="padding: 50px;"></th>
+			<th style="padding: 50px;"></th>
+			<th style="padding: 50px;"></th>
 		</tr>
 		<s:iterator value="studentsOfZenturieList">
 			<tr>
 				<td><s:property value="name"/></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
 			</tr>
 		</s:iterator>
 	</table>

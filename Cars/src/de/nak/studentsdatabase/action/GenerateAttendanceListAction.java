@@ -7,6 +7,7 @@ import com.opensymphony.xwork2.Action;
 
 import de.nak.studentsdatabase.model.Student;
 import de.nak.studentsdatabase.service.ImmatriculatedStudentService;
+import de.nak.studentsdatabase.service.ZenturieService;
 
 /**
  * 
@@ -22,6 +23,12 @@ public class GenerateAttendanceListAction implements Action {
 	
 	private ImmatriculatedStudentService immatriculatedStudentService;
 	
+	/** the zenturieService */
+	private ZenturieService zenturieService;
+	
+	/** the zenturieName */
+	private String zenturieName;
+	
 	/** the student list. */
 	private List<Student> studentList;
 	
@@ -30,6 +37,7 @@ public class GenerateAttendanceListAction implements Action {
 
 	@Override
 	public String execute() throws Exception {
+		zenturieName = zenturieService.load(inputId).getName();
 		studentList = immatriculatedStudentService.loadAll();
 		studentsOfZenturieList = new ArrayList<Student>();
 		
@@ -60,6 +68,18 @@ public class GenerateAttendanceListAction implements Action {
 	public void setImmatriculatedStudentService(
 			ImmatriculatedStudentService immatriculatedStudentService) {
 		this.immatriculatedStudentService = immatriculatedStudentService;
+	}
+
+	public void setZenturieService(ZenturieService zenturieService) {
+		this.zenturieService = zenturieService;
+	}
+
+	public String getZenturieName() {
+		return zenturieName;
+	}
+
+	public void setZenturieName(String zenturieName) {
+		this.zenturieName = zenturieName;
 	}
 
 }

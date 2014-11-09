@@ -9,7 +9,7 @@
 <s:head />  
 </head>
 <body>
-<h1><s:label key="txt.welcome" /></h1>
+<h1><s:text name="txt.welcome" /></h1>
 <s:form action="Login">  
     <s:textfield name="userName" key="lbl.userName" />  
     <s:password name="password" key="lbl.password" />  
