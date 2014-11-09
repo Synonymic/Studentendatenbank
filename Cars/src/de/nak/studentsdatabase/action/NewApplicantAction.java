@@ -15,6 +15,7 @@ public class NewApplicantAction extends ActionSupport implements Action {
 	 * The serial UID.
 	 */
 	private static final long serialVersionUID = -8483188396728265712L;
+	
 
 	/**
 	 * This method is implemented in order to avoid problems with parameter submit and validation.
@@ -25,7 +26,10 @@ public class NewApplicantAction extends ActionSupport implements Action {
 	 */
 	@Override
 	public String execute() throws Exception {
+		
 		return SUCCESS;
 	}
+
+
 
 }

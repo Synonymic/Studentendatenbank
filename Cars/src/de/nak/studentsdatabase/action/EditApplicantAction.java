@@ -25,9 +25,11 @@ public class EditApplicantAction extends ActionSupport implements Action {
 	
 	/** The applicantId */
 	private Long applicantId;
+	
 
 	@Override
 	public String execute() throws Exception {
+		
 		applicant = applicantService.load(applicantId);
 		return SUCCESS;
 	}
@@ -59,5 +61,6 @@ public class EditApplicantAction extends ActionSupport implements Action {
 	public void setApplicantService(ApplicantService applicantService) {
 		this.applicantService = applicantService;
 	}
+
 
 }

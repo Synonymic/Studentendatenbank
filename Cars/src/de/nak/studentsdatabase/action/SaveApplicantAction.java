@@ -1,9 +1,9 @@
 package de.nak.studentsdatabase.action;
 
+import java.util.Calendar;
+
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
-
-//import de.nak.studentsdatabase.model.Address;
 import de.nak.studentsdatabase.model.Applicant;
 import de.nak.studentsdatabase.service.ApplicantService;
 
@@ -35,9 +35,70 @@ public class SaveApplicantAction extends ActionSupport implements Action {
 
 	@Override
 	public String execute() throws Exception {
+		
 		applicantService.save(applicant);
 		return SUCCESS;
 	}
+	
+	@Override
+	public void validate() {
+		
+		String dayOfBirthString;
+		String monthOfBirthString;
+		String yearOfBirthString;
+		
+		Integer dayOfBirthInt = null;
+		Integer monthOfBirthInt = null;
+		Integer yearOfBirthInt = null;
+			
+		String aplBthdStr = applicant.getDayOfBirth();
+		
+		try{
+			if (aplBthdStr.contains(".")) {
+				String[] parts = aplBthdStr.split("\\.");
+				dayOfBirthString = parts[0];
+				monthOfBirthString = parts[1];
+				monthOfBirthString = String.valueOf(Integer.parseInt(monthOfBirthString));
+				yearOfBirthString = parts[2];
+				
+				dayOfBirthInt = Integer.parseInt(dayOfBirthString);
+				monthOfBirthInt = Integer.parseInt(monthOfBirthString);
+				yearOfBirthInt = Integer.parseInt(yearOfBirthString);
+				
+			} else {
+				addActionError(getText("msg.validator.birthDateNotValid"));
+				return;
+			}
+		}catch(ArrayIndexOutOfBoundsException e){
+			addActionError(getText("msg.validator.birthDateNotValid"));
+			return;
+		}catch(NullPointerException e){
+			addActionError(getText("msg.validator.birthDateNotValid"));
+			return;
+		}catch(IllegalArgumentException e){
+			addActionError(getText("msg.validator.birthDateNotValid"));
+			return;
+		}
+		
+		Calendar now = Calendar.getInstance();   // Gets the current date and time
+		int year = now.get(Calendar.YEAR);      // The current year as an int
+		
+
+		if(yearOfBirthInt > year) {
+			addActionError(getText("msg.validator.yearInFuture"));
+		}
+		
+		if(yearOfBirthInt < 1990){
+			addActionError(getText("msg.validator.yearTooFarInPast"));
+		}
+		
+		if(monthOfBirthInt.equals(8) && dayOfBirthInt > 28){
+			addActionError(getText("msg.validator.monthTooFewDays"));
+		}
+	}
+	
+	
+
 
 	public Applicant getApplicant() {
 		return applicant;
