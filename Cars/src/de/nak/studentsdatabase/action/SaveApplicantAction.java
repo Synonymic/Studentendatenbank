@@ -95,6 +95,19 @@ public class SaveApplicantAction extends ActionSupport implements Action {
 		if(monthOfBirthInt.equals(8) && dayOfBirthInt > 28){
 			addActionError(getText("msg.validator.monthTooFewDays"));
 		}
+		
+		if(monthOfBirthInt.equals(2) && dayOfBirthInt > 28){
+			addActionError(getText("msg.validator.monthTooFewDays"));
+		}
+		
+		if(dayOfBirthInt < 0 || dayOfBirthInt > 31){
+			addActionError(getText("msg.validator.dayRangeIssue"));
+			
+		}
+		
+		if(monthOfBirthInt < 0 || monthOfBirthInt > 12){
+			addActionError(getText("msg.validator.monthRangeIssue"));
+		}
 	}
 	
 	
