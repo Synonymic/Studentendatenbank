@@ -10,6 +10,7 @@
 	<s:textfield name="studentLastName" key="lbl.name" />
 	<s:select name="inputIdZenturie" key="lbl.zenturie" list="zenturieDisplayMap" />
 	<s:select name="inputIdManipel" key="lbl.manipel" list="manipelDisplayMap" />
+	<s:select name="inputIdCompany" key="lbl.company" list="companyDisplayMap" />
 	
 	<s:submit key="btn.search" action="SearchStudent" />
 	<s:submit key="btn.manageStudents" action="ShowStudentList"/>

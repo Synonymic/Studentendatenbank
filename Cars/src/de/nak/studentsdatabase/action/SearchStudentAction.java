@@ -46,6 +46,9 @@ public class SearchStudentAction implements Action {
 	
 	/** the inputIdManipel */
 	private Long inputIdManipel;
+	
+	/** the inputIdCompany */
+	private Long inputIdCompany;
 
 	@Override
 	public String execute() throws Exception {
@@ -87,6 +90,8 @@ public class SearchStudentAction implements Action {
 			}else if(student.getName().equals(studentLastName)){
 				studentList.add(student);
 			}else if(student.getManipel().getId().equals(inputIdManipel)){
+				studentList.add(student);
+			}else if(student.getCompany().getId().equals(inputIdCompany)){
 				studentList.add(student);
 			}else if(student.getZenturie().getId().equals(inputIdZenturie)){
 				studentList.add(student);
@@ -165,6 +170,14 @@ public class SearchStudentAction implements Action {
 
 	public Long getInputIdManipel() {
 		return inputIdManipel;
+	}
+
+	public Long getInputIdCompany() {
+		return inputIdCompany;
+	}
+
+	public void setInputIdCompany(Long inputIdCompany) {
+		this.inputIdCompany = inputIdCompany;
 	}
 
 

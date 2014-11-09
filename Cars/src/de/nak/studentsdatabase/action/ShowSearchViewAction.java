@@ -5,8 +5,10 @@ import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import de.nak.studentsdatabase.model.Company;
 import de.nak.studentsdatabase.model.Manipel;
 import de.nak.studentsdatabase.model.Zenturie;
+import de.nak.studentsdatabase.service.CompanyService;
 import de.nak.studentsdatabase.service.ManipelService;
 import de.nak.studentsdatabase.service.ZenturieService;
 
@@ -23,6 +25,9 @@ public class ShowSearchViewAction extends ActionSupport {
 	
 	/** the manipelService */
 	private ManipelService manipelService;
+	
+	/** the companyService */
+	private CompanyService companyService;
 
 	/** the zenturieList */
 	private List<Zenturie> zenturieList;
@@ -30,12 +35,17 @@ public class ShowSearchViewAction extends ActionSupport {
 	/** the manipelList */
 	private List<Manipel> manipelList;
 	
+	/** the companyList */
+	private List<Company> companyList;
+	
 	/** the zenturieDisplayMap hashMap */
 	private HashMap<Long, String> zenturieDisplayMap = new HashMap<Long, String>();
 	
-
 	/** the manipelDisplayMap hashMap */
 	private HashMap<Long, String> manipelDisplayMap = new HashMap<Long, String>();
+	
+	/** the companyDisplayMap hashMap */
+	private HashMap<Long, String> companyDisplayMap = new HashMap<Long, String>();
 	
 	/** the inputIdZenturie */
 	private Long inputIdZenturie;
@@ -53,6 +63,7 @@ public class ShowSearchViewAction extends ActionSupport {
 	public String execute() throws Exception {
 		zenturieList = zenturieService.loadAll();
 		manipelList = manipelService.loadAll();
+		companyList = companyService.loadAll();
 		
 		for(Zenturie zenturie : zenturieList){
 			zenturieDisplayMap.put(zenturie.getId(), zenturie.getName());
@@ -64,6 +75,11 @@ public class ShowSearchViewAction extends ActionSupport {
 					manipel.getVintage().toString());
 		}
 		manipelDisplayMap.put((long) -1, "Bitte auswählen...");
+		
+		for(Company company : companyList){
+			companyDisplayMap.put(company.getId(), company.getName());
+		}
+		companyDisplayMap.put((long) -1, "Bitte wählen...");
 		
 		return SUCCESS;
 	}
@@ -114,6 +130,18 @@ public class ShowSearchViewAction extends ActionSupport {
 
 	public void setManipelDisplayMap(HashMap<Long, String> manipelDisplayMap) {
 		this.manipelDisplayMap = manipelDisplayMap;
+	}
+
+	public List<Company> getCompanyList() {
+		return companyList;
+	}
+
+	public HashMap<Long, String> getCompanyDisplayMap() {
+		return companyDisplayMap;
+	}
+
+	public void setCompanyService(CompanyService companyService) {
+		this.companyService = companyService;
 	}
 
 }
