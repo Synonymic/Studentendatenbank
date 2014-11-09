@@ -27,6 +27,9 @@ public class EditApplicantAction extends ActionSupport implements Action {
 	private Long applicantId;
 	
 
+	/**
+	 * Loads a given applicant for further edits.
+	 */
 	@Override
 	public String execute() throws Exception {
 		
@@ -34,6 +37,9 @@ public class EditApplicantAction extends ActionSupport implements Action {
 		return SUCCESS;
 	}
 	
+	/**
+	 * validates wether or not id is set.
+	 */
 	@Override
 	public void validate() {
 		// If the applicant is not set, the applicant ID has to be set.

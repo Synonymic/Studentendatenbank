@@ -50,6 +50,9 @@ public class SearchStudentAction implements Action {
 	/** the inputIdCompany */
 	private Long inputIdCompany;
 
+	/**
+	 * Searches students by the given (or not) inputs.
+	 */
 	@Override
 	public String execute() throws Exception {
 		studentList = new ArrayList<Student>();

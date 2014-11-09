@@ -21,6 +21,9 @@ public class ShowApplicantListAction implements Action {
 	/** The applicant service */
 	private ApplicantService applicantService;
 
+	/**
+	 * Loads the applicants list for further display.
+	 */
 	@Override
 	public String execute() throws Exception {
 		applicantList = applicantService.loadAllApplicants();

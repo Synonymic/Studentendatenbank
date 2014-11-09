@@ -21,6 +21,9 @@ public class ShowStudentListAction implements Action {
 	/** The student service */
 	private ImmatriculatedStudentService immatriculatedStudentService;
 
+	/**
+	 * Loads a list of all enrolled students for further display.
+	 */
 	@Override
 	public String execute() throws Exception {
 		studentList = immatriculatedStudentService.loadAll();

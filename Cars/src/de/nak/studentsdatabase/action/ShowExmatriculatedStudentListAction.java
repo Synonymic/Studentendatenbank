@@ -21,6 +21,9 @@ public class ShowExmatriculatedStudentListAction implements Action {
 	/** the exmatriculatedStudentService. */
 	private ExmatriculatedStudentService exmatriculatedStudentService;
 
+	/**
+	 * loads a list of all examtriculated students.
+	 */
 	@Override
 	public String execute() throws Exception {
 		exmatrStudentList = exmatriculatedStudentService.loadAll();

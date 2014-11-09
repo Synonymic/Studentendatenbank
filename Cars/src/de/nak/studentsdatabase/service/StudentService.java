@@ -34,12 +34,28 @@ public interface StudentService {
 	 */
 	List<Student> loadAll();
 	
+	/**
+	 * Exmatriculates a given student.
+	 * @param student
+	 */
 	void exmatriculate(Student student);
 	
+	/**
+	 * Discontinues a given student.
+	 * @param student
+	 */
 	void discontinue(Student student);
 	
+	/**
+	 * Enrolls a given student.
+	 * @param student
+	 */
 	void immatriculate(Student student);
 	
+	/**
+	 * Deletes a given student.
+	 * @param student
+	 */
 	void delete(Student student);
 
 }

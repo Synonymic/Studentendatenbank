@@ -33,6 +33,9 @@ public class SaveApplicantAction extends ActionSupport implements Action {
 	/** the studentService */
 	private ApplicantService applicantService;
 
+	/**
+	 * Saves the applicant.
+	 */
 	@Override
 	public String execute() throws Exception {
 		

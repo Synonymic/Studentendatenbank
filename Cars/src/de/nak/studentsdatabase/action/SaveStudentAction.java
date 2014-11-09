@@ -52,10 +52,13 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 	/** the Student */
 	private Student student;
 	
+	/** the exam. */
 	private Exam exam;
 	
+	/** the zenturie. */
 	private Zenturie zenturie;
 	
+	/** the manipel. */
 	private Manipel manipel;
 
 	/** the studentId */
@@ -70,16 +73,22 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 	/** the studentService */
 	private StudentService studentService;
 	
+	/** the examtriculatedStudentService. */
 	private ExmatriculatedStudentService exmatriculatedStudentService;
 	
+	/** the discontinuedStudentService. */
 	private DiscontinuedStudentService discontinuedStudentService;
 	
+	/** the company. */
 	private Company company;
 	
+	/** the contact */
 	private Contact contact;
 	
+	/** the companyStudents. */
 	private Set<Student> companyStudents;
 	
+	/** the companyAddress. */
 	private Address companyAddress;
 	
 	/** the inputManipelId */
@@ -91,28 +100,40 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 	/** the inputCompanyId */
 	private Long inputCompanyId;
 	
+	/** the inputExamId. */
 	private Long inputExamId;
 	
+	/** the inputContactId. */
 	private Long inputContactId;
 	
+	/** the manipelList. */
 	private List<Manipel> manipelList;
 	
+	/** the zenturieList. */
 	private List<Zenturie> zenturieList;
 	
+	/** the companyList. */
 	private List<Company> companyList;
 	
+	/** the examList. */
 	private List<Exam> examList;
 	
+	/** the contactList. */
 	private List<Contact> contactList;
 	
+	/** the manipelService. */
 	private ManipelService manipelService;
 	
+	/** the zenturieService. */
 	private ZenturieService zenturieService;
 	
+	/** the companyService. */
 	private CompanyService companyService;
 	
+	/** the examService. */
 	private ExamService examService;
 	
+	/** the contactService. */
 	private ContactService contactService;
 	
 	/** the zenturieDisplayMap hashMap */
@@ -124,10 +145,15 @@ public class SaveStudentAction extends ActionSupport implements Action, Preparab
 	/** the companyDisplayMap */
 	private HashMap<Long, String> companyDisplayMap = new HashMap<Long, String>();
 	
+	/** the contactDisplayMap. */
 	private HashMap<Long, String> contactDisplayMap = new HashMap<Long, String>();
 	
+	/** the examDisplayMap. */
 	private HashMap<Long, String> examDisplayMap = new HashMap<Long, String>();
 
+	/**
+	 * Saves a new or edited student.
+	 */
 	@Override
 	public String execute() throws Exception {
 		manipelList = manipelService.loadAll();

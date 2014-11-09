@@ -25,16 +25,24 @@ public class ExmatriculateStudentAction extends ActionSupport implements Action 
 	 */
 	private static final long serialVersionUID = 4032727511476341840L;
 
+	/** the studentService */
 	private StudentService studentService;
 	
+	/** the student */
 	private Student student;
 	
+	/** the studentId */
 	private Long studentId;
 	
+	/** the studentList. */
 	private List<Student> studentList;
 	
+	/** the immatriculatedStudentService. */
 	private ImmatriculatedStudentService immatriculatedStudentService;
 
+	/**
+	 * Exmatriculates a student.
+	 */
 	@Override
 	public String execute() throws Exception {
 		student = immatriculatedStudentService.load(studentId);

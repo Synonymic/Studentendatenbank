@@ -58,7 +58,9 @@ public class ShowSearchViewAction extends ActionSupport {
 	 */
 	private static final long serialVersionUID = -6365094260849608334L;
 
-
+	/**
+	 * generates lists for further display.
+	 */
 	@Override
 	public String execute() throws Exception {
 		zenturieList = zenturieService.loadAll();

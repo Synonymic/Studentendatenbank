@@ -41,6 +41,9 @@ public class EnrollStudentAction extends ActionSupport implements Action {
 	/** The studentList. */
 	private List<Student> studentList;
 
+	/**
+	 * Enrolls a student.
+	 */
 	@Override
 	public String execute() throws Exception {
 		student = studentService.load(studentId);

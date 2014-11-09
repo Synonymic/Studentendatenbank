@@ -29,22 +29,29 @@ public class NewStudentAction implements Action {
 	/** the manipelService */
 	private ManipelService manipelService; 
 	
+	/** the companyService */
 	private CompanyService companyService;
 	
+	/** the examService */
 	private ExamService examService;
 	
+	/** the contactService */
 	private ContactService contactService;
 	
+	/** the inputContactId */
 	private Long inputContactId;
 	
+	/** the inputExamId */
 	private Long inputExamId;
 	
+	/** the inputZenturieId  */
 	private Long inputZenturieId;
 	
+	/** the inputManipelId */
 	private Long inputManipelId;
 	
+	/** the inputCompanyId */
 	private Long InputCompanyId;
-	
 
 	/** the manipelList */
 	private List<Manipel> manipelList;
@@ -52,15 +59,17 @@ public class NewStudentAction implements Action {
 	/** the zenturieList */
 	private List<Zenturie> zenturieList;
 	
+	/** the comnpanyList */
 	private List<Company> companyList;
 	
+	/** the examList. */
 	private List<Exam> examList;
 	
+	/** the contactList. */
 	private List<Contact> contactList;
 	
 	/** the zenturieDisplayMap hashMap */
 	private HashMap<Long, String> zenturieDisplayMap = new HashMap<Long, String>();
-	
 
 	/** the manipelDisplayMap hashMap */
 	private HashMap<Long, String> manipelDisplayMap = new HashMap<Long, String>();
@@ -68,11 +77,16 @@ public class NewStudentAction implements Action {
 	/** the companyDisplayMap */
 	private HashMap<Long, String> companyDisplayMap = new HashMap<Long, String>();
 	
+	/** the contactDisplayMap. */
 	private HashMap<Long, String> contactDisplayMap = new HashMap<Long, String>();
 	
+	/** the examDisplayMap. */
 	private HashMap<Long, String> examDisplayMap = new HashMap<Long, String>();
 	
 
+	/**
+	 * Generates all necessary displayMaps, loads all data.
+	 */
 	@Override
 	public String execute() throws Exception {
 		zenturieList = zenturieService.loadAll();

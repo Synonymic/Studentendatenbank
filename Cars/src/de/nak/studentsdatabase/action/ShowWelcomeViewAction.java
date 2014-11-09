@@ -32,11 +32,13 @@ public class ShowWelcomeViewAction implements Action {
 	
 	/** the zenturieDisplayMap hashMap */
 	private HashMap<Long, String> zenturieDisplayMap = new HashMap<Long, String>();
-	
 
 	/** the manipelDisplayMap hashMap */
 	private HashMap<Long, String> manipelDisplayMap = new HashMap<Long, String>();
 
+	/**
+	 * Generates display maps.
+	 */
 	@Override
 	public String execute() throws Exception {
 		zenturieList = zenturieService.loadAll();

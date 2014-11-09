@@ -34,6 +34,9 @@ public class GenerateResultsListAction implements Action {
 	private String manipelName;
 	
 
+	/**
+	 * Generates a results list.
+	 */
 	@Override
 	public String execute() throws Exception {
 		manipelList = manipelService.loadAll();

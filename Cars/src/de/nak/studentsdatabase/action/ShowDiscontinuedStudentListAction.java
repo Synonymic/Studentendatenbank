@@ -15,10 +15,15 @@ import de.nak.studentsdatabase.service.DiscontinuedStudentService;
  */
 public class ShowDiscontinuedStudentListAction implements Action {
 	
+	/** the discontinuedStudentList */
 	private List<Student> discontinuedStudentList;
 	
+	/** the discontinuedStudentService */
 	private DiscontinuedStudentService discontinuedStudentService;
 
+	/**
+	 * Loads a list of all discontinued students.
+	 */
 	@Override
 	public String execute() throws Exception {
 		discontinuedStudentList = discontinuedStudentService.loadAll();

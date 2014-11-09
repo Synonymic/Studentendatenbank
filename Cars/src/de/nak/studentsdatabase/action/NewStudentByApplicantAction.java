@@ -55,12 +55,14 @@ public class NewStudentByApplicantAction extends ActionSupport implements Action
 	/** the manipelService */
 	private ManipelService manipelService; 
 	
+	/** the companyService. */
 	private CompanyService companyService;
 	
+	/** the contactService. */
 	private ContactService contactService;
 	
+	/** the examService. */
 	private ExamService examService;
-	
 
 	/** the manipelList */
 	private List<Manipel> manipelList;
@@ -68,20 +70,28 @@ public class NewStudentByApplicantAction extends ActionSupport implements Action
 	/** the zenturieList */
 	private List<Zenturie> zenturieList;
 	
+	/** the contactList. */
 	private List<Contact> contactList;
 	
+	/** the companyList. */
 	private List<Company> companyList;
 	
+	/** the examList. */
 	private List<Exam> examList;
 	
+	/** the inputManipelId. */
 	private Long inputManipelId;
 	
+	/** the inputExamId. */
 	private Long inputExamId;
 	
+	/** the inputZenturieId. */
 	private Long inputZenturieId;
 	
+	/** the inputCompanyId. */
 	private Long inputCompanyId;
 	
+	/** the inputContactId. */
 	private Long inputContactId;
 	
 	/** the addres */
@@ -93,15 +103,19 @@ public class NewStudentByApplicantAction extends ActionSupport implements Action
 	/** the manipelDisplayMap hashMap */
 	private HashMap<Long, String> manipelDisplayMap = new HashMap<Long, String>();
 	
+	/** the contactDisplayMap. */
 	private HashMap<Long, String> contactDisplayMap = new HashMap<Long, String>();
 	
+	/** the companyDisplayMap. */
 	private HashMap<Long, String> companyDisplayMap = new HashMap<Long, String>();
 	
+	/** the examDisplayMap. */
 	private HashMap<Long, String> examDisplayMap = new HashMap<Long, String>();
 	
 
 	/**
-	 * Displays the selected student in the student-edit form.
+	 * A new student will be created with the
+	 * data of the chosen applicant.
 	 *
 	 * @return the result string.
 	 */

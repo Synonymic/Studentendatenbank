@@ -39,6 +39,7 @@ public class EditStudentAction extends ActionSupport implements Action{
 	/** the studentService */
 	private StudentService studentService;
 	
+	/** the zenturie. */
 	private Zenturie zenturie;
 	
 	/** the zenturieService */
@@ -47,23 +48,28 @@ public class EditStudentAction extends ActionSupport implements Action{
 	/** the manipelService */
 	private ManipelService manipelService; 
 	
+	/** the companyService. */
 	private CompanyService companyService;
 	
+	/** the contactService. */
 	private ContactService contactService;
 	
+	/** the examService. */
 	private ExamService examService;
 	
-
 	/** the manipelList */
 	private List<Manipel> manipelList;
 	
 	/** the zenturieList */
 	private List<Zenturie> zenturieList;
 	
+	/** the contactList. */
 	private List<Contact> contactList;
 	
+	/** the companyList. */
 	private List<Company> companyList;
 	
+	/** the examList. */
 	private List<Exam> examList;
 	
 	/** the zenturieDisplayMap hashMap */
@@ -72,18 +78,25 @@ public class EditStudentAction extends ActionSupport implements Action{
 	/** the manipelDisplayMap hashMap */
 	private HashMap<Long, String> manipelDisplayMap = new HashMap<Long, String>();
 	
+	/** the contactDisplayMap */
 	private HashMap<Long, String> contactDisplayMap = new HashMap<Long, String>();
 	
+	/** the companyDisplayMap */
 	private HashMap<Long, String> companyDisplayMap = new HashMap<Long, String>();
 	
+	/** the examDisplayMap. */
 	private HashMap<Long, String> examDisplayMap = new HashMap<Long, String>();
 	
+	/** the inputExamId. */
 	private Long inputExamId;
 	
+	/** the inputZenturieId. */
 	private Long inputZenturieId;
 	
+	/** the inputCompanyId. */
 	private Long inputCompanyId;
 	
+	/** the inputContactId. */
 	private Long inputContactId;
 	
 	/**

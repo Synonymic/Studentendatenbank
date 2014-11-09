@@ -35,6 +35,9 @@ public class GenerateAttendanceListAction implements Action {
 	/** the list that holds all students that belong to the zenturie */
 	private List<Student> studentsOfZenturieList;
 
+	/**
+	 * Generates an attendance list.
+	 */
 	@Override
 	public String execute() throws Exception {
 		zenturieName = zenturieService.load(inputId).getName();

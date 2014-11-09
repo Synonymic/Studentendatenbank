@@ -20,19 +20,22 @@ import de.nak.studentsdatabase.service.StudentService;
  */
 public class DiscontinueStudentAction extends ActionSupport implements Action {
 	
-	/**
-	 * The serialVersionUID.
-	 */
+	/** he serialVersionUID. */
 	private static final long serialVersionUID = 7513173034306985761L;
 
+	/** the studentService */
 	private StudentService studentService;
 	
+	/** The student. */
 	private Student student;
 	
+	/** the studentId. */
 	private Long studentId;
 	
+	/** the studentList. */
 	private List<Student> studentList;
 	
+	/** the immatriculatedStudentService. */
 	private ImmatriculatedStudentService immatriculatedStudentService;
 
 	@Override

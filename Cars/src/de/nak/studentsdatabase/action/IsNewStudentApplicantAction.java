@@ -20,6 +20,10 @@ public class IsNewStudentApplicantAction implements Action {
 	/** The applicant service */
 	private ApplicantService applicantService;
 	
+	/**
+	 * Loads applicants for asking wether or not applicant data
+	 * should be used for new student.
+	 */
 	@Override
 	public String execute() throws Exception {
 		applicantList = applicantService.loadAllApplicants();
