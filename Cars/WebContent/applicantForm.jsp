@@ -24,5 +24,7 @@
 	
 	<%-- The buttons --%>
 	<s:submit key="btn.save" action="SaveApplicant" />
+</s:form>
+<s:form>
 	<s:submit key="btn.cancel" action="CancelApplicant" />
 </s:form>

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 
+<p><s:text name="txt.wasAppl" /></p>
 <s:form>
 	<s:actionerror/>
 	<%-- The applicant table --%>
@@ -21,7 +22,7 @@
 		</s:iterator>
 	</table>
 	<%-- The buttons --%>
-	<s:label><s:text name="txt.attentionEnrollment" /></s:label>
+	<p><s:text name="txt.attentionEnrollment" /></p>
 	<s:submit key="btn.yes" action="NewStudentByApplicant" />
 
 </s:form>

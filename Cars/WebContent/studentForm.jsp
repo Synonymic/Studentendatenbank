@@ -31,5 +31,7 @@
 	
 	<%-- The buttons --%>
 	<s:submit key="btn.save" action="SaveStudent" />
+</s:form>
+<s:form>
 	<s:submit key="btn.cancel" action="ShowStudentList" />
 </s:form>
