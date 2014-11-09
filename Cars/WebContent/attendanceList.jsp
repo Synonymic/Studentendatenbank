@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
-
+<h2><s:text name="txt.attendanceList" /></h2>
 <s:form>
 	<s:actionerror/>
 	Zenturie: <s:property value="zenturieName"/>

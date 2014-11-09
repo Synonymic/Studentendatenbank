@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
-
+<h2><s:text name="txt.editApplicant" /></h2>
 <s:form>
 	<%-- Form fields for the applicant's attributes --%>
 	<s:actionerror/>
