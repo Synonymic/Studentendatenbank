@@ -33,7 +33,8 @@
 		</action>
 
 		<!-- Shows the empty applicantForm. -->
-		<action name="NewApplicant">
+		<action name="NewApplicant" class="de.nak.studentsdatabase.action.NewApplicantAction"
+		method="execute" >
 			<interceptor-ref name="loginStack" />
 			<result type="tiles">applicantForm</result>
 		</action>
@@ -130,7 +131,8 @@
 
 		<!-- Action for the cancel button. Is required to avoid stack traces in 
 			log. -->
-		<action name="ShowSearchStudentView">
+		<action name="ShowSearchStudentView" class="de.nak.studentsdatabase.action.ShowSearchViewAction" 
+		method="execute">
 			<interceptor-ref name="loginStack" />
 			<result type="tiles">searchStudentForm</result>
 		</action>

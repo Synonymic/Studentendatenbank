@@ -34,6 +34,18 @@ public class SearchStudentAction implements Action {
 	
 	/** the matriculationNumberInteger */
 	private Integer matriculationNumberInteger;
+	
+	/** the studentName */
+	private String studentName;
+	
+	/** the studentLastName */
+	private String studentLastName;
+	
+	/** the inputIdZenturie */
+	private Long inputIdZenturie;
+	
+	/** the inputIdManipel */
+	private Long inputIdManipel;
 
 	@Override
 	public String execute() throws Exception {
@@ -53,15 +65,35 @@ public class SearchStudentAction implements Action {
 			gender = "none";
 		}
 		
+		if(studentName == "" || studentName == null){
+			studentName = "none";
+		}
+		
+		if(studentLastName == "" || studentLastName == null){
+			studentLastName = "none";
+		}
+		
 		allStudentsList = immatriculatedStudentService.loadAll();
-//		allStudentsList = studentService.loadAll();
+		
+		try{
 		for(Student student : allStudentsList){
 			
 			if(student.getMatriculationNumber().equals(matriculationNumberInteger)){
 				studentList.add(student);
 			}else if(student.getGender().equals(gender)){
 				studentList.add(student);
+			}else if(student.getFirstName().equals(studentName)){
+				studentList.add(student);
+			}else if(student.getName().equals(studentLastName)){
+				studentList.add(student);
+			}else if(student.getManipel().getId().equals(inputIdManipel)){
+				studentList.add(student);
+			}else if(student.getZenturie().getId().equals(inputIdZenturie)){
+				studentList.add(student);
 			}
+		}
+		}catch(NullPointerException e){
+			
 		}
 		return SUCCESS;
 	}
@@ -101,6 +133,38 @@ public class SearchStudentAction implements Action {
 	public void setImmatriculatedStudentService(
 			ImmatriculatedStudentService immatriculatedStudentService) {
 		this.immatriculatedStudentService = immatriculatedStudentService;
+	}
+
+	public String getStudentName() {
+		return studentName;
+	}
+
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
+	}
+
+	public String getStudentLastName() {
+		return studentLastName;
+	}
+
+	public void setStudentLastName(String studentLastName) {
+		this.studentLastName = studentLastName;
+	}
+
+	public void setInputIdZenturie(Long inputIdZenturie) {
+		this.inputIdZenturie = inputIdZenturie;
+	}
+
+	public void setInputIdManipel(Long inputIdManipel) {
+		this.inputIdManipel = inputIdManipel;
+	}
+
+	public Long getInputIdZenturie() {
+		return inputIdZenturie;
+	}
+
+	public Long getInputIdManipel() {
+		return inputIdManipel;
 	}
 
 
